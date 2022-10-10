@@ -1,0 +1,605 @@
+(node:468004) ExperimentalWarning: Fetch is an experimental feature. This feature could change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+warning: no blob constructor, cannot create blobs with mimetypes
+warning: no BlobBuilder
+Loading distutils
+Loaded distutils
+Python initialization complete
+(node:468004) ExperimentalWarning: buffer.Blob is an experimental feature. This feature could change at any time
+distutils already loaded from default channel
+Loading micropip, pyparsing, packaging
+Loaded micropip, pyparsing, packaging
+distutils already loaded from default channel
+Loading scikit-learn, scipy, numpy, joblib, threadpoolctl, clapack
+Loaded clapack, joblib, threadpoolctl, numpy, scikit-learn, scipy
+distutils already loaded from default channel
+pyparsing already loaded from default channel
+Loading pytest, atomicwrites, attrs, six, more-itertools, pluggy, py, setuptools, iniconfig
+Loaded atomicwrites, pytest, attrs, six, more-itertools, pluggy, py, iniconfig, setuptools
+Loading tomli
+Loaded tomli
+pytest command: pytest.main("--pyargs sklearn.cluster.tests -v".split())
+[1m============================= test session starts ==============================[0m
+platform emscripten -- Python 3.10.2, pytest-7.1.2, pluggy-1.0.0 -- 
+cachedir: .pytest_cache
+rootdir: /home/pyodide
+[1mcollecting ... [0m[1mcollecting 0 items                                                             [0m[1mcollecting 124 items                                                           [0m[1mcollecting 435 items                                                           [0m[1mcollecting 547 items                                                           [0m[1mcollected 547 items                                                            [0m
+
+test_affinity_propagation.py::test_affinity_propagation [32mPASSED[0m[32m           [  0%][0m
+test_affinity_propagation.py::test_affinity_propagation_affinity_shape [32mPASSED[0m[32m [  0%][0m
+test_affinity_propagation.py::test_affinity_propagation_params_validation[input0-params0-ValueError-damping == 0, must be >= 0.5] [32mPASSED[0m[32m [  0%][0m
+test_affinity_propagation.py::test_affinity_propagation_params_validation[input1-params1-ValueError-damping == 2, must be < 1] [32mPASSED[0m[32m [  0%][0m
+test_affinity_propagation.py::test_affinity_propagation_params_validation[input2-params2-ValueError-max_iter == 0, must be >= 1.] [32mPASSED[0m[32m [  0%][0m
+test_affinity_propagation.py::test_affinity_propagation_params_validation[input3-params3-ValueError-convergence_iter == 0, must be >= 1] [32mPASSED[0m[32m [  1%][0m
+test_affinity_propagation.py::test_affinity_propagation_params_validation[input4-params4-ValueError-Affinity must be] [32mPASSED[0m[32m [  1%][0m
+test_affinity_propagation.py::test_affinity_propagation_params_validation[input5-params5-TypeError-A sparse matrix was passed, but dense data is required] [32mPASSED[0m[32m [  1%][0m
+test_affinity_propagation.py::test_affinity_propagation_predict [32mPASSED[0m[32m   [  1%][0m
+test_affinity_propagation.py::test_affinity_propagation_predict_error [32mPASSED[0m[32m [  1%][0m
+test_affinity_propagation.py::test_affinity_propagation_fit_non_convergence [32mPASSED[0m[32m [  2%][0m
+test_affinity_propagation.py::test_affinity_propagation_equal_mutual_similarities [32mPASSED[0m[32m [  2%][0m
+test_affinity_propagation.py::test_affinity_propagation_predict_non_convergence [32mPASSED[0m[32m [  2%][0m
+test_affinity_propagation.py::test_affinity_propagation_non_convergence_regressiontest [32mPASSED[0m[32m [  2%][0m
+test_affinity_propagation.py::test_equal_similarities_and_preferences [32mPASSED[0m[32m [  2%][0m
+test_affinity_propagation.py::test_affinity_propagation_random_state [32mPASSED[0m[32m [  2%][0m
+test_affinity_propagation.py::test_affinity_propagation_convergence_warning_dense_sparse[centers0] [32mPASSED[0m[32m [  3%][0m
+test_affinity_propagation.py::test_affinity_propagation_convergence_warning_dense_sparse[centers1] [32mPASSED[0m[32m [  3%][0m
+test_affinity_propagation.py::test_affinity_propagation_float32 [32mPASSED[0m[32m   [  3%][0m
+test_affinity_propagation.py::test_sparse_input_for_predict [32mPASSED[0m[32m       [  3%][0m
+test_affinity_propagation.py::test_sparse_input_for_fit_predict [32mPASSED[0m[32m   [  3%][0m
+test_bicluster.py::test_get_submatrix [32mPASSED[0m[32m                             [  4%][0m
+test_bicluster.py::test_spectral_coclustering [32mPASSED[0m[32m                     [  4%][0m
+test_bicluster.py::test_spectral_biclustering [32mPASSED[0m[32m                     [  4%][0m
+test_bicluster.py::test_scale_normalize [32mPASSED[0m[32m                           [  4%][0m
+test_bicluster.py::test_bistochastic_normalize [32mPASSED[0m[32m                    [  4%][0m
+test_bicluster.py::test_log_normalize [32mPASSED[0m[32m                             [  4%][0m
+test_bicluster.py::test_fit_best_piecewise [32mPASSED[0m[32m                        [  5%][0m
+test_bicluster.py::test_project_and_cluster [32mPASSED[0m[32m                       [  5%][0m
+test_bicluster.py::test_perfect_checkerboard [32mPASSED[0m[32m                      [  5%][0m
+test_bicluster.py::test_spectralcoclustering_parameter_validation[params0-ValueError-n_init == 0, must be >= 1.] [32mPASSED[0m[32m [  5%][0m
+test_bicluster.py::test_spectralcoclustering_parameter_validation[params1-TypeError-n_init must be an instance of] [32mPASSED[0m[32m [  5%][0m
+test_bicluster.py::test_spectralcoclustering_parameter_validation[params2-TypeError-n_clusters must be an instance of] [32mPASSED[0m[32m [  6%][0m
+test_bicluster.py::test_spectralcoclustering_parameter_validation[params3-ValueError-Unknown SVD method: 'unknown'] [32mPASSED[0m[32m [  6%][0m
+test_bicluster.py::test_spectralbiclustering_parameter_validation[params0-ValueError-n_init == 0, must be >= 1.] [32mPASSED[0m[32m [  6%][0m
+test_bicluster.py::test_spectralbiclustering_parameter_validation[params1-TypeError-n_init must be an instance of] [32mPASSED[0m[32m [  6%][0m
+test_bicluster.py::test_spectralbiclustering_parameter_validation[params2-ValueError-Incorrect parameter n_clusters has value: \\(3, 3, 3\\)] [32mPASSED[0m[32m [  6%][0m
+test_bicluster.py::test_spectralbiclustering_parameter_validation[params3-ValueError-Incorrect parameter n_clusters has value: abc] [32mPASSED[0m[32m [  6%][0m
+test_bicluster.py::test_spectralbiclustering_parameter_validation[params4-ValueError-Incorrect parameter n_clusters has value: \\(3, 'abc'\\)] [32mPASSED[0m[32m [  7%][0m
+test_bicluster.py::test_spectralbiclustering_parameter_validation[params5-ValueError-Incorrect parameter n_clusters has value: \\('abc', 3\\)] [32mPASSED[0m[32m [  7%][0m
+test_bicluster.py::test_spectralbiclustering_parameter_validation[params6-ValueError-Unknown method: 'unknown'] [32mPASSED[0m[32m [  7%][0m
+test_bicluster.py::test_spectralbiclustering_parameter_validation[params7-ValueError-n_components == 0, must be >= 1.] [32mPASSED[0m[32m [  7%][0m
+test_bicluster.py::test_spectralbiclustering_parameter_validation[params8-TypeError-n_components must be an instance of] [32mPASSED[0m[32m [  7%][0m
+test_bicluster.py::test_spectralbiclustering_parameter_validation[params9-ValueError-n_best == 4, must be <= 3.] [32mPASSED[0m[32m [  8%][0m
+test_bicluster.py::test_spectralbiclustering_parameter_validation[params10-ValueError-n_best == 0, must be >= 1.] [32mPASSED[0m[32m [  8%][0m
+test_bicluster.py::test_spectralbiclustering_parameter_validation[params11-TypeError-n_best must be an instance of] [32mPASSED[0m[32m [  8%][0m
+test_bicluster.py::test_spectralbiclustering_parameter_validation[params12-ValueError-Unknown SVD method: 'unknown'] [32mPASSED[0m[32m [  8%][0m
+test_bicluster.py::test_n_features_in_[est0] [32mPASSED[0m[32m                      [  8%][0m
+test_bicluster.py::test_n_features_in_[est1] [32mPASSED[0m[33m                      [  8%][0m
+test_birch.py::test_n_samples_leaves_roots [32mPASSED[0m[33m                        [  9%][0m
+test_birch.py::test_partial_fit [32mPASSED[0m[33m                                   [  9%][0m
+test_birch.py::test_birch_predict [32mPASSED[0m[33m                                 [  9%][0m
+test_birch.py::test_n_clusters [32mPASSED[0m[33m                                    [  9%][0m
+test_birch.py::test_sparse_X [32mPASSED[0m[33m                                      [  9%][0m
+test_birch.py::test_partial_fit_second_call_error_checks [32mPASSED[0m[33m          [ 10%][0m
+test_birch.py::test_branching_factor [32mPASSED[0m[33m                              [ 10%][0m
+test_birch.py::test_threshold [32mPASSED[0m[33m                                     [ 10%][0m
+test_birch.py::test_birch_n_clusters_long_int [32mPASSED[0m[33m                     [ 10%][0m
+test_birch.py::test_birch_fit_attributes_deprecated[fit_] [32mPASSED[0m[33m         [ 10%][0m
+test_birch.py::test_birch_fit_attributes_deprecated[partial_fit_] [32mPASSED[0m[33m [ 10%][0m
+test_birch.py::test_birch_params_validation[params0-ValueError-threshold == -1.0, must be > 0.0.] [32mPASSED[0m[33m [ 11%][0m
+test_birch.py::test_birch_params_validation[params1-ValueError-threshold == 0.0, must be > 0.0.] [32mPASSED[0m[33m [ 11%][0m
+test_birch.py::test_birch_params_validation[params2-ValueError-branching_factor == 0, must be > 1.] [32mPASSED[0m[33m [ 11%][0m
+test_birch.py::test_birch_params_validation[params3-ValueError-branching_factor == 1, must be > 1.] [32mPASSED[0m[33m [ 11%][0m
+test_birch.py::test_birch_params_validation[params4-TypeError-branching_factor must be an instance of int, not float.] [32mPASSED[0m[33m [ 11%][0m
+test_birch.py::test_birch_params_validation[params5-ValueError-branching_factor == -2, must be > 1.] [32mPASSED[0m[33m [ 12%][0m
+test_birch.py::test_birch_params_validation[params6-ValueError-n_clusters == 0, must be >= 1.] [32mPASSED[0m[33m [ 12%][0m
+test_birch.py::test_birch_params_validation[params7-TypeError-n_clusters must be an instance of int, not float.] [32mPASSED[0m[33m [ 12%][0m
+test_birch.py::test_birch_params_validation[params8-TypeError-n_clusters should be an instance of ClusterMixin or an int] [32mPASSED[0m[33m [ 12%][0m
+test_birch.py::test_birch_params_validation[params9-ValueError-n_clusters == -3, must be >= 1.] [32mPASSED[0m[33m [ 12%][0m
+test_birch.py::test_feature_names_out [32mPASSED[0m[33m                             [ 12%][0m
+test_bisect_k_means.py::test_three_clusters[biggest_inertia] [32mPASSED[0m[33m      [ 13%][0m
+test_bisect_k_means.py::test_three_clusters[largest_cluster] [32mPASSED[0m[33m      [ 13%][0m
+test_bisect_k_means.py::test_sparse [32mPASSED[0m[33m                               [ 13%][0m
+test_bisect_k_means.py::test_n_clusters[4] [32mPASSED[0m[33m                        [ 13%][0m
+test_bisect_k_means.py::test_n_clusters[5] [32mPASSED[0m[33m                        [ 13%][0m
+test_bisect_k_means.py::test_one_cluster [32mPASSED[0m[33m                          [ 14%][0m
+test_bisect_k_means.py::test_wrong_params[param0-Bisect Strategy must be 'biggest_inertia' or 'largest_cluster'] [32mPASSED[0m[33m [ 14%][0m
+test_bisect_k_means.py::test_wrong_params[param1-BisectingKMeans does not support init as array.] [32mPASSED[0m[33m [ 14%][0m
+test_bisect_k_means.py::test_fit_predict[True] [32mPASSED[0m[33m                    [ 14%][0m
+test_bisect_k_means.py::test_fit_predict[False] [32mPASSED[0m[33m                   [ 14%][0m
+test_bisect_k_means.py::test_dtype_preserved[float32-True] [33mSKIPPED[0m (...)[33m [ 14%][0m
+test_bisect_k_means.py::test_dtype_preserved[float32-False] [33mSKIPPED[0m[33m      [ 15%][0m
+test_bisect_k_means.py::test_dtype_preserved[float64-True] [32mPASSED[0m[33m        [ 15%][0m
+test_bisect_k_means.py::test_dtype_preserved[float64-False] [32mPASSED[0m[33m       [ 15%][0m
+test_bisect_k_means.py::test_float32_float64_equivalence[True] [32mPASSED[0m[33m    [ 15%][0m
+test_bisect_k_means.py::test_float32_float64_equivalence[False] [32mPASSED[0m[33m   [ 15%][0m
+test_dbscan.py::test_dbscan_similarity [32mPASSED[0m[33m                            [ 16%][0m
+test_dbscan.py::test_dbscan_feature [32mPASSED[0m[33m                               [ 16%][0m
+test_dbscan.py::test_dbscan_sparse [32mPASSED[0m[33m                                [ 16%][0m
+test_dbscan.py::test_dbscan_sparse_precomputed[False] [32mPASSED[0m[33m             [ 16%][0m
+test_dbscan.py::test_dbscan_sparse_precomputed[True] [32mPASSED[0m[33m              [ 16%][0m
+test_dbscan.py::test_dbscan_sparse_precomputed_different_eps [32mPASSED[0m[33m      [ 17%][0m
+test_dbscan.py::test_dbscan_input_not_modified[precomputed-True] [32mPASSED[0m[33m  [ 17%][0m
+test_dbscan.py::test_dbscan_input_not_modified[precomputed-False] [32mPASSED[0m[33m [ 17%][0m
+test_dbscan.py::test_dbscan_input_not_modified[minkowski-True] [32mPASSED[0m[33m    [ 17%][0m
+test_dbscan.py::test_dbscan_input_not_modified[minkowski-False] [32mPASSED[0m[33m   [ 17%][0m
+test_dbscan.py::test_dbscan_no_core_samples [32mPASSED[0m[33m                       [ 17%][0m
+test_dbscan.py::test_dbscan_callable [32mPASSED[0m[33m                              [ 18%][0m
+test_dbscan.py::test_dbscan_metric_params [32mPASSED[0m[33m                         [ 18%][0m
+test_dbscan.py::test_dbscan_balltree [32mPASSED[0m[33m                              [ 18%][0m
+test_dbscan.py::test_input_validation [32mPASSED[0m[33m                             [ 18%][0m
+test_dbscan.py::test_dbscan_badargs[args0] [32mPASSED[0m[33m                        [ 18%][0m
+test_dbscan.py::test_dbscan_badargs[args1] [32mPASSED[0m[33m                        [ 19%][0m
+test_dbscan.py::test_pickle [32mPASSED[0m[33m                                       [ 19%][0m
+test_dbscan.py::test_boundaries [32mPASSED[0m[33m                                   [ 19%][0m
+test_dbscan.py::test_weighted_dbscan [32mPASSED[0m[33m                              [ 19%][0m
+test_dbscan.py::test_dbscan_core_samples_toy[brute] [32mPASSED[0m[33m               [ 19%][0m
+test_dbscan.py::test_dbscan_core_samples_toy[kd_tree] [32mPASSED[0m[33m             [ 19%][0m
+test_dbscan.py::test_dbscan_core_samples_toy[ball_tree] [32mPASSED[0m[33m           [ 20%][0m
+test_dbscan.py::test_dbscan_precomputed_metric_with_degenerate_input_arrays [32mPASSED[0m[33m [ 20%][0m
+test_dbscan.py::test_dbscan_precomputed_metric_with_initial_rows_zero [32mPASSED[0m[33m [ 20%][0m
+test_dbscan.py::test_dbscan_params_validation[params0-ValueError-eps == -1.0, must be > 0.0.] [32mPASSED[0m[33m [ 20%][0m
+test_dbscan.py::test_dbscan_params_validation[params1-ValueError-eps == 0.0, must be > 0.0.] [32mPASSED[0m[33m [ 20%][0m
+test_dbscan.py::test_dbscan_params_validation[params2-ValueError-min_samples == 0, must be >= 1.] [32mPASSED[0m[33m [ 21%][0m
+test_dbscan.py::test_dbscan_params_validation[params3-TypeError-min_samples must be an instance of int, not float.] [32mPASSED[0m[33m [ 21%][0m
+test_dbscan.py::test_dbscan_params_validation[params4-ValueError-min_samples == -2, must be >= 1.] [32mPASSED[0m[33m [ 21%][0m
+test_dbscan.py::test_dbscan_params_validation[params5-ValueError-leaf_size == 0, must be >= 1.] [32mPASSED[0m[33m [ 21%][0m
+test_dbscan.py::test_dbscan_params_validation[params6-TypeError-leaf_size must be an instance of int, not float.] [32mPASSED[0m[33m [ 21%][0m
+test_dbscan.py::test_dbscan_params_validation[params7-ValueError-leaf_size == -3, must be >= 1.] [32mPASSED[0m[33m [ 21%][0m
+test_dbscan.py::test_dbscan_params_validation[params8-ValueError-p == -2, must be >= 0.0.] [32mPASSED[0m[33m [ 22%][0m
+test_dbscan.py::test_dbscan_params_validation[params9-TypeError-n_jobs must be an instance of int, not float.] [32mPASSED[0m[33m [ 22%][0m
+test_feature_agglomeration.py::test_feature_agglomeration [32mPASSED[0m[33m         [ 22%][0m
+test_feature_agglomeration.py::test_feature_agglomeration_feature_names_out [32mPASSED[0m[33m [ 22%][0m
+test_hierarchical.py::test_linkage_misc [32mPASSED[0m[33m                           [ 22%][0m
+test_hierarchical.py::test_structured_linkage_tree [32mPASSED[0m[33m                [ 23%][0m
+test_hierarchical.py::test_unstructured_linkage_tree [32mPASSED[0m[33m              [ 23%][0m
+test_hierarchical.py::test_height_linkage_tree [32mPASSED[0m[33m                    [ 23%][0m
+test_hierarchical.py::test_agglomerative_clustering_wrong_arg_memory [32mPASSED[0m[33m [ 23%][0m
+test_hierarchical.py::test_zero_cosine_linkage_tree [32mPASSED[0m[33m               [ 23%][0m
+test_hierarchical.py::test_agglomerative_clustering_distances[ward-True-None-0.5] [32mPASSED[0m[33m [ 23%][0m
+test_hierarchical.py::test_agglomerative_clustering_distances[ward-True-10-None] [32mPASSED[0m[33m [ 24%][0m
+test_hierarchical.py::test_agglomerative_clustering_distances[ward-False-None-0.5] [32mPASSED[0m[33m [ 24%][0m
+test_hierarchical.py::test_agglomerative_clustering_distances[ward-False-10-None] [32mPASSED[0m[33m [ 24%][0m
+test_hierarchical.py::test_agglomerative_clustering_distances[complete-True-None-0.5] [32mPASSED[0m[33m [ 24%][0m
+test_hierarchical.py::test_agglomerative_clustering_distances[complete-True-10-None] [32mPASSED[0m[33m [ 24%][0m
+test_hierarchical.py::test_agglomerative_clustering_distances[complete-False-None-0.5] [32mPASSED[0m[33m [ 25%][0m
+test_hierarchical.py::test_agglomerative_clustering_distances[complete-False-10-None] [32mPASSED[0m[33m [ 25%][0m
+test_hierarchical.py::test_agglomerative_clustering_distances[average-True-None-0.5] [32mPASSED[0m[33m [ 25%][0m
+test_hierarchical.py::test_agglomerative_clustering_distances[average-True-10-None] [32mPASSED[0m[33m [ 25%][0m
+test_hierarchical.py::test_agglomerative_clustering_distances[average-False-None-0.5] [32mPASSED[0m[33m [ 25%][0m
+test_hierarchical.py::test_agglomerative_clustering_distances[average-False-10-None] [32mPASSED[0m[33m [ 25%][0m
+test_hierarchical.py::test_agglomerative_clustering_distances[single-True-None-0.5] [32mPASSED[0m[33m [ 26%][0m
+test_hierarchical.py::test_agglomerative_clustering_distances[single-True-10-None] [32mPASSED[0m[33m [ 26%][0m
+test_hierarchical.py::test_agglomerative_clustering_distances[single-False-None-0.5] [32mPASSED[0m[33m [ 26%][0m
+test_hierarchical.py::test_agglomerative_clustering_distances[single-False-10-None] [32mPASSED[0m[33m [ 26%][0m
+test_hierarchical.py::test_agglomerative_clustering [32mPASSED[0m[33m               [ 26%][0m
+test_hierarchical.py::test_agglomerative_clustering_memory_mapped [32mPASSED[0m[33m [ 27%][0m
+test_hierarchical.py::test_ward_agglomeration [32mPASSED[0m[33m                     [ 27%][0m
+test_hierarchical.py::test_single_linkage_clustering [32mPASSED[0m[33m              [ 27%][0m
+test_hierarchical.py::test_sparse_scikit_vs_scipy [32mPASSED[0m[33m                 [ 27%][0m
+test_hierarchical.py::test_vector_scikit_single_vs_scipy_single[0] [32mPASSED[0m[33m [ 27%][0m
+test_hierarchical.py::test_vector_scikit_single_vs_scipy_single[1] [32mPASSED[0m[33m [ 27%][0m
+test_hierarchical.py::test_vector_scikit_single_vs_scipy_single[2] [32mPASSED[0m[33m [ 28%][0m
+test_hierarchical.py::test_vector_scikit_single_vs_scipy_single[3] [32mPASSED[0m[33m [ 28%][0m
+test_hierarchical.py::test_vector_scikit_single_vs_scipy_single[4] [32mPASSED[0m[33m [ 28%][0m
+test_hierarchical.py::test_mst_linkage_core_memory_mapped[metric_param_grid0] [32mPASSED[0m[33m [ 28%][0m
+test_hierarchical.py::test_mst_linkage_core_memory_mapped[metric_param_grid1] [32mPASSED[0m[33m [ 28%][0m
+test_hierarchical.py::test_mst_linkage_core_memory_mapped[metric_param_grid2] [32mPASSED[0m[33m [ 29%][0m
+test_hierarchical.py::test_mst_linkage_core_memory_mapped[metric_param_grid3] [32mPASSED[0m[33m [ 29%][0m
+test_hierarchical.py::test_mst_linkage_core_memory_mapped[metric_param_grid4] [32mPASSED[0m[33m [ 29%][0m
+test_hierarchical.py::test_mst_linkage_core_memory_mapped[metric_param_grid5] [32mPASSED[0m[33m [ 29%][0m
+test_hierarchical.py::test_mst_linkage_core_memory_mapped[metric_param_grid6] [32mPASSED[0m[33m [ 29%][0m
+test_hierarchical.py::test_mst_linkage_core_memory_mapped[metric_param_grid7] [32mPASSED[0m[33m [ 29%][0m
+test_hierarchical.py::test_mst_linkage_core_memory_mapped[metric_param_grid8] [32mPASSED[0m[33m [ 30%][0m
+test_hierarchical.py::test_mst_linkage_core_memory_mapped[metric_param_grid9] [32mPASSED[0m[33m [ 30%][0m
+test_hierarchical.py::test_identical_points [32mPASSED[0m[33m                       [ 30%][0m
+test_hierarchical.py::test_connectivity_propagation [32mPASSED[0m[33m               [ 30%][0m
+test_hierarchical.py::test_ward_tree_children_order [32mPASSED[0m[33m               [ 30%][0m
+test_hierarchical.py::test_ward_linkage_tree_return_distance [32mPASSED[0m[33m      [ 31%][0m
+test_hierarchical.py::test_connectivity_fixing_non_lil [32mPASSED[0m[33m            [ 31%][0m
+test_hierarchical.py::test_int_float_dict [32mPASSED[0m[33m                         [ 31%][0m
+test_hierarchical.py::test_connectivity_callable [32mPASSED[0m[33m                  [ 31%][0m
+test_hierarchical.py::test_connectivity_ignores_diagonal [32mPASSED[0m[33m          [ 31%][0m
+test_hierarchical.py::test_compute_full_tree [32mPASSED[0m[33m                      [ 31%][0m
+test_hierarchical.py::test_n_components [32mPASSED[0m[33m                           [ 32%][0m
+test_hierarchical.py::test_agg_n_clusters [32mPASSED[0m[33m                         [ 32%][0m
+test_hierarchical.py::test_affinity_passed_to_fix_connectivity [32mPASSED[0m[33m    [ 32%][0m
+test_hierarchical.py::test_agglomerative_clustering_with_distance_threshold[ward] [32mPASSED[0m[33m [ 32%][0m
+test_hierarchical.py::test_agglomerative_clustering_with_distance_threshold[complete] [32mPASSED[0m[33m [ 32%][0m
+test_hierarchical.py::test_agglomerative_clustering_with_distance_threshold[average] [32mPASSED[0m[33m [ 33%][0m
+test_hierarchical.py::test_small_distance_threshold [32mPASSED[0m[33m               [ 33%][0m
+test_hierarchical.py::test_cluster_distances_with_distance_threshold [32mPASSED[0m[33m [ 33%][0m
+test_hierarchical.py::test_agglomerative_clustering_with_distance_threshold_edge_case[0.5-y_true0-ward] [32mPASSED[0m[33m [ 33%][0m
+test_hierarchical.py::test_agglomerative_clustering_with_distance_threshold_edge_case[0.5-y_true0-complete] [32mPASSED[0m[33m [ 33%][0m
+test_hierarchical.py::test_agglomerative_clustering_with_distance_threshold_edge_case[0.5-y_true0-average] [32mPASSED[0m[33m [ 34%][0m
+test_hierarchical.py::test_agglomerative_clustering_with_distance_threshold_edge_case[1.0-y_true1-ward] [32mPASSED[0m[33m [ 34%][0m
+test_hierarchical.py::test_agglomerative_clustering_with_distance_threshold_edge_case[1.0-y_true1-complete] [32mPASSED[0m[33m [ 34%][0m
+test_hierarchical.py::test_agglomerative_clustering_with_distance_threshold_edge_case[1.0-y_true1-average] [32mPASSED[0m[33m [ 34%][0m
+test_hierarchical.py::test_agglomerative_clustering_with_distance_threshold_edge_case[1.5-y_true2-ward] [32mPASSED[0m[33m [ 34%][0m
+test_hierarchical.py::test_agglomerative_clustering_with_distance_threshold_edge_case[1.5-y_true2-complete] [32mPASSED[0m[33m [ 34%][0m
+test_hierarchical.py::test_agglomerative_clustering_with_distance_threshold_edge_case[1.5-y_true2-average] [32mPASSED[0m[33m [ 35%][0m
+test_hierarchical.py::test_dist_threshold_invalid_parameters [32mPASSED[0m[33m      [ 35%][0m
+test_hierarchical.py::test_invalid_shape_precomputed_dist_matrix [32mPASSED[0m[33m  [ 35%][0m
+test_hierarchical.py::test_precomputed_connectivity_affinity_with_2_connected_components [32mPASSED[0m[33m [ 35%][0m
+test_k_means.py::test_kmeans_results[float32-lloyd-dense] [32mPASSED[0m[33m         [ 35%][0m
+test_k_means.py::test_kmeans_results[float32-lloyd-sparse] [32mPASSED[0m[33m        [ 36%][0m
+test_k_means.py::test_kmeans_results[float32-elkan-dense] [32mPASSED[0m[33m         [ 36%][0m
+test_k_means.py::test_kmeans_results[float32-elkan-sparse] [32mPASSED[0m[33m        [ 36%][0m
+test_k_means.py::test_kmeans_results[float64-lloyd-dense] [32mPASSED[0m[33m         [ 36%][0m
+test_k_means.py::test_kmeans_results[float64-lloyd-sparse] [32mPASSED[0m[33m        [ 36%][0m
+test_k_means.py::test_kmeans_results[float64-elkan-dense] [32mPASSED[0m[33m         [ 36%][0m
+test_k_means.py::test_kmeans_results[float64-elkan-sparse] [32mPASSED[0m[33m        [ 37%][0m
+test_k_means.py::test_kmeans_relocated_clusters[lloyd-dense] [32mPASSED[0m[33m      [ 37%][0m
+test_k_means.py::test_kmeans_relocated_clusters[lloyd-sparse] [32mPASSED[0m[33m     [ 37%][0m
+test_k_means.py::test_kmeans_relocated_clusters[elkan-dense] [32mPASSED[0m[33m      [ 37%][0m
+test_k_means.py::test_kmeans_relocated_clusters[elkan-sparse] [32mPASSED[0m[33m     [ 37%][0m
+test_k_means.py::test_relocate_empty_clusters[dense] [32mPASSED[0m[33m              [ 38%][0m
+test_k_means.py::test_relocate_empty_clusters[sparse] [32mPASSED[0m[33m             [ 38%][0m
+test_k_means.py::test_kmeans_elkan_results[42-0.01-dense-normal] [32mPASSED[0m[33m  [ 38%][0m
+test_k_means.py::test_kmeans_elkan_results[42-0.01-dense-blobs] [32mPASSED[0m[33m   [ 38%][0m
+test_k_means.py::test_kmeans_elkan_results[42-0.01-sparse-normal] [32mPASSED[0m[33m [ 38%][0m
+test_k_means.py::test_kmeans_elkan_results[42-0.01-sparse-blobs] [32mPASSED[0m[33m  [ 38%][0m
+test_k_means.py::test_kmeans_elkan_results[42-1e-08-dense-normal] [32mPASSED[0m[33m [ 39%][0m
+test_k_means.py::test_kmeans_elkan_results[42-1e-08-dense-blobs] [32mPASSED[0m[33m  [ 39%][0m
+test_k_means.py::test_kmeans_elkan_results[42-1e-08-sparse-normal] [32mPASSED[0m[33m [ 39%][0m
+test_k_means.py::test_kmeans_elkan_results[42-1e-08-sparse-blobs] [32mPASSED[0m[33m [ 39%][0m
+test_k_means.py::test_kmeans_elkan_results[42-1e-100-dense-normal] [32mPASSED[0m[33m [ 39%][0m
+test_k_means.py::test_kmeans_elkan_results[42-1e-100-dense-blobs] [32mPASSED[0m[33m [ 40%][0m
+test_k_means.py::test_kmeans_elkan_results[42-1e-100-sparse-normal] [32mPASSED[0m[33m [ 40%][0m
+test_k_means.py::test_kmeans_elkan_results[42-1e-100-sparse-blobs] [32mPASSED[0m[33m [ 40%][0m
+test_k_means.py::test_kmeans_elkan_results[42-0-dense-normal] [32mPASSED[0m[33m     [ 40%][0m
+test_k_means.py::test_kmeans_elkan_results[42-0-dense-blobs] [32mPASSED[0m[33m      [ 40%][0m
+test_k_means.py::test_kmeans_elkan_results[42-0-sparse-normal] [32mPASSED[0m[33m    [ 40%][0m
+test_k_means.py::test_kmeans_elkan_results[42-0-sparse-blobs] [32mPASSED[0m[33m     [ 41%][0m
+test_k_means.py::test_kmeans_convergence[lloyd] [32mPASSED[0m[33m                   [ 41%][0m
+test_k_means.py::test_kmeans_convergence[elkan] [32mPASSED[0m[33m                   [ 41%][0m
+test_k_means.py::test_algorithm_auto_full_deprecation_warning[auto] [32mPASSED[0m[33m [ 41%][0m
+test_k_means.py::test_algorithm_auto_full_deprecation_warning[full] [32mPASSED[0m[33m [ 41%][0m
+test_k_means.py::test_minibatch_update_consistency [32mPASSED[0m[33m                [ 42%][0m
+test_k_means.py::test_all_init[KMeans-random-dense] [32mPASSED[0m[33m               [ 42%][0m
+test_k_means.py::test_all_init[KMeans-random-sparse] [32mPASSED[0m[33m              [ 42%][0m
+test_k_means.py::test_all_init[KMeans-k-means++-dense] [32mPASSED[0m[33m            [ 42%][0m
+test_k_means.py::test_all_init[KMeans-k-means++-sparse] [32mPASSED[0m[33m           [ 42%][0m
+test_k_means.py::test_all_init[KMeans-ndarray-dense] [32mPASSED[0m[33m              [ 42%][0m
+test_k_means.py::test_all_init[KMeans-ndarray-sparse] [32mPASSED[0m[33m             [ 43%][0m
+test_k_means.py::test_all_init[KMeans-callable-dense] [32mPASSED[0m[33m             [ 43%][0m
+test_k_means.py::test_all_init[KMeans-callable-sparse] [32mPASSED[0m[33m            [ 43%][0m
+test_k_means.py::test_all_init[MiniBatchKMeans-random-dense] [32mPASSED[0m[33m      [ 43%][0m
+test_k_means.py::test_all_init[MiniBatchKMeans-random-sparse] [32mPASSED[0m[33m     [ 43%][0m
+test_k_means.py::test_all_init[MiniBatchKMeans-k-means++-dense] [32mPASSED[0m[33m   [ 44%][0m
+test_k_means.py::test_all_init[MiniBatchKMeans-k-means++-sparse] [32mPASSED[0m[33m  [ 44%][0m
+test_k_means.py::test_all_init[MiniBatchKMeans-ndarray-dense] [32mPASSED[0m[33m     [ 44%][0m
+test_k_means.py::test_all_init[MiniBatchKMeans-ndarray-sparse] [32mPASSED[0m[33m    [ 44%][0m
+test_k_means.py::test_all_init[MiniBatchKMeans-callable-dense] [32mPASSED[0m[33m    [ 44%][0m
+test_k_means.py::test_all_init[MiniBatchKMeans-callable-sparse] [32mPASSED[0m[33m   [ 44%][0m
+test_k_means.py::test_minibatch_kmeans_partial_fit_init[random] [32mPASSED[0m[33m   [ 45%][0m
+test_k_means.py::test_minibatch_kmeans_partial_fit_init[k-means++] [32mPASSED[0m[33m [ 45%][0m
+test_k_means.py::test_minibatch_kmeans_partial_fit_init[ndarray] [32mPASSED[0m[33m  [ 45%][0m
+test_k_means.py::test_minibatch_kmeans_partial_fit_init[callable] [32mPASSED[0m[33m [ 45%][0m
+test_k_means.py::test_fortran_aligned_data[KMeans] [32mPASSED[0m[33m                [ 45%][0m
+test_k_means.py::test_fortran_aligned_data[MiniBatchKMeans] [32mPASSED[0m[33m       [ 46%][0m
+test_k_means.py::test_k_means_fit_predict[0-2-1e-07-asarray-float32-lloyd] [32mPASSED[0m[33m [ 46%][0m
+test_k_means.py::test_k_means_fit_predict[0-2-1e-07-asarray-float32-elkan] [32mPASSED[0m[33m [ 46%][0m
+test_k_means.py::test_k_means_fit_predict[0-2-1e-07-asarray-float64-lloyd] [32mPASSED[0m[33m [ 46%][0m
+test_k_means.py::test_k_means_fit_predict[0-2-1e-07-asarray-float64-elkan] [32mPASSED[0m[33m [ 46%][0m
+test_k_means.py::test_k_means_fit_predict[0-2-1e-07-csr_matrix-float32-lloyd] [32mPASSED[0m[33m [ 46%][0m
+test_k_means.py::test_k_means_fit_predict[0-2-1e-07-csr_matrix-float32-elkan] [32mPASSED[0m[33m [ 47%][0m
+test_k_means.py::test_k_means_fit_predict[0-2-1e-07-csr_matrix-float64-lloyd] [32mPASSED[0m[33m [ 47%][0m
+test_k_means.py::test_k_means_fit_predict[0-2-1e-07-csr_matrix-float64-elkan] [32mPASSED[0m[33m [ 47%][0m
+test_k_means.py::test_k_means_fit_predict[1-2-0.1-asarray-float32-lloyd] [32mPASSED[0m[33m [ 47%][0m
+test_k_means.py::test_k_means_fit_predict[1-2-0.1-asarray-float32-elkan] [32mPASSED[0m[33m [ 47%][0m
+test_k_means.py::test_k_means_fit_predict[1-2-0.1-asarray-float64-lloyd] [32mPASSED[0m[33m [ 48%][0m
+test_k_means.py::test_k_means_fit_predict[1-2-0.1-asarray-float64-elkan] [32mPASSED[0m[33m [ 48%][0m
+test_k_means.py::test_k_means_fit_predict[1-2-0.1-csr_matrix-float32-lloyd] [32mPASSED[0m[33m [ 48%][0m
+test_k_means.py::test_k_means_fit_predict[1-2-0.1-csr_matrix-float32-elkan] [32mPASSED[0m[33m [ 48%][0m
+test_k_means.py::test_k_means_fit_predict[1-2-0.1-csr_matrix-float64-lloyd] [32mPASSED[0m[33m [ 48%][0m
+test_k_means.py::test_k_means_fit_predict[1-2-0.1-csr_matrix-float64-elkan] [32mPASSED[0m[33m [ 48%][0m
+test_k_means.py::test_k_means_fit_predict[3-300-1e-07-asarray-float32-lloyd] [32mPASSED[0m[33m [ 49%][0m
+test_k_means.py::test_k_means_fit_predict[3-300-1e-07-asarray-float32-elkan] [32mPASSED[0m[33m [ 49%][0m
+test_k_means.py::test_k_means_fit_predict[3-300-1e-07-asarray-float64-lloyd] [32mPASSED[0m[33m [ 49%][0m
+test_k_means.py::test_k_means_fit_predict[3-300-1e-07-asarray-float64-elkan] [32mPASSED[0m[33m [ 49%][0m
+test_k_means.py::test_k_means_fit_predict[3-300-1e-07-csr_matrix-float32-lloyd] [32mPASSED[0m[33m [ 49%][0m
+test_k_means.py::test_k_means_fit_predict[3-300-1e-07-csr_matrix-float32-elkan] [32mPASSED[0m[33m [ 50%][0m
+test_k_means.py::test_k_means_fit_predict[3-300-1e-07-csr_matrix-float64-lloyd] [32mPASSED[0m[33m [ 50%][0m
+test_k_means.py::test_k_means_fit_predict[3-300-1e-07-csr_matrix-float64-elkan] [32mPASSED[0m[33m [ 50%][0m
+test_k_means.py::test_k_means_fit_predict[4-300-0.1-asarray-float32-lloyd] [32mPASSED[0m[33m [ 50%][0m
+test_k_means.py::test_k_means_fit_predict[4-300-0.1-asarray-float32-elkan] [32mPASSED[0m[33m [ 50%][0m
+test_k_means.py::test_k_means_fit_predict[4-300-0.1-asarray-float64-lloyd] [32mPASSED[0m[33m [ 51%][0m
+test_k_means.py::test_k_means_fit_predict[4-300-0.1-asarray-float64-elkan] [32mPASSED[0m[33m [ 51%][0m
+test_k_means.py::test_k_means_fit_predict[4-300-0.1-csr_matrix-float32-lloyd] [32mPASSED[0m[33m [ 51%][0m
+test_k_means.py::test_k_means_fit_predict[4-300-0.1-csr_matrix-float32-elkan] [32mPASSED[0m[33m [ 51%][0m
+test_k_means.py::test_k_means_fit_predict[4-300-0.1-csr_matrix-float64-lloyd] [32mPASSED[0m[33m [ 51%][0m
+test_k_means.py::test_k_means_fit_predict[4-300-0.1-csr_matrix-float64-elkan] [32mPASSED[0m[33m [ 51%][0m
+test_k_means.py::test_minibatch_kmeans_verbose [32mPASSED[0m[33m                    [ 52%][0m
+test_k_means.py::test_kmeans_verbose[0.01-lloyd] [32mPASSED[0m[33m                  [ 52%][0m
+test_k_means.py::test_kmeans_verbose[0.01-elkan] [32mPASSED[0m[33m                  [ 52%][0m
+test_k_means.py::test_kmeans_verbose[0-lloyd] [32mPASSED[0m[33m                     [ 52%][0m
+test_k_means.py::test_kmeans_verbose[0-elkan] [32mPASSED[0m[33m                     [ 52%][0m
+test_k_means.py::test_minibatch_kmeans_warning_init_size [32mPASSED[0m[33m          [ 53%][0m
+test_k_means.py::test_warning_n_init_precomputed_centers[KMeans] [32mPASSED[0m[33m  [ 53%][0m
+test_k_means.py::test_warning_n_init_precomputed_centers[MiniBatchKMeans] [32mPASSED[0m[33m [ 53%][0m
+test_k_means.py::test_minibatch_sensible_reassign [32mPASSED[0m[33m                 [ 53%][0m
+test_k_means.py::test_minibatch_reassign[dense] [32mPASSED[0m[33m                   [ 53%][0m
+test_k_means.py::test_minibatch_reassign[sparse] [32mPASSED[0m[33m                  [ 53%][0m
+test_k_means.py::test_minibatch_with_many_reassignments [32mPASSED[0m[33m           [ 54%][0m
+test_k_means.py::test_minibatch_kmeans_init_size [32mPASSED[0m[33m                  [ 54%][0m
+test_k_means.py::test_minibatch_declared_convergence[0.0001-None] [32mPASSED[0m[33m [ 54%][0m
+test_k_means.py::test_minibatch_declared_convergence[0-10] [32mPASSED[0m[33m        [ 54%][0m
+test_k_means.py::test_minibatch_iter_steps [32mPASSED[0m[33m                        [ 54%][0m
+test_k_means.py::test_kmeans_copyx [32mPASSED[0m[33m                                [ 55%][0m
+test_k_means.py::test_score_max_iter[KMeans] [32mPASSED[0m[33m                      [ 55%][0m
+test_k_means.py::test_score_max_iter[MiniBatchKMeans] [32mPASSED[0m[33m             [ 55%][0m
+test_k_means.py::test_predict[KMeans-lloyd-random-float32-dense] [32mPASSED[0m[33m  [ 55%][0m
+test_k_means.py::test_predict[KMeans-lloyd-random-float32-sparse] [32mPASSED[0m[33m [ 55%][0m
+test_k_means.py::test_predict[KMeans-lloyd-random-float64-dense] [32mPASSED[0m[33m  [ 55%][0m
+test_k_means.py::test_predict[KMeans-lloyd-random-float64-sparse] [32mPASSED[0m[33m [ 56%][0m
+test_k_means.py::test_predict[KMeans-lloyd-k-means++-float32-dense] [32mPASSED[0m[33m [ 56%][0m
+test_k_means.py::test_predict[KMeans-lloyd-k-means++-float32-sparse] [32mPASSED[0m[33m [ 56%][0m
+test_k_means.py::test_predict[KMeans-lloyd-k-means++-float64-dense] [32mPASSED[0m[33m [ 56%][0m
+test_k_means.py::test_predict[KMeans-lloyd-k-means++-float64-sparse] [32mPASSED[0m[33m [ 56%][0m
+test_k_means.py::test_predict[KMeans-elkan-random-float32-dense] [32mPASSED[0m[33m  [ 57%][0m
+test_k_means.py::test_predict[KMeans-elkan-random-float32-sparse] [32mPASSED[0m[33m [ 57%][0m
+test_k_means.py::test_predict[KMeans-elkan-random-float64-dense] [32mPASSED[0m[33m  [ 57%][0m
+test_k_means.py::test_predict[KMeans-elkan-random-float64-sparse] [32mPASSED[0m[33m [ 57%][0m
+test_k_means.py::test_predict[KMeans-elkan-k-means++-float32-dense] [32mPASSED[0m[33m [ 57%][0m
+test_k_means.py::test_predict[KMeans-elkan-k-means++-float32-sparse] [32mPASSED[0m[33m [ 57%][0m
+test_k_means.py::test_predict[KMeans-elkan-k-means++-float64-dense] [32mPASSED[0m[33m [ 58%][0m
+test_k_means.py::test_predict[KMeans-elkan-k-means++-float64-sparse] [32mPASSED[0m[33m [ 58%][0m
+test_k_means.py::test_predict[MiniBatchKMeans-None-random-float32-dense] [32mPASSED[0m[33m [ 58%][0m
+test_k_means.py::test_predict[MiniBatchKMeans-None-random-float32-sparse] [32mPASSED[0m[33m [ 58%][0m
+test_k_means.py::test_predict[MiniBatchKMeans-None-random-float64-dense] [32mPASSED[0m[33m [ 58%][0m
+test_k_means.py::test_predict[MiniBatchKMeans-None-random-float64-sparse] [32mPASSED[0m[33m [ 59%][0m
+test_k_means.py::test_predict[MiniBatchKMeans-None-k-means++-float32-dense] [32mPASSED[0m[33m [ 59%][0m
+test_k_means.py::test_predict[MiniBatchKMeans-None-k-means++-float32-sparse] [32mPASSED[0m[33m [ 59%][0m
+test_k_means.py::test_predict[MiniBatchKMeans-None-k-means++-float64-dense] [32mPASSED[0m[33m [ 59%][0m
+test_k_means.py::test_predict[MiniBatchKMeans-None-k-means++-float64-sparse] [32mPASSED[0m[33m [ 59%][0m
+test_k_means.py::test_dense_sparse[KMeans] [32mPASSED[0m[33m                        [ 59%][0m
+test_k_means.py::test_dense_sparse[MiniBatchKMeans] [32mPASSED[0m[33m               [ 60%][0m
+test_k_means.py::test_predict_dense_sparse[KMeans-random] [32mPASSED[0m[33m         [ 60%][0m
+test_k_means.py::test_predict_dense_sparse[KMeans-k-means++] [32mPASSED[0m[33m      [ 60%][0m
+test_k_means.py::test_predict_dense_sparse[KMeans-ndarray] [32mPASSED[0m[33m        [ 60%][0m
+test_k_means.py::test_predict_dense_sparse[MiniBatchKMeans-random] [32mPASSED[0m[33m [ 60%][0m
+test_k_means.py::test_predict_dense_sparse[MiniBatchKMeans-k-means++] [32mPASSED[0m[33m [ 61%][0m
+test_k_means.py::test_predict_dense_sparse[MiniBatchKMeans-ndarray] [32mPASSED[0m[33m [ 61%][0m
+test_k_means.py::test_integer_input[KMeans-k-means++-int32-dense] [32mPASSED[0m[33m [ 61%][0m
+test_k_means.py::test_integer_input[KMeans-k-means++-int32-sparse] [32mPASSED[0m[33m [ 61%][0m
+test_k_means.py::test_integer_input[KMeans-k-means++-int64-dense] [32mPASSED[0m[33m [ 61%][0m
+test_k_means.py::test_integer_input[KMeans-k-means++-int64-sparse] [32mPASSED[0m[33m [ 61%][0m
+test_k_means.py::test_integer_input[KMeans-ndarray-int32-dense] [32mPASSED[0m[33m   [ 62%][0m
+test_k_means.py::test_integer_input[KMeans-ndarray-int32-sparse] [32mPASSED[0m[33m  [ 62%][0m
+test_k_means.py::test_integer_input[KMeans-ndarray-int64-dense] [32mPASSED[0m[33m   [ 62%][0m
+test_k_means.py::test_integer_input[KMeans-ndarray-int64-sparse] [32mPASSED[0m[33m  [ 62%][0m
+test_k_means.py::test_integer_input[MiniBatchKMeans-k-means++-int32-dense] [32mPASSED[0m[33m [ 62%][0m
+test_k_means.py::test_integer_input[MiniBatchKMeans-k-means++-int32-sparse] [32mPASSED[0m[33m [ 63%][0m
+test_k_means.py::test_integer_input[MiniBatchKMeans-k-means++-int64-dense] [32mPASSED[0m[33m [ 63%][0m
+test_k_means.py::test_integer_input[MiniBatchKMeans-k-means++-int64-sparse] [32mPASSED[0m[33m [ 63%][0m
+test_k_means.py::test_integer_input[MiniBatchKMeans-ndarray-int32-dense] [32mPASSED[0m[33m [ 63%][0m
+test_k_means.py::test_integer_input[MiniBatchKMeans-ndarray-int32-sparse] [32mPASSED[0m[33m [ 63%][0m
+test_k_means.py::test_integer_input[MiniBatchKMeans-ndarray-int64-dense] [32mPASSED[0m[33m [ 63%][0m
+test_k_means.py::test_integer_input[MiniBatchKMeans-ndarray-int64-sparse] [32mPASSED[0m[33m [ 64%][0m
+test_k_means.py::test_transform[KMeans] [32mPASSED[0m[33m                           [ 64%][0m
+test_k_means.py::test_transform[MiniBatchKMeans] [32mPASSED[0m[33m                  [ 64%][0m
+test_k_means.py::test_fit_transform[KMeans] [32mPASSED[0m[33m                       [ 64%][0m
+test_k_means.py::test_fit_transform[MiniBatchKMeans] [32mPASSED[0m[33m              [ 64%][0m
+test_k_means.py::test_n_init [32mPASSED[0m[33m                                      [ 65%][0m
+test_k_means.py::test_k_means_function [32mPASSED[0m[33m                            [ 65%][0m
+test_k_means.py::test_float_precision[KMeans-dense] [32mPASSED[0m[33m               [ 65%][0m
+test_k_means.py::test_float_precision[KMeans-sparse] [32mPASSED[0m[33m              [ 65%][0m
+test_k_means.py::test_float_precision[MiniBatchKMeans-dense] [32mPASSED[0m[33m      [ 65%][0m
+test_k_means.py::test_float_precision[MiniBatchKMeans-sparse] [32mPASSED[0m[33m     [ 65%][0m
+test_k_means.py::test_centers_not_mutated[KMeans-int32] [32mPASSED[0m[33m           [ 66%][0m
+test_k_means.py::test_centers_not_mutated[KMeans-int64] [32mPASSED[0m[33m           [ 66%][0m
+test_k_means.py::test_centers_not_mutated[KMeans-float32] [32mPASSED[0m[33m         [ 66%][0m
+test_k_means.py::test_centers_not_mutated[KMeans-float64] [32mPASSED[0m[33m         [ 66%][0m
+test_k_means.py::test_centers_not_mutated[MiniBatchKMeans-int32] [32mPASSED[0m[33m  [ 66%][0m
+test_k_means.py::test_centers_not_mutated[MiniBatchKMeans-int64] [32mPASSED[0m[33m  [ 67%][0m
+test_k_means.py::test_centers_not_mutated[MiniBatchKMeans-float32] [32mPASSED[0m[33m [ 67%][0m
+test_k_means.py::test_centers_not_mutated[MiniBatchKMeans-float64] [32mPASSED[0m[33m [ 67%][0m
+test_k_means.py::test_kmeans_init_fitted_centers[dense] [32mPASSED[0m[33m           [ 67%][0m
+test_k_means.py::test_kmeans_init_fitted_centers[sparse] [32mPASSED[0m[33m          [ 67%][0m
+test_k_means.py::test_kmeans_warns_less_centers_than_unique_points [32mPASSED[0m[33m [ 68%][0m
+test_k_means.py::test_weighted_vs_repeated [32mPASSED[0m[33m                        [ 68%][0m
+test_k_means.py::test_unit_weights_vs_no_weights[KMeans-dense] [32mPASSED[0m[33m    [ 68%][0m
+test_k_means.py::test_unit_weights_vs_no_weights[KMeans-sparse] [32mPASSED[0m[33m   [ 68%][0m
+test_k_means.py::test_unit_weights_vs_no_weights[MiniBatchKMeans-dense] [32mPASSED[0m[33m [ 68%][0m
+test_k_means.py::test_unit_weights_vs_no_weights[MiniBatchKMeans-sparse] [32mPASSED[0m[33m [ 68%][0m
+test_k_means.py::test_scaled_weights[KMeans-dense] [32mPASSED[0m[33m                [ 69%][0m
+test_k_means.py::test_scaled_weights[KMeans-sparse] [32mPASSED[0m[33m               [ 69%][0m
+test_k_means.py::test_scaled_weights[MiniBatchKMeans-dense] [32mPASSED[0m[33m       [ 69%][0m
+test_k_means.py::test_scaled_weights[MiniBatchKMeans-sparse] [32mPASSED[0m[33m      [ 69%][0m
+test_k_means.py::test_kmeans_elkan_iter_attribute [32mPASSED[0m[33m                 [ 69%][0m
+test_k_means.py::test_kmeans_empty_cluster_relocated[dense] [32mPASSED[0m[33m       [ 70%][0m
+test_k_means.py::test_kmeans_empty_cluster_relocated[sparse] [32mPASSED[0m[33m      [ 70%][0m
+test_k_means.py::test_result_equal_in_diff_n_threads[KMeans] [32mPASSED[0m[33m      [ 70%][0m
+test_k_means.py::test_result_equal_in_diff_n_threads[MiniBatchKMeans] [32mPASSED[0m[33m [ 70%][0m
+test_k_means.py::test_warning_elkan_1_cluster [32mPASSED[0m[33m                     [ 70%][0m
+test_k_means.py::test_k_means_1_iteration[lloyd-dense] [32mPASSED[0m[33m            [ 70%][0m
+test_k_means.py::test_k_means_1_iteration[lloyd-sparse] [32mPASSED[0m[33m           [ 71%][0m
+test_k_means.py::test_k_means_1_iteration[elkan-dense] [32mPASSED[0m[33m            [ 71%][0m
+test_k_means.py::test_k_means_1_iteration[elkan-sparse] [32mPASSED[0m[33m           [ 71%][0m
+test_k_means.py::test_euclidean_distance[True-float32] [32mPASSED[0m[33m            [ 71%][0m
+test_k_means.py::test_euclidean_distance[True-float64] [32mPASSED[0m[33m            [ 71%][0m
+test_k_means.py::test_euclidean_distance[False-float32] [32mPASSED[0m[33m           [ 72%][0m
+test_k_means.py::test_euclidean_distance[False-float64] [32mPASSED[0m[33m           [ 72%][0m
+test_k_means.py::test_inertia[float32] [32mPASSED[0m[33m                            [ 72%][0m
+test_k_means.py::test_inertia[float64] [32mPASSED[0m[33m                            [ 72%][0m
+test_k_means.py::test_sample_weight_unchanged[KMeans] [32mPASSED[0m[33m             [ 72%][0m
+test_k_means.py::test_sample_weight_unchanged[MiniBatchKMeans] [32mPASSED[0m[33m    [ 72%][0m
+test_k_means.py::test_wrong_params[param0-n_init should be > 0-KMeans] [32mPASSED[0m[33m [ 73%][0m
+test_k_means.py::test_wrong_params[param0-n_init should be > 0-MiniBatchKMeans] [32mPASSED[0m[33m [ 73%][0m
+test_k_means.py::test_wrong_params[param1-max_iter should be > 0-KMeans] [32mPASSED[0m[33m [ 73%][0m
+test_k_means.py::test_wrong_params[param1-max_iter should be > 0-MiniBatchKMeans] [32mPASSED[0m[33m [ 73%][0m
+test_k_means.py::test_wrong_params[param2-n_samples.* should be >= n_clusters-KMeans] [32mPASSED[0m[33m [ 73%][0m
+test_k_means.py::test_wrong_params[param2-n_samples.* should be >= n_clusters-MiniBatchKMeans] [32mPASSED[0m[33m [ 74%][0m
+test_k_means.py::test_wrong_params[param3-The shape of the initial centers .* does not match the number of clusters-KMeans] [32mPASSED[0m[33m [ 74%][0m
+test_k_means.py::test_wrong_params[param3-The shape of the initial centers .* does not match the number of clusters-MiniBatchKMeans] [32mPASSED[0m[33m [ 74%][0m
+test_k_means.py::test_wrong_params[param4-The shape of the initial centers .* does not match the number of clusters-KMeans] [32mPASSED[0m[33m [ 74%][0m
+test_k_means.py::test_wrong_params[param4-The shape of the initial centers .* does not match the number of clusters-MiniBatchKMeans] [32mPASSED[0m[33m [ 74%][0m
+test_k_means.py::test_wrong_params[param5-The shape of the initial centers .* does not match the number of features of the data-KMeans] [32mPASSED[0m[33m [ 74%][0m
+test_k_means.py::test_wrong_params[param5-The shape of the initial centers .* does not match the number of features of the data-MiniBatchKMeans] [32mPASSED[0m[33m [ 75%][0m
+test_k_means.py::test_wrong_params[param6-The shape of the initial centers .* does not match the number of features of the data-KMeans] [32mPASSED[0m[33m [ 75%][0m
+test_k_means.py::test_wrong_params[param6-The shape of the initial centers .* does not match the number of features of the data-MiniBatchKMeans] [32mPASSED[0m[33m [ 75%][0m
+test_k_means.py::test_wrong_params[param7-init should be either 'k-means\\+\\+', 'random', an array-like or a callable-KMeans] [32mPASSED[0m[33m [ 75%][0m
+test_k_means.py::test_wrong_params[param7-init should be either 'k-means\\+\\+', 'random', an array-like or a callable-MiniBatchKMeans] [32mPASSED[0m[33m [ 75%][0m
+test_k_means.py::test_kmeans_wrong_params[param0-Algorithm must be either 'lloyd' or 'elkan'] [32mPASSED[0m[33m [ 76%][0m
+test_k_means.py::test_minibatch_kmeans_wrong_params[param0-max_no_improvement should be >= 0] [32mPASSED[0m[33m [ 76%][0m
+test_k_means.py::test_minibatch_kmeans_wrong_params[param1-batch_size should be > 0] [32mPASSED[0m[33m [ 76%][0m
+test_k_means.py::test_minibatch_kmeans_wrong_params[param2-init_size should be > 0] [32mPASSED[0m[33m [ 76%][0m
+test_k_means.py::test_minibatch_kmeans_wrong_params[param3-reassignment_ratio should be >= 0] [32mPASSED[0m[33m [ 76%][0m
+test_k_means.py::test_kmeans_plusplus_wrong_params[param0-n_local_trials is set to 0 but should be an integer value greater than zero] [32mPASSED[0m[33m [ 76%][0m
+test_k_means.py::test_kmeans_plusplus_wrong_params[param1-The length of x_squared_norms .* should be equal to the length of n_samples] [32mPASSED[0m[33m [ 77%][0m
+test_k_means.py::test_kmeans_plusplus_output[float64-data0] [32mPASSED[0m[33m       [ 77%][0m
+test_k_means.py::test_kmeans_plusplus_output[float64-data1] [32mPASSED[0m[33m       [ 77%][0m
+test_k_means.py::test_kmeans_plusplus_output[float32-data0] [32mPASSED[0m[33m       [ 77%][0m
+test_k_means.py::test_kmeans_plusplus_output[float32-data1] [32mPASSED[0m[33m       [ 77%][0m
+test_k_means.py::test_kmeans_plusplus_norms[x_squared_norms0] [32mPASSED[0m[33m     [ 78%][0m
+test_k_means.py::test_kmeans_plusplus_norms[None] [32mPASSED[0m[33m                 [ 78%][0m
+test_k_means.py::test_kmeans_plusplus_dataorder [32mPASSED[0m[33m                   [ 78%][0m
+test_k_means.py::test_is_same_clustering [32mPASSED[0m[33m                          [ 78%][0m
+test_k_means.py::test_kmeans_with_array_like_or_np_scalar_init[kwargs0] [32mPASSED[0m[33m [ 78%][0m
+test_k_means.py::test_kmeans_with_array_like_or_np_scalar_init[kwargs1] [32mPASSED[0m[33m [ 78%][0m
+test_k_means.py::test_feature_names_out[KMeans-fit] [32mPASSED[0m[33m               [ 79%][0m
+test_k_means.py::test_feature_names_out[MiniBatchKMeans-fit] [32mPASSED[0m[33m      [ 79%][0m
+test_k_means.py::test_feature_names_out[MiniBatchKMeans-partial_fit] [32mPASSED[0m[33m [ 79%][0m
+test_mean_shift.py::test_estimate_bandwidth [32mPASSED[0m[33m                       [ 79%][0m
+test_mean_shift.py::test_estimate_bandwidth_1sample [32mPASSED[0m[33m               [ 79%][0m
+test_mean_shift.py::test_mean_shift[1.2-True-3-0] [32mPASSED[0m[33m                 [ 80%][0m
+test_mean_shift.py::test_mean_shift[1.2-False-4--1] [32mPASSED[0m[33m               [ 80%][0m
+test_mean_shift.py::test_mean_shift_negative_bandwidth [32mPASSED[0m[33m            [ 80%][0m
+test_mean_shift.py::test_estimate_bandwidth_with_sparse_matrix [32mPASSED[0m[33m    [ 80%][0m
+test_mean_shift.py::test_parallel [32mPASSED[0m[33m                                 [ 80%][0m
+test_mean_shift.py::test_meanshift_predict [32mPASSED[0m[33m                        [ 80%][0m
+test_mean_shift.py::test_meanshift_all_orphans [32mPASSED[0m[33m                    [ 81%][0m
+test_mean_shift.py::test_unfitted [32mPASSED[0m[33m                                 [ 81%][0m
+test_mean_shift.py::test_cluster_intensity_tie [32mPASSED[0m[33m                    [ 81%][0m
+test_mean_shift.py::test_bin_seeds [32mPASSED[0m[33m                                [ 81%][0m
+test_mean_shift.py::test_max_iter[1] [32mPASSED[0m[33m                              [ 81%][0m
+test_mean_shift.py::test_max_iter[100] [32mPASSED[0m[33m                            [ 82%][0m
+test_mean_shift.py::test_mean_shift_zero_bandwidth [32mPASSED[0m[33m                [ 82%][0m
+test_optics.py::test_extend_downward[r_plot0-3] [32mPASSED[0m[33m                   [ 82%][0m
+test_optics.py::test_extend_downward[r_plot1-0] [32mPASSED[0m[33m                   [ 82%][0m
+test_optics.py::test_extend_downward[r_plot2-4] [32mPASSED[0m[33m                   [ 82%][0m
+test_optics.py::test_extend_downward[r_plot3-4] [32mPASSED[0m[33m                   [ 82%][0m
+test_optics.py::test_extend_upward[r_plot0-6] [32mPASSED[0m[33m                     [ 83%][0m
+test_optics.py::test_extend_upward[r_plot1-0] [32mPASSED[0m[33m                     [ 83%][0m
+test_optics.py::test_extend_upward[r_plot2-0] [32mPASSED[0m[33m                     [ 83%][0m
+test_optics.py::test_extend_upward[r_plot3-2] [32mPASSED[0m[33m                     [ 83%][0m
+test_optics.py::test_the_extract_xi_labels[ordering0-clusters0-expected0] [32mPASSED[0m[33m [ 83%][0m
+test_optics.py::test_the_extract_xi_labels[ordering1-clusters1-expected1] [32mPASSED[0m[33m [ 84%][0m
+test_optics.py::test_the_extract_xi_labels[ordering2-clusters2-expected2] [32mPASSED[0m[33m [ 84%][0m
+test_optics.py::test_the_extract_xi_labels[ordering3-clusters3-expected3] [32mPASSED[0m[33m [ 84%][0m
+test_optics.py::test_extract_xi[float32] [33mSKIPPED[0m (Set SKLEARN_RUN_FL...)[33m [ 84%][0m
+test_optics.py::test_extract_xi[float64] [32mPASSED[0m[33m                          [ 84%][0m
+test_optics.py::test_cluster_hierarchy_[float32] [33mSKIPPED[0m (Set SKLEAR...)[33m [ 85%][0m
+test_optics.py::test_cluster_hierarchy_[float64] [32mPASSED[0m[33m                  [ 85%][0m
+test_optics.py::test_correct_number_of_clusters [32mPASSED[0m[33m                   [ 85%][0m
+test_optics.py::test_minimum_number_of_sample_check [32mPASSED[0m[33m               [ 85%][0m
+test_optics.py::test_bad_extract [32mPASSED[0m[33m                                  [ 85%][0m
+test_optics.py::test_bad_reachability [32mPASSED[0m[33m                             [ 85%][0m
+test_optics.py::test_nowarn_if_metric_bool_data_bool [32mPASSED[0m[33m              [ 86%][0m
+test_optics.py::test_warn_if_metric_bool_data_no_bool [32mPASSED[0m[33m             [ 86%][0m
+test_optics.py::test_nowarn_if_metric_no_bool [32mPASSED[0m[33m                     [ 86%][0m
+test_optics.py::test_close_extract [32mPASSED[0m[33m                                [ 86%][0m
+test_optics.py::test_dbscan_optics_parity[float32-3-0.1] [33mSKIPPED[0m (Se...)[33m [ 86%][0m
+test_optics.py::test_dbscan_optics_parity[float32-3-0.3] [33mSKIPPED[0m (Se...)[33m [ 87%][0m
+test_optics.py::test_dbscan_optics_parity[float32-3-0.5] [33mSKIPPED[0m (Se...)[33m [ 87%][0m
+test_optics.py::test_dbscan_optics_parity[float32-10-0.1] [33mSKIPPED[0m (S...)[33m [ 87%][0m
+test_optics.py::test_dbscan_optics_parity[float32-10-0.3] [33mSKIPPED[0m (S...)[33m [ 87%][0m
+test_optics.py::test_dbscan_optics_parity[float32-10-0.5] [33mSKIPPED[0m (S...)[33m [ 87%][0m
+test_optics.py::test_dbscan_optics_parity[float32-20-0.1] [33mSKIPPED[0m (S...)[33m [ 87%][0m
+test_optics.py::test_dbscan_optics_parity[float32-20-0.3] [33mSKIPPED[0m (S...)[33m [ 88%][0m
+test_optics.py::test_dbscan_optics_parity[float32-20-0.5] [33mSKIPPED[0m (S...)[33m [ 88%][0m
+test_optics.py::test_dbscan_optics_parity[float64-3-0.1] [32mPASSED[0m[33m          [ 88%][0m
+test_optics.py::test_dbscan_optics_parity[float64-3-0.3] [32mPASSED[0m[33m          [ 88%][0m
+test_optics.py::test_dbscan_optics_parity[float64-3-0.5] [32mPASSED[0m[33m          [ 88%][0m
+test_optics.py::test_dbscan_optics_parity[float64-10-0.1] [32mPASSED[0m[33m         [ 89%][0m
+test_optics.py::test_dbscan_optics_parity[float64-10-0.3] [32mPASSED[0m[33m         [ 89%][0m
+test_optics.py::test_dbscan_optics_parity[float64-10-0.5] [32mPASSED[0m[33m         [ 89%][0m
+test_optics.py::test_dbscan_optics_parity[float64-20-0.1] [32mPASSED[0m[33m         [ 89%][0m
+test_optics.py::test_dbscan_optics_parity[float64-20-0.3] [32mPASSED[0m[33m         [ 89%][0m
+test_optics.py::test_dbscan_optics_parity[float64-20-0.5] [32mPASSED[0m[33m         [ 89%][0m
+test_optics.py::test_min_samples_edge_case[float32] [33mSKIPPED[0m (Set SKL...)[33m [ 90%][0m
+test_optics.py::test_min_samples_edge_case[float64] [32mPASSED[0m[33m               [ 90%][0m
+test_optics.py::test_min_cluster_size[float32-2] [33mSKIPPED[0m (Set SKLEAR...)[33m [ 90%][0m
+test_optics.py::test_min_cluster_size[float64-2] [32mPASSED[0m[33m                  [ 90%][0m
+test_optics.py::test_min_cluster_size_invalid[0] [32mPASSED[0m[33m                  [ 90%][0m
+test_optics.py::test_min_cluster_size_invalid[-1] [32mPASSED[0m[33m                 [ 91%][0m
+test_optics.py::test_min_cluster_size_invalid[1.1] [32mPASSED[0m[33m                [ 91%][0m
+test_optics.py::test_min_cluster_size_invalid[2.2] [32mPASSED[0m[33m                [ 91%][0m
+test_optics.py::test_min_cluster_size_invalid2 [32mPASSED[0m[33m                    [ 91%][0m
+test_optics.py::test_processing_order [32mPASSED[0m[33m                             [ 91%][0m
+test_optics.py::test_compare_to_ELKI [32mPASSED[0m[33m                              [ 91%][0m
+test_optics.py::test_wrong_cluster_method [32mPASSED[0m[33m                         [ 92%][0m
+test_optics.py::test_extract_dbscan[float32] [33mSKIPPED[0m (Set SKLEARN_RU...)[33m [ 92%][0m
+test_optics.py::test_extract_dbscan[float64] [32mPASSED[0m[33m                      [ 92%][0m
+test_optics.py::test_precomputed_dists[float32] [33mSKIPPED[0m (Set SKLEARN...)[33m [ 92%][0m
+test_optics.py::test_precomputed_dists[float64] [32mPASSED[0m[33m                   [ 92%][0m
+test_spectral.py::test_spectral_clustering[kmeans-arpack] [32mPASSED[0m[33m         [ 93%][0m
+test_spectral.py::test_spectral_clustering[kmeans-lobpcg] [32mPASSED[0m[33m         [ 93%][0m
+test_spectral.py::test_spectral_clustering[discretize-arpack] [32mPASSED[0m[33m     [ 93%][0m
+test_spectral.py::test_spectral_clustering[discretize-lobpcg] [32mPASSED[0m[33m     [ 93%][0m
+test_spectral.py::test_spectral_clustering[cluster_qr-arpack] [32mPASSED[0m[33m     [ 93%][0m
+test_spectral.py::test_spectral_clustering[cluster_qr-lobpcg] [32mPASSED[0m[33m     [ 93%][0m
+test_spectral.py::test_spectral_unknown_mode [32mPASSED[0m[33m                      [ 94%][0m
+test_spectral.py::test_spectral_unknown_assign_labels [32mPASSED[0m[33m             [ 94%][0m
+test_spectral.py::test_spectral_params_validation[input0-params0-ValueError-n_clusters == -1, must be >= 1] [32mPASSED[0m[33m [ 94%][0m
+test_spectral.py::test_spectral_params_validation[input1-params1-ValueError-n_clusters == 0, must be >= 1] [32mPASSED[0m[33m [ 94%][0m
+test_spectral.py::test_spectral_params_validation[input2-params2-TypeError-n_clusters must be an instance of int, not float] [32mPASSED[0m[33m [ 94%][0m
+test_spectral.py::test_spectral_params_validation[input3-params3-ValueError-n_init == -1, must be >= 1] [32mPASSED[0m[33m [ 95%][0m
+test_spectral.py::test_spectral_params_validation[input4-params4-ValueError-n_init == 0, must be >= 1] [32mPASSED[0m[33m [ 95%][0m
+test_spectral.py::test_spectral_params_validation[input5-params5-TypeError-n_init must be an instance of int, not float] [32mPASSED[0m[33m [ 95%][0m
+test_spectral.py::test_spectral_params_validation[input6-params6-ValueError-gamma == -1, must be >= 1] [32mPASSED[0m[33m [ 95%][0m
+test_spectral.py::test_spectral_params_validation[input7-params7-ValueError-gamma == 0, must be >= 1] [32mPASSED[0m[33m [ 95%][0m
+test_spectral.py::test_spectral_params_validation[input8-params8-ValueError-n_neighbors == -1, must be >= 1] [32mPASSED[0m[33m [ 95%][0m
+test_spectral.py::test_spectral_params_validation[input9-params9-ValueError-n_neighbors == 0, must be >= 1] [32mPASSED[0m[33m [ 96%][0m
+test_spectral.py::test_spectral_params_validation[input10-params10-ValueError-eigen_tol == -1, must be >= 0] [32mPASSED[0m[33m [ 96%][0m
+test_spectral.py::test_spectral_params_validation[input11-params11-ValueError-degree == -1, must be >= 1] [32mPASSED[0m[33m [ 96%][0m
+test_spectral.py::test_spectral_params_validation[input12-params12-ValueError-degree == 0, must be >= 1] [32mPASSED[0m[33m [ 96%][0m
+test_spectral.py::test_spectral_clustering_sparse[kmeans] [32mPASSED[0m[33m         [ 96%][0m
+test_spectral.py::test_spectral_clustering_sparse[discretize] [32mPASSED[0m[33m     [ 97%][0m
+test_spectral.py::test_spectral_clustering_sparse[cluster_qr] [32mPASSED[0m[33m     [ 97%][0m
+test_spectral.py::test_precomputed_nearest_neighbors_filtering [32mPASSED[0m[33m    [ 97%][0m
+test_spectral.py::test_affinities [32mPASSED[0m[33m                                 [ 97%][0m
+test_spectral.py::test_cluster_qr [32mPASSED[0m[33m                                 [ 97%][0m
+test_spectral.py::test_cluster_qr_permutation_invariance [32mPASSED[0m[33m          [ 97%][0m
+test_spectral.py::test_discretize[50] [32mPASSED[0m[33m                             [ 98%][0m
+test_spectral.py::test_discretize[100] [32mPASSED[0m[33m                            [ 98%][0m
+test_spectral.py::test_discretize[150] [32mPASSED[0m[33m                            [ 98%][0m
+test_spectral.py::test_discretize[500] [32mPASSED[0m[33m                            [ 98%][0m
+test_spectral.py::test_spectral_clustering_with_arpack_amg_solvers [32mPASSED[0m[33m [ 98%][0m
+test_spectral.py::test_n_components [32mPASSED[0m[33m                               [ 99%][0m
+test_spectral.py::test_verbose[kmeans] [32mPASSED[0m[33m                            [ 99%][0m
+test_spectral.py::test_verbose[discretize] [32mPASSED[0m[33m                        [ 99%][0m
+test_spectral.py::test_verbose[cluster_qr] [32mPASSED[0m[33m                        [ 99%][0m
+test_spectral.py::test_spectral_clustering_np_matrix_raises [32mPASSED[0m[33m       [ 99%][0m
+test_spectral.py::test_spectral_clustering_not_infinite_loop [32mPASSED[0m[33m      [100%][0m
+
+[33m=============================== warnings summary ===============================[0m
+test_bicluster.py::test_n_features_in_[est0]
+test_bicluster.py::test_n_features_in_[est0]
+  /lib/python3.10/site-packages/sklearn/cluster/_bicluster.py:190: ConvergenceWarning: Number of distinct clusters (2) found smaller than n_clusters (3). Possibly due to duplicate points in X.
+    model.fit(data)
+
+test_dbscan.py::test_dbscan_sparse_precomputed[False]
+test_dbscan.py::test_dbscan_sparse_precomputed[True]
+test_dbscan.py::test_dbscan_sparse_precomputed_different_eps
+test_dbscan.py::test_dbscan_sparse_precomputed_different_eps
+test_dbscan.py::test_dbscan_input_not_modified[precomputed-True]
+test_dbscan.py::test_dbscan_precomputed_metric_with_initial_rows_zero
+  /lib/python3.10/site-packages/sklearn/neighbors/_base.py:206: EfficiencyWarning: Precomputed sparse input was not sorted by data.
+    warnings.warn(
+
+test_hierarchical.py::test_affinity_passed_to_fix_connectivity
+  /lib/python3.10/site-packages/sklearn/cluster/_agglomerative.py:549: UserWarning: the number of connected components of the connectivity matrix is 2 > 1. Completing it to avoid stopping the tree early.
+    connectivity, n_connected_components = _fix_connectivity(
+
+test_spectral.py::test_precomputed_nearest_neighbors_filtering
+test_spectral.py::test_precomputed_nearest_neighbors_filtering
+  /lib/python3.10/site-packages/sklearn/manifold/_spectral_embedding.py:259: UserWarning: Graph is not fully connected, spectral embedding may not work as expected.
+    warnings.warn(
+
+test_spectral.py::test_spectral_clustering_np_matrix_raises
+  /lib/python3.10/site-packages/sklearn/cluster/tests/test_spectral.py:394: PendingDeprecationWarning: the matrix subclass is not the recommended way to represent matrices or deal with linear algebra (see https://docs.scipy.org/doc/numpy/user/numpy-for-matlab-users.html). Please adjust your code to use regular ndarray.
+    X = np.matrix([[0.0, 2.0], [2.0, 0.0]])
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+[33m=========== [32m530 passed[0m, [33m[1m17 skipped[0m, [33m[1m12 warnings[0m[33m in 64.23s (0:01:04)[0m[33m ============[0m

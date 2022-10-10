@@ -1,0 +1,250 @@
+(node:447943) ExperimentalWarning: Fetch is an experimental feature. This feature could change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+warning: no blob constructor, cannot create blobs with mimetypes
+warning: no BlobBuilder
+Loading distutils
+Loaded distutils
+Python initialization complete
+(node:447943) ExperimentalWarning: buffer.Blob is an experimental feature. This feature could change at any time
+distutils already loaded from default channel
+Loading micropip, pyparsing, packaging
+Loaded micropip, pyparsing, packaging
+distutils already loaded from default channel
+Loading scikit-learn, scipy, numpy, joblib, threadpoolctl, clapack
+Loaded clapack, joblib, threadpoolctl, numpy, scikit-learn, scipy
+distutils already loaded from default channel
+pyparsing already loaded from default channel
+Loading pytest, atomicwrites, attrs, six, more-itertools, pluggy, py, setuptools, iniconfig
+Loaded pytest, atomicwrites, attrs, six, more-itertools, pluggy, py, iniconfig, setuptools
+Loading tomli
+Loaded tomli
+pytest command: pytest.main("--pyargs sklearn.svm.tests -v".split())
+[1m============================= test session starts ==============================[0m
+platform emscripten -- Python 3.10.2, pytest-7.1.2, pluggy-1.0.0 -- 
+cachedir: .pytest_cache
+rootdir: /home/pyodide
+[1mcollecting ... [0m[1mcollecting 0 items                                                             [0m[1mcollecting 59 items                                                            [0m[1mcollected 196 items                                                            [0m
+
+test_bounds.py::test_l1_min_c[no-intercept-two-classes-sparse-squared_hinge] [32mPASSED[0m[32m [  0%][0m
+test_bounds.py::test_l1_min_c[no-intercept-two-classes-sparse-log] [32mPASSED[0m[32m [  1%][0m
+test_bounds.py::test_l1_min_c[no-intercept-two-classes-dense-squared_hinge] [32mPASSED[0m[32m [  1%][0m
+test_bounds.py::test_l1_min_c[no-intercept-two-classes-dense-log] [32mPASSED[0m[32m [  2%][0m
+test_bounds.py::test_l1_min_c[no-intercept-multi-class-sparse-squared_hinge] [32mPASSED[0m[32m [  2%][0m
+test_bounds.py::test_l1_min_c[no-intercept-multi-class-sparse-log] [32mPASSED[0m[32m [  3%][0m
+test_bounds.py::test_l1_min_c[no-intercept-multi-class-dense-squared_hinge] [32mPASSED[0m[32m [  3%][0m
+test_bounds.py::test_l1_min_c[no-intercept-multi-class-dense-log] [32mPASSED[0m[32m [  4%][0m
+test_bounds.py::test_l1_min_c[fit-intercept-two-classes-sparse-squared_hinge] [32mPASSED[0m[32m [  4%][0m
+test_bounds.py::test_l1_min_c[fit-intercept-two-classes-sparse-log] [32mPASSED[0m[32m [  5%][0m
+test_bounds.py::test_l1_min_c[fit-intercept-two-classes-dense-squared_hinge] [32mPASSED[0m[32m [  5%][0m
+test_bounds.py::test_l1_min_c[fit-intercept-two-classes-dense-log] [32mPASSED[0m[32m [  6%][0m
+test_bounds.py::test_l1_min_c[fit-intercept-multi-class-sparse-squared_hinge] [32mPASSED[0m[32m [  6%][0m
+test_bounds.py::test_l1_min_c[fit-intercept-multi-class-sparse-log] [32mPASSED[0m[32m [  7%][0m
+test_bounds.py::test_l1_min_c[fit-intercept-multi-class-dense-squared_hinge] [32mPASSED[0m[32m [  7%][0m
+test_bounds.py::test_l1_min_c[fit-intercept-multi-class-dense-log] [32mPASSED[0m[32m [  8%][0m
+test_bounds.py::test_l1_min_c_l2_loss [32mPASSED[0m[32m                             [  8%][0m
+test_bounds.py::test_ill_posed_min_c [32mPASSED[0m[32m                              [  9%][0m
+test_bounds.py::test_unsupported_loss [32mPASSED[0m[32m                             [  9%][0m
+test_bounds.py::test_newrand_set_seed[None-81] [31mFAILED[0m[31m                    [ 10%][0m
+test_bounds.py::test_newrand_set_seed[0-54] [32mPASSED[0m[31m                       [ 10%][0m
+test_bounds.py::test_newrand_set_seed[4294967295-9] [32mPASSED[0m[31m               [ 11%][0m
+test_bounds.py::test_newrand_set_seed_overflow[-1] [32mPASSED[0m[31m                [ 11%][0m
+test_bounds.py::test_newrand_set_seed_overflow[4294967296] [32mPASSED[0m[31m        [ 12%][0m
+test_bounds.py::test_newrand_bounded_rand_int[4294967295-10000] [32mPASSED[0m[31m   [ 12%][0m
+test_bounds.py::test_newrand_bounded_rand_int[100-25] [32mPASSED[0m[31m             [ 13%][0m
+test_bounds.py::test_newrand_bounded_rand_int_limits[-1] [32mPASSED[0m[31m          [ 13%][0m
+test_bounds.py::test_newrand_bounded_rand_int_limits[4294967296] [32mPASSED[0m[31m  [ 14%][0m
+test_sparse.py::test_svc [33mSKIPPED[0m (skipped on 32bit platforms)[31m            [ 14%][0m
+test_sparse.py::test_unsorted_indices [32mPASSED[0m[31m                             [ 15%][0m
+test_sparse.py::test_svc_with_custom_kernel [32mPASSED[0m[31m                       [ 15%][0m
+test_sparse.py::test_svc_iris [33mSKIPPED[0m (skipped on 32bit platforms)[31m       [ 16%][0m
+test_sparse.py::test_sparse_decision_function [32mPASSED[0m[31m                     [ 16%][0m
+test_sparse.py::test_error [32mPASSED[0m[31m                                        [ 17%][0m
+test_sparse.py::test_linearsvc [32mPASSED[0m[31m                                    [ 17%][0m
+test_sparse.py::test_linearsvc_iris [32mPASSED[0m[31m                               [ 18%][0m
+test_sparse.py::test_weight [32mPASSED[0m[31m                                       [ 18%][0m
+test_sparse.py::test_sample_weights [32mPASSED[0m[31m                               [ 19%][0m
+test_sparse.py::test_sparse_liblinear_intercept_handling [32mPASSED[0m[31m          [ 19%][0m
+test_sparse.py::test_sparse_oneclasssvm[linear-0] [33mSKIPPED[0m (skipped o...)[31m [ 20%][0m
+test_sparse.py::test_sparse_oneclasssvm[linear-1] [33mSKIPPED[0m (skipped o...)[31m [ 20%][0m
+test_sparse.py::test_sparse_oneclasssvm[linear-2] [33mSKIPPED[0m (skipped o...)[31m [ 21%][0m
+test_sparse.py::test_sparse_oneclasssvm[linear-3] [33mSKIPPED[0m (skipped o...)[31m [ 21%][0m
+test_sparse.py::test_sparse_oneclasssvm[poly-0] [33mSKIPPED[0m (skipped on ...)[31m [ 22%][0m
+test_sparse.py::test_sparse_oneclasssvm[poly-1] [33mSKIPPED[0m (skipped on ...)[31m [ 22%][0m
+test_sparse.py::test_sparse_oneclasssvm[poly-2] [33mSKIPPED[0m (skipped on ...)[31m [ 23%][0m
+test_sparse.py::test_sparse_oneclasssvm[poly-3] [33mSKIPPED[0m (skipped on ...)[31m [ 23%][0m
+test_sparse.py::test_sparse_oneclasssvm[rbf-0] [33mSKIPPED[0m (skipped on 3...)[31m [ 24%][0m
+test_sparse.py::test_sparse_oneclasssvm[rbf-1] [33mSKIPPED[0m (skipped on 3...)[31m [ 25%][0m
+test_sparse.py::test_sparse_oneclasssvm[rbf-2] [33mSKIPPED[0m (skipped on 3...)[31m [ 25%][0m
+test_sparse.py::test_sparse_oneclasssvm[rbf-3] [33mSKIPPED[0m (skipped on 3...)[31m [ 26%][0m
+test_sparse.py::test_sparse_oneclasssvm[sigmoid-0] [33mSKIPPED[0m (skipped ...)[31m [ 26%][0m
+test_sparse.py::test_sparse_oneclasssvm[sigmoid-1] [33mSKIPPED[0m (skipped ...)[31m [ 27%][0m
+test_sparse.py::test_sparse_oneclasssvm[sigmoid-2] [33mSKIPPED[0m (skipped ...)[31m [ 27%][0m
+test_sparse.py::test_sparse_oneclasssvm[sigmoid-3] [33mSKIPPED[0m (skipped ...)[31m [ 28%][0m
+test_sparse.py::test_sparse_realdata [32mPASSED[0m[31m                              [ 28%][0m
+test_sparse.py::test_sparse_svc_clone_with_callable_kernel [32mPASSED[0m[31m        [ 29%][0m
+test_sparse.py::test_timeout [32mPASSED[0m[31m                                      [ 29%][0m
+test_sparse.py::test_consistent_proba [32mPASSED[0m[31m                             [ 30%][0m
+test_svm.py::test_libsvm_parameters [32mPASSED[0m[31m                               [ 30%][0m
+test_svm.py::test_libsvm_iris [32mPASSED[0m[31m                                     [ 31%][0m
+test_svm.py::test_precomputed [32mPASSED[0m[31m                                     [ 31%][0m
+test_svm.py::test_svr [32mPASSED[0m[31m                                             [ 32%][0m
+test_svm.py::test_linearsvr [32mPASSED[0m[31m                                       [ 32%][0m
+test_svm.py::test_linearsvr_fit_sampleweight [32mPASSED[0m[31m                      [ 33%][0m
+test_svm.py::test_svr_errors [32mPASSED[0m[31m                                      [ 33%][0m
+test_svm.py::test_oneclass [32mPASSED[0m[31m                                        [ 34%][0m
+test_svm.py::test_oneclass_decision_function [32mPASSED[0m[31m                      [ 34%][0m
+test_svm.py::test_oneclass_score_samples [32mPASSED[0m[31m                          [ 35%][0m
+test_svm.py::test_oneclass_fit_params_is_deprecated [32mPASSED[0m[31m               [ 35%][0m
+test_svm.py::test_tweak_params [32mPASSED[0m[31m                                    [ 36%][0m
+test_svm.py::test_probability [32mPASSED[0m[31m                                     [ 36%][0m
+test_svm.py::test_decision_function [32mPASSED[0m[31m                               [ 37%][0m
+test_svm.py::test_decision_function_shape[SVC] [32mPASSED[0m[31m                    [ 37%][0m
+test_svm.py::test_decision_function_shape[NuSVC] [32mPASSED[0m[31m                  [ 38%][0m
+test_svm.py::test_svr_predict [32mPASSED[0m[31m                                     [ 38%][0m
+test_svm.py::test_weight [32mPASSED[0m[31m                                          [ 39%][0m
+test_svm.py::test_svm_classifier_sided_sample_weight[estimator0] [32mPASSED[0m[31m  [ 39%][0m
+test_svm.py::test_svm_classifier_sided_sample_weight[estimator1] [32mPASSED[0m[31m  [ 40%][0m
+test_svm.py::test_svm_regressor_sided_sample_weight[estimator0] [32mPASSED[0m[31m   [ 40%][0m
+test_svm.py::test_svm_regressor_sided_sample_weight[estimator1] [32mPASSED[0m[31m   [ 41%][0m
+test_svm.py::test_svm_equivalence_sample_weight_C [32mPASSED[0m[31m                 [ 41%][0m
+test_svm.py::test_negative_sample_weights_mask_all_samples[weights-are-zero-SVC] [32mPASSED[0m[31m [ 42%][0m
+test_svm.py::test_negative_sample_weights_mask_all_samples[weights-are-zero-NuSVC] [32mPASSED[0m[31m [ 42%][0m
+test_svm.py::test_negative_sample_weights_mask_all_samples[weights-are-zero-SVR] [32mPASSED[0m[31m [ 43%][0m
+test_svm.py::test_negative_sample_weights_mask_all_samples[weights-are-zero-NuSVR] [32mPASSED[0m[31m [ 43%][0m
+test_svm.py::test_negative_sample_weights_mask_all_samples[weights-are-zero-OneClassSVM] [32mPASSED[0m[31m [ 44%][0m
+test_svm.py::test_negative_sample_weights_mask_all_samples[weights-are-negative-SVC] [32mPASSED[0m[31m [ 44%][0m
+test_svm.py::test_negative_sample_weights_mask_all_samples[weights-are-negative-NuSVC] [32mPASSED[0m[31m [ 45%][0m
+test_svm.py::test_negative_sample_weights_mask_all_samples[weights-are-negative-SVR] [32mPASSED[0m[31m [ 45%][0m
+test_svm.py::test_negative_sample_weights_mask_all_samples[weights-are-negative-NuSVR] [32mPASSED[0m[31m [ 46%][0m
+test_svm.py::test_negative_sample_weights_mask_all_samples[weights-are-negative-OneClassSVM] [32mPASSED[0m[31m [ 46%][0m
+test_svm.py::test_negative_weights_svc_leave_just_one_label[mask-label-1-SVC] [32mPASSED[0m[31m [ 47%][0m
+test_svm.py::test_negative_weights_svc_leave_just_one_label[mask-label-1-NuSVC] [32mPASSED[0m[31m [ 47%][0m
+test_svm.py::test_negative_weights_svc_leave_just_one_label[mask-label-2-SVC] [32mPASSED[0m[31m [ 48%][0m
+test_svm.py::test_negative_weights_svc_leave_just_one_label[mask-label-2-NuSVC] [32mPASSED[0m[31m [ 48%][0m
+test_svm.py::test_negative_weights_svc_leave_two_labels[partial-mask-label-1-SVC] [32mPASSED[0m[31m [ 49%][0m
+test_svm.py::test_negative_weights_svc_leave_two_labels[partial-mask-label-1-NuSVC] [32mPASSED[0m[31m [ 50%][0m
+test_svm.py::test_negative_weights_svc_leave_two_labels[partial-mask-label-2-SVC] [32mPASSED[0m[31m [ 50%][0m
+test_svm.py::test_negative_weights_svc_leave_two_labels[partial-mask-label-2-NuSVC] [32mPASSED[0m[31m [ 51%][0m
+test_svm.py::test_negative_weight_equal_coeffs[partial-mask-label-1-SVC] [32mPASSED[0m[31m [ 51%][0m
+test_svm.py::test_negative_weight_equal_coeffs[partial-mask-label-1-NuSVC] [32mPASSED[0m[31m [ 52%][0m
+test_svm.py::test_negative_weight_equal_coeffs[partial-mask-label-1-NuSVR] [32mPASSED[0m[31m [ 52%][0m
+test_svm.py::test_negative_weight_equal_coeffs[partial-mask-label-2-SVC] [32mPASSED[0m[31m [ 53%][0m
+test_svm.py::test_negative_weight_equal_coeffs[partial-mask-label-2-NuSVC] [32mPASSED[0m[31m [ 53%][0m
+test_svm.py::test_negative_weight_equal_coeffs[partial-mask-label-2-NuSVR] [32mPASSED[0m[31m [ 54%][0m
+test_svm.py::test_auto_weight [32mPASSED[0m[31m                                     [ 54%][0m
+test_svm.py::test_bad_input [32mPASSED[0m[31m                                       [ 55%][0m
+test_svm.py::test_svc_nonfinite_params [32mPASSED[0m[31m                            [ 55%][0m
+test_svm.py::test_svm_gamma_error[auto_deprecated-When 'gamma' is a string, it should be either 'scale' or 'auto'-SVC-data0] [32mPASSED[0m[31m [ 56%][0m
+test_svm.py::test_svm_gamma_error[auto_deprecated-When 'gamma' is a string, it should be either 'scale' or 'auto'-NuSVC-data1] [32mPASSED[0m[31m [ 56%][0m
+test_svm.py::test_svm_gamma_error[auto_deprecated-When 'gamma' is a string, it should be either 'scale' or 'auto'-SVR-data2] [32mPASSED[0m[31m [ 57%][0m
+test_svm.py::test_svm_gamma_error[auto_deprecated-When 'gamma' is a string, it should be either 'scale' or 'auto'-NuSVR-data3] [32mPASSED[0m[31m [ 57%][0m
+test_svm.py::test_svm_gamma_error[auto_deprecated-When 'gamma' is a string, it should be either 'scale' or 'auto'-OneClassSVM-data4] [32mPASSED[0m[31m [ 58%][0m
+test_svm.py::test_svm_gamma_error[-1-gamma value must be > 0; -1 is invalid. Use a positive number or use 'auto' to set gamma to a value of 1 / n_features.-SVC-data0] [32mPASSED[0m[31m [ 58%][0m
+test_svm.py::test_svm_gamma_error[-1-gamma value must be > 0; -1 is invalid. Use a positive number or use 'auto' to set gamma to a value of 1 / n_features.-NuSVC-data1] [32mPASSED[0m[31m [ 59%][0m
+test_svm.py::test_svm_gamma_error[-1-gamma value must be > 0; -1 is invalid. Use a positive number or use 'auto' to set gamma to a value of 1 / n_features.-SVR-data2] [32mPASSED[0m[31m [ 59%][0m
+test_svm.py::test_svm_gamma_error[-1-gamma value must be > 0; -1 is invalid. Use a positive number or use 'auto' to set gamma to a value of 1 / n_features.-NuSVR-data3] [32mPASSED[0m[31m [ 60%][0m
+test_svm.py::test_svm_gamma_error[-1-gamma value must be > 0; -1 is invalid. Use a positive number or use 'auto' to set gamma to a value of 1 / n_features.-OneClassSVM-data4] [32mPASSED[0m[31m [ 60%][0m
+test_svm.py::test_svm_gamma_error[0.0-gamma value must be > 0; 0.0 is invalid. Use a positive number or use 'auto' to set gamma to a value of 1 / n_features.-SVC-data0] [32mPASSED[0m[31m [ 61%][0m
+test_svm.py::test_svm_gamma_error[0.0-gamma value must be > 0; 0.0 is invalid. Use a positive number or use 'auto' to set gamma to a value of 1 / n_features.-NuSVC-data1] [32mPASSED[0m[31m [ 61%][0m
+test_svm.py::test_svm_gamma_error[0.0-gamma value must be > 0; 0.0 is invalid. Use a positive number or use 'auto' to set gamma to a value of 1 / n_features.-SVR-data2] [32mPASSED[0m[31m [ 62%][0m
+test_svm.py::test_svm_gamma_error[0.0-gamma value must be > 0; 0.0 is invalid. Use a positive number or use 'auto' to set gamma to a value of 1 / n_features.-NuSVR-data3] [32mPASSED[0m[31m [ 62%][0m
+test_svm.py::test_svm_gamma_error[0.0-gamma value must be > 0; 0.0 is invalid. Use a positive number or use 'auto' to set gamma to a value of 1 / n_features.-OneClassSVM-data4] [32mPASSED[0m[31m [ 63%][0m
+test_svm.py::test_svm_gamma_error[gamma3-The gamma value should be set to 'scale', 'auto' or a positive float value. array([1., 4.]) is not a valid option-SVC-data0] [32mPASSED[0m[31m [ 63%][0m
+test_svm.py::test_svm_gamma_error[gamma3-The gamma value should be set to 'scale', 'auto' or a positive float value. array([1., 4.]) is not a valid option-NuSVC-data1] [32mPASSED[0m[31m [ 64%][0m
+test_svm.py::test_svm_gamma_error[gamma3-The gamma value should be set to 'scale', 'auto' or a positive float value. array([1., 4.]) is not a valid option-SVR-data2] [32mPASSED[0m[31m [ 64%][0m
+test_svm.py::test_svm_gamma_error[gamma3-The gamma value should be set to 'scale', 'auto' or a positive float value. array([1., 4.]) is not a valid option-NuSVR-data3] [32mPASSED[0m[31m [ 65%][0m
+test_svm.py::test_svm_gamma_error[gamma3-The gamma value should be set to 'scale', 'auto' or a positive float value. array([1., 4.]) is not a valid option-OneClassSVM-data4] [32mPASSED[0m[31m [ 65%][0m
+test_svm.py::test_svm_gamma_error[gamma4-The gamma value should be set to 'scale', 'auto' or a positive float value. [] is not a valid option-SVC-data0] [32mPASSED[0m[31m [ 66%][0m
+test_svm.py::test_svm_gamma_error[gamma4-The gamma value should be set to 'scale', 'auto' or a positive float value. [] is not a valid option-NuSVC-data1] [32mPASSED[0m[31m [ 66%][0m
+test_svm.py::test_svm_gamma_error[gamma4-The gamma value should be set to 'scale', 'auto' or a positive float value. [] is not a valid option-SVR-data2] [32mPASSED[0m[31m [ 67%][0m
+test_svm.py::test_svm_gamma_error[gamma4-The gamma value should be set to 'scale', 'auto' or a positive float value. [] is not a valid option-NuSVR-data3] [32mPASSED[0m[31m [ 67%][0m
+test_svm.py::test_svm_gamma_error[gamma4-The gamma value should be set to 'scale', 'auto' or a positive float value. [] is not a valid option-OneClassSVM-data4] [32mPASSED[0m[31m [ 68%][0m
+test_svm.py::test_svm_gamma_error[gamma5-The gamma value should be set to 'scale', 'auto' or a positive float value. {} is not a valid option-SVC-data0] [32mPASSED[0m[31m [ 68%][0m
+test_svm.py::test_svm_gamma_error[gamma5-The gamma value should be set to 'scale', 'auto' or a positive float value. {} is not a valid option-NuSVC-data1] [32mPASSED[0m[31m [ 69%][0m
+test_svm.py::test_svm_gamma_error[gamma5-The gamma value should be set to 'scale', 'auto' or a positive float value. {} is not a valid option-SVR-data2] [32mPASSED[0m[31m [ 69%][0m
+test_svm.py::test_svm_gamma_error[gamma5-The gamma value should be set to 'scale', 'auto' or a positive float value. {} is not a valid option-NuSVR-data3] [32mPASSED[0m[31m [ 70%][0m
+test_svm.py::test_svm_gamma_error[gamma5-The gamma value should be set to 'scale', 'auto' or a positive float value. {} is not a valid option-OneClassSVM-data4] [32mPASSED[0m[31m [ 70%][0m
+test_svm.py::test_unicode_kernel [32mPASSED[0m[31m                                  [ 71%][0m
+test_svm.py::test_sparse_precomputed [32mPASSED[0m[31m                              [ 71%][0m
+test_svm.py::test_sparse_fit_support_vectors_empty [32mPASSED[0m[31m                [ 72%][0m
+test_svm.py::test_linearsvc_parameters [32mPASSED[0m[31m                            [ 72%][0m
+test_svm.py::test_linear_svx_uppercase_loss_penality_raises_error [32mPASSED[0m[31m [ 73%][0m
+test_svm.py::test_linearsvc [32mPASSED[0m[31m                                       [ 73%][0m
+test_svm.py::test_linearsvc_crammer_singer [32mPASSED[0m[31m                        [ 74%][0m
+test_svm.py::test_linearsvc_fit_sampleweight [32mPASSED[0m[31m                      [ 75%][0m
+test_svm.py::test_crammer_singer_binary [32mPASSED[0m[31m                           [ 75%][0m
+test_svm.py::test_linearsvc_iris [32mPASSED[0m[31m                                  [ 76%][0m
+test_svm.py::test_dense_liblinear_intercept_handling [32mPASSED[0m[31m              [ 76%][0m
+test_svm.py::test_liblinear_set_coef [32mPASSED[0m[31m                              [ 77%][0m
+test_svm.py::test_immutable_coef_property [32mPASSED[0m[31m                         [ 77%][0m
+test_svm.py::test_linearsvc_verbose [32mPASSED[0m[31m                               [ 78%][0m
+test_svm.py::test_svc_clone_with_callable_kernel [32mPASSED[0m[31m                  [ 78%][0m
+test_svm.py::test_svc_bad_kernel [32mPASSED[0m[31m                                  [ 79%][0m
+test_svm.py::test_libsvm_convergence_warnings [32mPASSED[0m[31m                     [ 79%][0m
+test_svm.py::test_unfitted [32mPASSED[0m[31m                                        [ 80%][0m
+test_svm.py::test_consistent_proba [32mPASSED[0m[31m                                [ 80%][0m
+test_svm.py::test_linear_svm_convergence_warnings [32mPASSED[0m[31m                 [ 81%][0m
+test_svm.py::test_svr_coef_sign [32mPASSED[0m[31m                                   [ 81%][0m
+test_svm.py::test_linear_svc_intercept_scaling [32mPASSED[0m[31m                    [ 82%][0m
+test_svm.py::test_lsvc_intercept_scaling_zero [32mPASSED[0m[31m                     [ 82%][0m
+test_svm.py::test_hasattr_predict_proba [32mPASSED[0m[31m                           [ 83%][0m
+test_svm.py::test_decision_function_shape_two_class [32mPASSED[0m[31m               [ 83%][0m
+test_svm.py::test_ovr_decision_function [32mPASSED[0m[31m                           [ 84%][0m
+test_svm.py::test_svc_invalid_break_ties_param[SVC] [32mPASSED[0m[31m               [ 84%][0m
+test_svm.py::test_svc_invalid_break_ties_param[NuSVC] [32mPASSED[0m[31m             [ 85%][0m
+test_svm.py::test_svc_ovr_tie_breaking[SVC] [32mPASSED[0m[31m                       [ 85%][0m
+test_svm.py::test_svc_ovr_tie_breaking[NuSVC] [32mPASSED[0m[31m                     [ 86%][0m
+test_svm.py::test_gamma_scale [32mPASSED[0m[31m                                     [ 86%][0m
+test_svm.py::test_linearsvm_liblinear_sample_weight[LinearSVC-params0] [32mPASSED[0m[31m [ 87%][0m
+test_svm.py::test_linearsvm_liblinear_sample_weight[LinearSVC-params1] [32mPASSED[0m[31m [ 87%][0m
+test_svm.py::test_linearsvm_liblinear_sample_weight[LinearSVC-params2] [32mPASSED[0m[31m [ 88%][0m
+test_svm.py::test_linearsvm_liblinear_sample_weight[LinearSVC-params3] [32mPASSED[0m[31m [ 88%][0m
+test_svm.py::test_linearsvm_liblinear_sample_weight[LinearSVR-params4] [32mPASSED[0m[31m [ 89%][0m
+test_svm.py::test_linearsvm_liblinear_sample_weight[LinearSVR-params5] [32mPASSED[0m[31m [ 89%][0m
+test_svm.py::test_linearsvm_liblinear_sample_weight[LinearSVR-params6] [32mPASSED[0m[31m [ 90%][0m
+test_svm.py::test_n_support_oneclass_svr [32mPASSED[0m[31m                          [ 90%][0m
+test_svm.py::test_custom_kernel_not_array_input[SVC] [32mPASSED[0m[31m              [ 91%][0m
+test_svm.py::test_custom_kernel_not_array_input[SVR] [32mPASSED[0m[31m              [ 91%][0m
+test_svm.py::test_svc_raises_error_internal_representation [32mPASSED[0m[31m        [ 92%][0m
+test_svm.py::test_n_iter_libsvm[dataset0-SVC-ndarray] [32mPASSED[0m[31m             [ 92%][0m
+test_svm.py::test_n_iter_libsvm[dataset0-NuSVC-ndarray] [32mPASSED[0m[31m           [ 93%][0m
+test_svm.py::test_n_iter_libsvm[dataset0-SVR-int] [32mPASSED[0m[31m                 [ 93%][0m
+test_svm.py::test_n_iter_libsvm[dataset0-NuSVR-int] [32mPASSED[0m[31m               [ 94%][0m
+test_svm.py::test_n_iter_libsvm[dataset0-OneClassSVM-int] [32mPASSED[0m[31m         [ 94%][0m
+test_svm.py::test_n_iter_libsvm[dataset1-SVC-ndarray] [32mPASSED[0m[31m             [ 95%][0m
+test_svm.py::test_n_iter_libsvm[dataset1-NuSVC-ndarray] [32mPASSED[0m[31m           [ 95%][0m
+test_svm.py::test_n_iter_libsvm[dataset1-SVR-int] [32mPASSED[0m[31m                 [ 96%][0m
+test_svm.py::test_n_iter_libsvm[dataset1-NuSVR-int] [32mPASSED[0m[31m               [ 96%][0m
+test_svm.py::test_n_iter_libsvm[dataset1-OneClassSVM-int] [32mPASSED[0m[31m         [ 97%][0m
+test_svm.py::test_n_iter_libsvm[dataset2-SVC-ndarray] [32mPASSED[0m[31m             [ 97%][0m
+test_svm.py::test_n_iter_libsvm[dataset2-NuSVC-ndarray] [32mPASSED[0m[31m           [ 98%][0m
+test_svm.py::test_n_iter_libsvm[dataset2-SVR-int] [32mPASSED[0m[31m                 [ 98%][0m
+test_svm.py::test_n_iter_libsvm[dataset2-NuSVR-int] [32mPASSED[0m[31m               [ 99%][0m
+test_svm.py::test_n_iter_libsvm[dataset2-OneClassSVM-int] [32mPASSED[0m[31m         [100%][0m
+
+=================================== FAILURES ===================================
+[31m[1m________________________ test_newrand_set_seed[None-81] ________________________[0m
+
+seed = None, val = 81
+
+    @pytest.mark.parametrize("seed, val", [(None, 81), (0, 54), (_MAX_UNSIGNED_INT, 9)])
+    def test_newrand_set_seed(seed, val):
+        """Test that `set_seed` produces deterministic results"""
+        if seed is not None:
+            set_seed_wrap(seed)
+        x = bounded_rand_int_wrap(100)
+>       assert x == val, f"Expected {val} but got {x} instead"
+[1m[31mE       AssertionError: Expected 81 but got 24 instead[0m
+[1m[31mE       assert 24 == 81[0m
+
+[1m[31m/lib/python3.10/site-packages/sklearn/svm/tests/test_bounds.py[0m:93: AssertionError
+[33m=============================== warnings summary ===============================[0m
+test_sparse.py: 2 warnings
+test_svm.py: 24 warnings
+  /lib/python3.10/site-packages/sklearn/svm/_base.py:1225: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED test_bounds.py::test_newrand_set_seed[None-81] - AssertionError: Expec...
+[31m=========== [31m[1m1 failed[0m, [32m177 passed[0m, [33m18 skipped[0m, [33m26 warnings[0m[31m in 10.48s[0m[31m ============[0m

@@ -1,0 +1,269 @@
+(node:455198) ExperimentalWarning: Fetch is an experimental feature. This feature could change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+warning: no blob constructor, cannot create blobs with mimetypes
+warning: no BlobBuilder
+Loading distutils
+Loaded distutils
+Python initialization complete
+(node:455198) ExperimentalWarning: buffer.Blob is an experimental feature. This feature could change at any time
+distutils already loaded from default channel
+Loading micropip, pyparsing, packaging
+Loaded micropip, pyparsing, packaging
+distutils already loaded from default channel
+Loading scikit-learn, scipy, numpy, joblib, threadpoolctl, clapack
+Loaded clapack, joblib, threadpoolctl, numpy, scikit-learn, scipy
+distutils already loaded from default channel
+pyparsing already loaded from default channel
+Loading pytest, atomicwrites, attrs, six, more-itertools, pluggy, py, setuptools, iniconfig
+Loaded pytest, atomicwrites, attrs, six, more-itertools, pluggy, py, iniconfig, setuptools
+Loading tomli
+Loaded tomli
+pytest command: pytest.main("--pyargs sklearn.feature_extraction.tests -v".split())
+[1m============================= test session starts ==============================[0m
+platform emscripten -- Python 3.10.2, pytest-7.1.2, pluggy-1.0.0 -- 
+cachedir: .pytest_cache
+rootdir: /home/pyodide
+[1mcollecting ... [0m[1mcollecting 0 items                                                             [0m[1mcollecting 39 items                                                            [0m[1mcollecting 71 items                                                            [0m[1mcollecting 204 items                                                           [0m[1mcollected 204 items                                                            [0m
+
+test_dict_vectorizer.py::test_dictvectorizer[True-True-int-True] [32mPASSED[0m[32m  [  0%][0m
+test_dict_vectorizer.py::test_dictvectorizer[True-True-int-False] [32mPASSED[0m[32m [  0%][0m
+test_dict_vectorizer.py::test_dictvectorizer[True-True-float32-True] [32mPASSED[0m[32m [  1%][0m
+test_dict_vectorizer.py::test_dictvectorizer[True-True-float32-False] [32mPASSED[0m[32m [  1%][0m
+test_dict_vectorizer.py::test_dictvectorizer[True-True-int16-True] [32mPASSED[0m[32m [  2%][0m
+test_dict_vectorizer.py::test_dictvectorizer[True-True-int16-False] [32mPASSED[0m[32m [  2%][0m
+test_dict_vectorizer.py::test_dictvectorizer[True-False-int-True] [32mPASSED[0m[32m [  3%][0m
+test_dict_vectorizer.py::test_dictvectorizer[True-False-int-False] [32mPASSED[0m[32m [  3%][0m
+test_dict_vectorizer.py::test_dictvectorizer[True-False-float32-True] [32mPASSED[0m[32m [  4%][0m
+test_dict_vectorizer.py::test_dictvectorizer[True-False-float32-False] [32mPASSED[0m[32m [  4%][0m
+test_dict_vectorizer.py::test_dictvectorizer[True-False-int16-True] [32mPASSED[0m[32m [  5%][0m
+test_dict_vectorizer.py::test_dictvectorizer[True-False-int16-False] [32mPASSED[0m[32m [  5%][0m
+test_dict_vectorizer.py::test_dictvectorizer[False-True-int-True] [32mPASSED[0m[32m [  6%][0m
+test_dict_vectorizer.py::test_dictvectorizer[False-True-int-False] [32mPASSED[0m[32m [  6%][0m
+test_dict_vectorizer.py::test_dictvectorizer[False-True-float32-True] [32mPASSED[0m[32m [  7%][0m
+test_dict_vectorizer.py::test_dictvectorizer[False-True-float32-False] [32mPASSED[0m[32m [  7%][0m
+test_dict_vectorizer.py::test_dictvectorizer[False-True-int16-True] [32mPASSED[0m[32m [  8%][0m
+test_dict_vectorizer.py::test_dictvectorizer[False-True-int16-False] [32mPASSED[0m[32m [  8%][0m
+test_dict_vectorizer.py::test_dictvectorizer[False-False-int-True] [32mPASSED[0m[32m [  9%][0m
+test_dict_vectorizer.py::test_dictvectorizer[False-False-int-False] [32mPASSED[0m[32m [  9%][0m
+test_dict_vectorizer.py::test_dictvectorizer[False-False-float32-True] [32mPASSED[0m[32m [ 10%][0m
+test_dict_vectorizer.py::test_dictvectorizer[False-False-float32-False] [32mPASSED[0m[32m [ 10%][0m
+test_dict_vectorizer.py::test_dictvectorizer[False-False-int16-True] [32mPASSED[0m[32m [ 11%][0m
+test_dict_vectorizer.py::test_dictvectorizer[False-False-int16-False] [32mPASSED[0m[32m [ 11%][0m
+test_dict_vectorizer.py::test_feature_selection[get_feature_names] [32mPASSED[0m[32m [ 12%][0m
+test_dict_vectorizer.py::test_feature_selection[get_feature_names_out] [32mPASSED[0m[32m [ 12%][0m
+test_dict_vectorizer.py::test_one_of_k[get_feature_names] [32mPASSED[0m[32m         [ 13%][0m
+test_dict_vectorizer.py::test_one_of_k[get_feature_names_out] [32mPASSED[0m[32m     [ 13%][0m
+test_dict_vectorizer.py::test_iterable_value[get_feature_names] [32mPASSED[0m[32m   [ 14%][0m
+test_dict_vectorizer.py::test_iterable_value[get_feature_names_out] [32mPASSED[0m[32m [ 14%][0m
+test_dict_vectorizer.py::test_iterable_not_string_error [32mPASSED[0m[32m           [ 15%][0m
+test_dict_vectorizer.py::test_mapping_error [32mPASSED[0m[32m                       [ 15%][0m
+test_dict_vectorizer.py::test_unseen_or_no_features [32mPASSED[0m[32m               [ 16%][0m
+test_dict_vectorizer.py::test_deterministic_vocabulary [32mPASSED[0m[32m            [ 16%][0m
+test_dict_vectorizer.py::test_n_features_in [32mPASSED[0m[32m                       [ 17%][0m
+test_dict_vectorizer.py::test_feature_union_get_feature_names_deprecated [32mPASSED[0m[32m [ 17%][0m
+test_dict_vectorizer.py::test_dictvectorizer_dense_sparse_equivalence [32mPASSED[0m[32m [ 18%][0m
+test_dict_vectorizer.py::test_dict_vectorizer_unsupported_value_type [32mPASSED[0m[32m [ 18%][0m
+test_dict_vectorizer.py::test_dict_vectorizer_get_feature_names_out [32mPASSED[0m[32m [ 19%][0m
+test_feature_hasher.py::test_feature_hasher_dicts [32mPASSED[0m[32m                 [ 19%][0m
+test_feature_hasher.py::test_feature_hasher_strings [32mPASSED[0m[32m               [ 20%][0m
+test_feature_hasher.py::test_hashing_transform_seed [32mPASSED[0m[32m               [ 20%][0m
+test_feature_hasher.py::test_feature_hasher_pairs [32mPASSED[0m[32m                 [ 21%][0m
+test_feature_hasher.py::test_feature_hasher_pairs_with_string_values [32mPASSED[0m[32m [ 21%][0m
+test_feature_hasher.py::test_hash_empty_input [32mPASSED[0m[32m                     [ 22%][0m
+test_feature_hasher.py::test_hasher_invalid_input [32mPASSED[0m[32m                 [ 22%][0m
+test_feature_hasher.py::test_hasher_set_params [32mPASSED[0m[32m                    [ 23%][0m
+test_feature_hasher.py::test_hasher_zeros [32mPASSED[0m[32m                         [ 23%][0m
+test_feature_hasher.py::test_hasher_alternate_sign [32mPASSED[0m[32m                [ 24%][0m
+test_feature_hasher.py::test_hash_collisions [32mPASSED[0m[32m                      [ 24%][0m
+test_image.py::test_img_to_graph [32mPASSED[0m[32m                                  [ 25%][0m
+test_image.py::test_img_to_graph_sparse [32mPASSED[0m[32m                           [ 25%][0m
+test_image.py::test_grid_to_graph [32mPASSED[0m[32m                                 [ 25%][0m
+test_image.py::test_connect_regions [32mPASSED[0m[32m                               [ 26%][0m
+test_image.py::test_connect_regions_with_grid [32mPASSED[0m[32m                     [ 26%][0m
+test_image.py::test_extract_patches_all [32mPASSED[0m[32m                           [ 27%][0m
+test_image.py::test_extract_patches_all_color [32mPASSED[0m[32m                     [ 27%][0m
+test_image.py::test_extract_patches_all_rect [32mPASSED[0m[32m                      [ 28%][0m
+test_image.py::test_extract_patches_max_patches [32mPASSED[0m[32m                   [ 28%][0m
+test_image.py::test_extract_patch_same_size_image [32mPASSED[0m[32m                 [ 29%][0m
+test_image.py::test_extract_patches_less_than_max_patches [32mPASSED[0m[32m         [ 29%][0m
+test_image.py::test_reconstruct_patches_perfect [32mPASSED[0m[32m                   [ 30%][0m
+test_image.py::test_reconstruct_patches_perfect_color [32mPASSED[0m[32m             [ 30%][0m
+test_image.py::test_patch_extractor_fit [32mPASSED[0m[32m                           [ 31%][0m
+test_image.py::test_patch_extractor_max_patches [32mPASSED[0m[32m                   [ 31%][0m
+test_image.py::test_patch_extractor_max_patches_default [32mPASSED[0m[32m           [ 32%][0m
+test_image.py::test_patch_extractor_all_patches [32mPASSED[0m[32m                   [ 32%][0m
+test_image.py::test_patch_extractor_color [32mPASSED[0m[32m                         [ 33%][0m
+test_image.py::test_extract_patches_strided [32mPASSED[0m[32m                       [ 33%][0m
+test_image.py::test_extract_patches_square [32mPASSED[0m[32m                        [ 34%][0m
+test_image.py::test_width_patch [32mPASSED[0m[32m                                   [ 34%][0m
+test_text.py::test_strip_accents [32mPASSED[0m[32m                                  [ 35%][0m
+test_text.py::test_to_ascii [32mPASSED[0m[32m                                       [ 35%][0m
+test_text.py::test_word_analyzer_unigrams[CountVectorizer] [32mPASSED[0m[32m        [ 36%][0m
+test_text.py::test_word_analyzer_unigrams[HashingVectorizer] [32mPASSED[0m[32m      [ 36%][0m
+test_text.py::test_word_analyzer_unigrams_and_bigrams [32mPASSED[0m[32m             [ 37%][0m
+test_text.py::test_unicode_decode_error [32mPASSED[0m[32m                           [ 37%][0m
+test_text.py::test_char_ngram_analyzer [32mPASSED[0m[32m                            [ 38%][0m
+test_text.py::test_char_wb_ngram_analyzer [32mPASSED[0m[32m                         [ 38%][0m
+test_text.py::test_word_ngram_analyzer [32mPASSED[0m[32m                            [ 39%][0m
+test_text.py::test_countvectorizer_custom_vocabulary [32mPASSED[0m[32m              [ 39%][0m
+test_text.py::test_countvectorizer_custom_vocabulary_pipeline [32mPASSED[0m[32m     [ 40%][0m
+test_text.py::test_countvectorizer_custom_vocabulary_repeated_indices [32mPASSED[0m[32m [ 40%][0m
+test_text.py::test_countvectorizer_custom_vocabulary_gap_index [32mPASSED[0m[32m    [ 41%][0m
+test_text.py::test_countvectorizer_stop_words [32mPASSED[0m[32m                     [ 41%][0m
+test_text.py::test_countvectorizer_empty_vocabulary [32mPASSED[0m[32m               [ 42%][0m
+test_text.py::test_fit_countvectorizer_twice [32mPASSED[0m[32m                      [ 42%][0m
+test_text.py::test_countvectorizer_custom_token_pattern[get_feature_names] [32mPASSED[0m[32m [ 43%][0m
+test_text.py::test_countvectorizer_custom_token_pattern[get_feature_names_out] [32mPASSED[0m[32m [ 43%][0m
+test_text.py::test_countvectorizer_custom_token_pattern_with_several_group [32mPASSED[0m[32m [ 44%][0m
+test_text.py::test_countvectorizer_uppercase_in_vocab [32mPASSED[0m[32m             [ 44%][0m
+test_text.py::test_tf_transformer_feature_names_out [32mPASSED[0m[32m               [ 45%][0m
+test_text.py::test_tf_idf_smoothing [32mPASSED[0m[32m                               [ 45%][0m
+test_text.py::test_tfidf_no_smoothing [31mFAILED[0m[31m                             [ 46%][0m
+test_text.py::test_sublinear_tf [32mPASSED[0m[31m                                   [ 46%][0m
+test_text.py::test_vectorizer [32mPASSED[0m[31m                                     [ 47%][0m
+test_text.py::test_tfidf_vectorizer_setters [32mPASSED[0m[31m                       [ 47%][0m
+test_text.py::test_hashing_vectorizer [32mPASSED[0m[31m                             [ 48%][0m
+test_text.py::test_feature_names[get_feature_names] [32mPASSED[0m[31m               [ 48%][0m
+test_text.py::test_feature_names[get_feature_names_out] [32mPASSED[0m[31m           [ 49%][0m
+test_text.py::test_vectorizer_max_features[CountVectorizer] [32mPASSED[0m[31m       [ 49%][0m
+test_text.py::test_vectorizer_max_features[TfidfVectorizer] [32mPASSED[0m[31m       [ 50%][0m
+test_text.py::test_count_vectorizer_max_features[get_feature_names] [32mPASSED[0m[31m [ 50%][0m
+test_text.py::test_count_vectorizer_max_features[get_feature_names_out] [32mPASSED[0m[31m [ 50%][0m
+test_text.py::test_vectorizer_max_df [32mPASSED[0m[31m                              [ 51%][0m
+test_text.py::test_vectorizer_min_df [32mPASSED[0m[31m                              [ 51%][0m
+test_text.py::test_vectorizer_params_validation[params0-ValueError-max_df == 2.0, must be <= 1.0.] [32mPASSED[0m[31m [ 52%][0m
+test_text.py::test_vectorizer_params_validation[params1-ValueError-min_df == 1.5, must be <= 1.0.] [32mPASSED[0m[31m [ 52%][0m
+test_text.py::test_vectorizer_params_validation[params2-ValueError-max_df == -2, must be >= 0.] [32mPASSED[0m[31m [ 53%][0m
+test_text.py::test_vectorizer_params_validation[params3-ValueError-min_df == -10, must be >= 0.] [32mPASSED[0m[31m [ 53%][0m
+test_text.py::test_vectorizer_params_validation[params4-ValueError-max_df == 2.0, must be <= 1.0.] [32mPASSED[0m[31m [ 54%][0m
+test_text.py::test_vectorizer_params_validation[params5-ValueError-min_df == 1.5, must be <= 1.0.] [32mPASSED[0m[31m [ 54%][0m
+test_text.py::test_vectorizer_params_validation[params6-ValueError-max_features == -10, must be >= 0.] [32mPASSED[0m[31m [ 55%][0m
+test_text.py::test_vectorizer_params_validation[params7-TypeError-max_features must be an instance of int, not float] [32mPASSED[0m[31m [ 55%][0m
+test_text.py::test_count_binary_occurrences[get_feature_names] [32mPASSED[0m[31m    [ 56%][0m
+test_text.py::test_count_binary_occurrences[get_feature_names_out] [32mPASSED[0m[31m [ 56%][0m
+test_text.py::test_hashed_binary_occurrences [32mPASSED[0m[31m                      [ 57%][0m
+test_text.py::test_vectorizer_inverse_transform[CountVectorizer] [32mPASSED[0m[31m  [ 57%][0m
+test_text.py::test_vectorizer_inverse_transform[TfidfVectorizer] [32mPASSED[0m[31m  [ 58%][0m
+test_text.py::test_count_vectorizer_pipeline_grid_selection [32mPASSED[0m[31m       [ 58%][0m
+test_text.py::test_vectorizer_pipeline_grid_selection [32mPASSED[0m[31m             [ 59%][0m
+test_text.py::test_vectorizer_pipeline_cross_validation [32mPASSED[0m[31m           [ 59%][0m
+test_text.py::test_vectorizer_unicode [32mPASSED[0m[31m                             [ 60%][0m
+test_text.py::test_tfidf_vectorizer_with_fixed_vocabulary [32mPASSED[0m[31m         [ 60%][0m
+test_text.py::test_pickling_vectorizer [32mPASSED[0m[31m                            [ 61%][0m
+test_text.py::test_pickling_built_processors[build_analyzer] [32mPASSED[0m[31m      [ 61%][0m
+test_text.py::test_pickling_built_processors[build_preprocessor] [32mPASSED[0m[31m  [ 62%][0m
+test_text.py::test_pickling_built_processors[build_tokenizer] [32mPASSED[0m[31m     [ 62%][0m
+test_text.py::test_countvectorizer_vocab_sets_when_pickling[get_feature_names] [32mPASSED[0m[31m [ 63%][0m
+test_text.py::test_countvectorizer_vocab_sets_when_pickling[get_feature_names_out] [32mPASSED[0m[31m [ 63%][0m
+test_text.py::test_countvectorizer_vocab_dicts_when_pickling[get_feature_names] [32mPASSED[0m[31m [ 64%][0m
+test_text.py::test_countvectorizer_vocab_dicts_when_pickling[get_feature_names_out] [32mPASSED[0m[31m [ 64%][0m
+test_text.py::test_stop_words_removal [32mPASSED[0m[31m                             [ 65%][0m
+test_text.py::test_pickling_transformer [32mPASSED[0m[31m                           [ 65%][0m
+test_text.py::test_transformer_idf_setter [32mPASSED[0m[31m                         [ 66%][0m
+test_text.py::test_tfidf_vectorizer_setter [32mPASSED[0m[31m                        [ 66%][0m
+test_text.py::test_tfidfvectorizer_invalid_idf_attr [32mPASSED[0m[31m               [ 67%][0m
+test_text.py::test_non_unique_vocab [32mPASSED[0m[31m                               [ 67%][0m
+test_text.py::test_hashingvectorizer_nan_in_docs [32mPASSED[0m[31m                  [ 68%][0m
+test_text.py::test_tfidfvectorizer_binary [32mPASSED[0m[31m                         [ 68%][0m
+test_text.py::test_tfidfvectorizer_export_idf [32mPASSED[0m[31m                     [ 69%][0m
+test_text.py::test_vectorizer_vocab_clone [32mPASSED[0m[31m                         [ 69%][0m
+test_text.py::test_vectorizer_string_object_as_input[CountVectorizer] [32mPASSED[0m[31m [ 70%][0m
+test_text.py::test_vectorizer_string_object_as_input[TfidfVectorizer] [32mPASSED[0m[31m [ 70%][0m
+test_text.py::test_vectorizer_string_object_as_input[HashingVectorizer] [32mPASSED[0m[31m [ 71%][0m
+test_text.py::test_tfidf_transformer_type[float32] [32mPASSED[0m[31m                [ 71%][0m
+test_text.py::test_tfidf_transformer_type[float64] [32mPASSED[0m[31m                [ 72%][0m
+test_text.py::test_tfidf_transformer_sparse [32mPASSED[0m[31m                       [ 72%][0m
+test_text.py::test_tfidf_vectorizer_type[int32-float64-True] [32mPASSED[0m[31m      [ 73%][0m
+test_text.py::test_tfidf_vectorizer_type[int64-float64-True] [32mPASSED[0m[31m      [ 73%][0m
+test_text.py::test_tfidf_vectorizer_type[float32-float32-False] [32mPASSED[0m[31m   [ 74%][0m
+test_text.py::test_tfidf_vectorizer_type[float64-float64-False] [32mPASSED[0m[31m   [ 74%][0m
+test_text.py::test_vectorizers_invalid_ngram_range[vec0] [32mPASSED[0m[31m          [ 75%][0m
+test_text.py::test_vectorizers_invalid_ngram_range[vec1] [32mPASSED[0m[31m          [ 75%][0m
+test_text.py::test_vectorizers_invalid_ngram_range[vec2] [32mPASSED[0m[31m          [ 75%][0m
+test_text.py::test_vectorizer_stop_words_inconsistent [32mPASSED[0m[31m             [ 76%][0m
+test_text.py::test_countvectorizer_sort_features_64bit_sparse_indices [33mSKIPPED[0m[31m [ 76%][0m
+test_text.py::test_stop_word_validation_custom_preprocessor[CountVectorizer] [32mPASSED[0m[31m [ 77%][0m
+test_text.py::test_stop_word_validation_custom_preprocessor[TfidfVectorizer] [32mPASSED[0m[31m [ 77%][0m
+test_text.py::test_stop_word_validation_custom_preprocessor[HashingVectorizer] [32mPASSED[0m[31m [ 78%][0m
+test_text.py::test_callable_analyzer_error[filename-FileNotFoundError--CountVectorizer] [32mPASSED[0m[31m [ 78%][0m
+test_text.py::test_callable_analyzer_error[filename-FileNotFoundError--TfidfVectorizer] [32mPASSED[0m[31m [ 79%][0m
+test_text.py::test_callable_analyzer_error[filename-FileNotFoundError--HashingVectorizer] [32mPASSED[0m[31m [ 79%][0m
+test_text.py::test_callable_analyzer_error[file-AttributeError-'str' object has no attribute 'read'-CountVectorizer] [32mPASSED[0m[31m [ 80%][0m
+test_text.py::test_callable_analyzer_error[file-AttributeError-'str' object has no attribute 'read'-TfidfVectorizer] [32mPASSED[0m[31m [ 80%][0m
+test_text.py::test_callable_analyzer_error[file-AttributeError-'str' object has no attribute 'read'-HashingVectorizer] [32mPASSED[0m[31m [ 81%][0m
+test_text.py::test_callable_analyzer_change_behavior[file-<lambda>0-CountVectorizer] [32mPASSED[0m[31m [ 81%][0m
+test_text.py::test_callable_analyzer_change_behavior[file-<lambda>0-TfidfVectorizer] [32mPASSED[0m[31m [ 82%][0m
+test_text.py::test_callable_analyzer_change_behavior[file-<lambda>0-HashingVectorizer] [32mPASSED[0m[31m [ 82%][0m
+test_text.py::test_callable_analyzer_change_behavior[file-<lambda>1-CountVectorizer] [32mPASSED[0m[31m [ 83%][0m
+test_text.py::test_callable_analyzer_change_behavior[file-<lambda>1-TfidfVectorizer] [32mPASSED[0m[31m [ 83%][0m
+test_text.py::test_callable_analyzer_change_behavior[file-<lambda>1-HashingVectorizer] [32mPASSED[0m[31m [ 84%][0m
+test_text.py::test_callable_analyzer_change_behavior[filename-<lambda>0-CountVectorizer] [32mPASSED[0m[31m [ 84%][0m
+test_text.py::test_callable_analyzer_change_behavior[filename-<lambda>0-TfidfVectorizer] [32mPASSED[0m[31m [ 85%][0m
+test_text.py::test_callable_analyzer_change_behavior[filename-<lambda>0-HashingVectorizer] [32mPASSED[0m[31m [ 85%][0m
+test_text.py::test_callable_analyzer_change_behavior[filename-<lambda>1-CountVectorizer] [32mPASSED[0m[31m [ 86%][0m
+test_text.py::test_callable_analyzer_change_behavior[filename-<lambda>1-TfidfVectorizer] [32mPASSED[0m[31m [ 86%][0m
+test_text.py::test_callable_analyzer_change_behavior[filename-<lambda>1-HashingVectorizer] [32mPASSED[0m[31m [ 87%][0m
+test_text.py::test_callable_analyzer_reraise_error[CountVectorizer] [32mPASSED[0m[31m [ 87%][0m
+test_text.py::test_callable_analyzer_reraise_error[TfidfVectorizer] [32mPASSED[0m[31m [ 88%][0m
+test_text.py::test_callable_analyzer_reraise_error[HashingVectorizer] [32mPASSED[0m[31m [ 88%][0m
+test_text.py::test_unused_parameters_warn[stop_words0-None-None-ngram_range0-None-char-'stop_words'-'analyzer'-!= 'word'-CountVectorizer] [32mPASSED[0m[31m [ 89%][0m
+test_text.py::test_unused_parameters_warn[stop_words0-None-None-ngram_range0-None-char-'stop_words'-'analyzer'-!= 'word'-HashingVectorizer] [32mPASSED[0m[31m [ 89%][0m
+test_text.py::test_unused_parameters_warn[stop_words0-None-None-ngram_range0-None-char-'stop_words'-'analyzer'-!= 'word'-TfidfVectorizer] [32mPASSED[0m[31m [ 90%][0m
+test_text.py::test_unused_parameters_warn[None-<lambda>-None-ngram_range1-None-char-'tokenizer'-'analyzer'-!= 'word'-CountVectorizer] [32mPASSED[0m[31m [ 90%][0m
+test_text.py::test_unused_parameters_warn[None-<lambda>-None-ngram_range1-None-char-'tokenizer'-'analyzer'-!= 'word'-HashingVectorizer] [32mPASSED[0m[31m [ 91%][0m
+test_text.py::test_unused_parameters_warn[None-<lambda>-None-ngram_range1-None-char-'tokenizer'-'analyzer'-!= 'word'-TfidfVectorizer] [32mPASSED[0m[31m [ 91%][0m
+test_text.py::test_unused_parameters_warn[None-<lambda>-None-ngram_range2-\\w+-word-'token_pattern'-'tokenizer'-is not None-CountVectorizer] [32mPASSED[0m[31m [ 92%][0m
+test_text.py::test_unused_parameters_warn[None-<lambda>-None-ngram_range2-\\w+-word-'token_pattern'-'tokenizer'-is not None-HashingVectorizer] [32mPASSED[0m[31m [ 92%][0m
+test_text.py::test_unused_parameters_warn[None-<lambda>-None-ngram_range2-\\w+-word-'token_pattern'-'tokenizer'-is not None-TfidfVectorizer] [32mPASSED[0m[31m [ 93%][0m
+test_text.py::test_unused_parameters_warn[None-None-<lambda>-ngram_range3-\\w+-<lambda>-'preprocessor'-'analyzer'-is callable-CountVectorizer] [32mPASSED[0m[31m [ 93%][0m
+test_text.py::test_unused_parameters_warn[None-None-<lambda>-ngram_range3-\\w+-<lambda>-'preprocessor'-'analyzer'-is callable-HashingVectorizer] [32mPASSED[0m[31m [ 94%][0m
+test_text.py::test_unused_parameters_warn[None-None-<lambda>-ngram_range3-\\w+-<lambda>-'preprocessor'-'analyzer'-is callable-TfidfVectorizer] [32mPASSED[0m[31m [ 94%][0m
+test_text.py::test_unused_parameters_warn[None-None-None-ngram_range4-None-<lambda>-'ngram_range'-'analyzer'-is callable-CountVectorizer] [32mPASSED[0m[31m [ 95%][0m
+test_text.py::test_unused_parameters_warn[None-None-None-ngram_range4-None-<lambda>-'ngram_range'-'analyzer'-is callable-HashingVectorizer] [32mPASSED[0m[31m [ 95%][0m
+test_text.py::test_unused_parameters_warn[None-None-None-ngram_range4-None-<lambda>-'ngram_range'-'analyzer'-is callable-TfidfVectorizer] [32mPASSED[0m[31m [ 96%][0m
+test_text.py::test_unused_parameters_warn[None-None-None-ngram_range5-\\w+-char-'token_pattern'-'analyzer'-!= 'word'-CountVectorizer] [32mPASSED[0m[31m [ 96%][0m
+test_text.py::test_unused_parameters_warn[None-None-None-ngram_range5-\\w+-char-'token_pattern'-'analyzer'-!= 'word'-HashingVectorizer] [32mPASSED[0m[31m [ 97%][0m
+test_text.py::test_unused_parameters_warn[None-None-None-ngram_range5-\\w+-char-'token_pattern'-'analyzer'-!= 'word'-TfidfVectorizer] [32mPASSED[0m[31m [ 97%][0m
+test_text.py::test_n_features_in[HashingVectorizer-X0] [32mPASSED[0m[31m            [ 98%][0m
+test_text.py::test_n_features_in[CountVectorizer-X1] [32mPASSED[0m[31m              [ 98%][0m
+test_text.py::test_tie_breaking_sample_order_invariance [32mPASSED[0m[31m           [ 99%][0m
+test_text.py::test_get_feature_names_deprecated [32mPASSED[0m[31m                   [ 99%][0m
+test_text.py::test_nonnegative_hashing_vectorizer_result_indices [32mPASSED[0m[31m  [100%][0m
+
+=================================== FAILURES ===================================
+[31m[1m___________________________ test_tfidf_no_smoothing ____________________________[0m
+
+    def test_tfidf_no_smoothing():
+        X = [[1, 1, 1], [1, 1, 0], [1, 0, 0]]
+        tr = TfidfTransformer(smooth_idf=False, norm="l2")
+        tfidf = tr.fit_transform(X).toarray()
+        assert (tfidf >= 0).all()
+    
+        # check normalization
+        assert_array_almost_equal((tfidf**2).sum(axis=1), [1.0, 1.0, 1.0])
+    
+        # the lack of smoothing make IDF fragile in the presence of feature with
+        # only zeros
+        X = [[1, 1, 0], [1, 1, 0], [1, 0, 0]]
+        tr = TfidfTransformer(smooth_idf=False, norm="l2")
+    
+        in_warning_message = "divide by zero"
+>       with pytest.warns(RuntimeWarning, match=in_warning_message):
+[1m[31mE       Failed: DID NOT WARN. No warnings of type (<class 'RuntimeWarning'>,) were emitted. The list of emitted warnings is: [].[0m
+
+[1m[31m/lib/python3.10/site-packages/sklearn/feature_extraction/tests/test_text.py[0m:500: Failed
+[33m=============================== warnings summary ===============================[0m
+test_text.py::test_vectorizer_pipeline_grid_selection
+  /lib/python3.10/site-packages/sklearn/model_selection/_split.py:680: UserWarning: The least populated class in y has only 4 members, which is less than n_splits=5.
+    warnings.warn(
+
+test_text.py::test_vectorizer_stop_words_inconsistent
+test_text.py::test_vectorizer_stop_words_inconsistent
+test_text.py::test_vectorizer_stop_words_inconsistent
+  /lib/python3.10/site-packages/sklearn/feature_extraction/text.py:404: UserWarning: Your stop_words may be inconsistent with your preprocessing. Tokenizing the stop words generated tokens ['and', 'll', 've'] not in stop_words.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED test_text.py::test_tfidf_no_smoothing - Failed: DID NOT WARN. No warni...
+[31m============ [31m[1m1 failed[0m, [32m202 passed[0m, [33m1 skipped[0m, [33m4 warnings[0m[31m in 12.45s[0m[31m =============[0m

@@ -1,0 +1,540 @@
+(node:407017) ExperimentalWarning: Fetch is an experimental feature. This feature could change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+warning: no blob constructor, cannot create blobs with mimetypes
+warning: no BlobBuilder
+Loading distutils
+Loaded distutils
+Python initialization complete
+(node:407017) ExperimentalWarning: buffer.Blob is an experimental feature. This feature could change at any time
+distutils already loaded from default channel
+Loading micropip, pyparsing, packaging
+Loaded micropip, packaging, pyparsing
+distutils already loaded from default channel
+Loading scikit-learn, scipy, numpy, joblib, threadpoolctl, clapack
+Loaded clapack, joblib, threadpoolctl, numpy, scikit-learn, scipy
+distutils already loaded from default channel
+pyparsing already loaded from default channel
+Loading pytest, atomicwrites, attrs, six, more-itertools, pluggy, py, setuptools, iniconfig
+Loaded atomicwrites, attrs, pytest, six, more-itertools, pluggy, py, iniconfig, setuptools
+Loading tomli
+Loaded tomli
+pytest command: pytest.main("--pyargs sklearn.gaussian_process.tests -v".split())
+[1m============================= test session starts ==============================[0m
+platform emscripten -- Python 3.10.2, pytest-7.1.2, pluggy-1.0.0 -- 
+cachedir: .pytest_cache
+rootdir: /home/pyodide
+[1mcollecting ... [0m[1mcollecting 37 items                                                            [0m[1mcollected 432 items                                                            [0m
+
+test_gpc.py::test_predict_consistent[kernel0] [32mPASSED[0m[32m                     [  0%][0m
+test_gpc.py::test_predict_consistent[kernel1] [32mPASSED[0m[32m                     [  0%][0m
+test_gpc.py::test_predict_consistent[kernel2] [32mPASSED[0m[32m                     [  0%][0m
+test_gpc.py::test_predict_consistent[kernel3] [32mPASSED[0m[32m                     [  0%][0m
+test_gpc.py::test_predict_consistent_structured [32mPASSED[0m[33m                   [  1%][0m
+test_gpc.py::test_lml_improving[kernel0] [32mPASSED[0m[33m                          [  1%][0m
+test_gpc.py::test_lml_improving[kernel1] [32mPASSED[0m[33m                          [  1%][0m
+test_gpc.py::test_lml_improving[kernel2] [32mPASSED[0m[33m                          [  1%][0m
+test_gpc.py::test_lml_precomputed[kernel0] [32mPASSED[0m[33m                        [  2%][0m
+test_gpc.py::test_lml_precomputed[kernel1] [32mPASSED[0m[33m                        [  2%][0m
+test_gpc.py::test_lml_precomputed[kernel2] [32mPASSED[0m[33m                        [  2%][0m
+test_gpc.py::test_lml_precomputed[kernel3] [32mPASSED[0m[33m                        [  2%][0m
+test_gpc.py::test_lml_without_cloning_kernel[kernel0] [32mPASSED[0m[33m             [  3%][0m
+test_gpc.py::test_lml_without_cloning_kernel[kernel1] [32mPASSED[0m[33m             [  3%][0m
+test_gpc.py::test_lml_without_cloning_kernel[kernel2] [32mPASSED[0m[33m             [  3%][0m
+test_gpc.py::test_lml_without_cloning_kernel[kernel3] [32mPASSED[0m[33m             [  3%][0m
+test_gpc.py::test_converged_to_local_maximum[kernel0] [32mPASSED[0m[33m             [  3%][0m
+test_gpc.py::test_converged_to_local_maximum[kernel1] [32mPASSED[0m[33m             [  4%][0m
+test_gpc.py::test_converged_to_local_maximum[kernel2] [32mPASSED[0m[33m             [  4%][0m
+test_gpc.py::test_lml_gradient[kernel0] [32mPASSED[0m[33m                           [  4%][0m
+test_gpc.py::test_lml_gradient[kernel1] [32mPASSED[0m[33m                           [  4%][0m
+test_gpc.py::test_lml_gradient[kernel2] [32mPASSED[0m[33m                           [  5%][0m
+test_gpc.py::test_lml_gradient[kernel3] [32mPASSED[0m[33m                           [  5%][0m
+test_gpc.py::test_random_starts [32mPASSED[0m[33m                                   [  5%][0m
+test_gpc.py::test_custom_optimizer[kernel0] [32mPASSED[0m[33m                       [  5%][0m
+test_gpc.py::test_custom_optimizer[kernel1] [32mPASSED[0m[33m                       [  6%][0m
+test_gpc.py::test_custom_optimizer[kernel2] [32mPASSED[0m[33m                       [  6%][0m
+test_gpc.py::test_multi_class[kernel0] [32mPASSED[0m[33m                            [  6%][0m
+test_gpc.py::test_multi_class[kernel1] [32mPASSED[0m[33m                            [  6%][0m
+test_gpc.py::test_multi_class[kernel2] [32mPASSED[0m[33m                            [  6%][0m
+test_gpc.py::test_multi_class[kernel3] [32mPASSED[0m[33m                            [  7%][0m
+test_gpc.py::test_multi_class_n_jobs[kernel0] [32mPASSED[0m[33m                     [  7%][0m
+test_gpc.py::test_multi_class_n_jobs[kernel1] [32mPASSED[0m[33m                     [  7%][0m
+test_gpc.py::test_multi_class_n_jobs[kernel2] [32mPASSED[0m[33m                     [  7%][0m
+test_gpc.py::test_multi_class_n_jobs[kernel3] [32mPASSED[0m[33m                     [  8%][0m
+test_gpc.py::test_warning_bounds [32mPASSED[0m[33m                                  [  8%][0m
+test_gpc.py::test_gpc_fit_error[params0-ValueError-kernel cannot be a CompoundKernel] [32mPASSED[0m[33m [  8%][0m
+test_gpr.py::test_gpr_interpolation[kernel0] [33mXFAIL[0m (This test may fa...)[33m [  8%][0m
+test_gpr.py::test_gpr_interpolation[kernel1] [33mXFAIL[0m (This test may fa...)[33m [  9%][0m
+test_gpr.py::test_gpr_interpolation[kernel2] [33mXFAIL[0m (This test may fa...)[33m [  9%][0m
+test_gpr.py::test_gpr_interpolation[kernel3] [33mXFAIL[0m (This test may fa...)[33m [  9%][0m
+test_gpr.py::test_gpr_interpolation[kernel4] [33mXFAIL[0m (This test may fa...)[33m [  9%][0m
+test_gpr.py::test_gpr_interpolation[kernel5] [33mXFAIL[0m (This test may fa...)[33m [  9%][0m
+test_gpr.py::test_gpr_interpolation_structured [32mPASSED[0m[33m                    [ 10%][0m
+test_gpr.py::test_lml_improving[kernel0] [33mXFAIL[0m (This test may fail o...)[33m [ 10%][0m
+test_gpr.py::test_lml_improving[kernel1] [33mXFAIL[0m (This test may fail o...)[33m [ 10%][0m
+test_gpr.py::test_lml_improving[kernel2] [33mXFAIL[0m (This test may fail o...)[33m [ 10%][0m
+test_gpr.py::test_lml_improving[kernel3] [33mXFAIL[0m (This test may fail o...)[33m [ 11%][0m
+test_gpr.py::test_lml_improving[kernel4] [33mXFAIL[0m (This test may fail o...)[33m [ 11%][0m
+test_gpr.py::test_lml_precomputed[kernel0] [32mPASSED[0m[33m                        [ 11%][0m
+test_gpr.py::test_lml_precomputed[kernel1] [32mPASSED[0m[33m                        [ 11%][0m
+test_gpr.py::test_lml_precomputed[kernel2] [32mPASSED[0m[33m                        [ 12%][0m
+test_gpr.py::test_lml_precomputed[kernel3] [32mPASSED[0m[33m                        [ 12%][0m
+test_gpr.py::test_lml_precomputed[kernel4] [32mPASSED[0m[33m                        [ 12%][0m
+test_gpr.py::test_lml_precomputed[kernel5] [32mPASSED[0m[33m                        [ 12%][0m
+test_gpr.py::test_lml_without_cloning_kernel[kernel0] [32mPASSED[0m[33m             [ 12%][0m
+test_gpr.py::test_lml_without_cloning_kernel[kernel1] [32mPASSED[0m[33m             [ 13%][0m
+test_gpr.py::test_lml_without_cloning_kernel[kernel2] [32mPASSED[0m[33m             [ 13%][0m
+test_gpr.py::test_lml_without_cloning_kernel[kernel3] [32mPASSED[0m[33m             [ 13%][0m
+test_gpr.py::test_lml_without_cloning_kernel[kernel4] [32mPASSED[0m[33m             [ 13%][0m
+test_gpr.py::test_lml_without_cloning_kernel[kernel5] [32mPASSED[0m[33m             [ 14%][0m
+test_gpr.py::test_converged_to_local_maximum[kernel0] [32mPASSED[0m[33m             [ 14%][0m
+test_gpr.py::test_converged_to_local_maximum[kernel1] [32mPASSED[0m[33m             [ 14%][0m
+test_gpr.py::test_converged_to_local_maximum[kernel2] [32mPASSED[0m[33m             [ 14%][0m
+test_gpr.py::test_converged_to_local_maximum[kernel3] [32mPASSED[0m[33m             [ 15%][0m
+test_gpr.py::test_converged_to_local_maximum[kernel4] [32mPASSED[0m[33m             [ 15%][0m
+test_gpr.py::test_solution_inside_bounds[kernel0] [32mPASSED[0m[33m                 [ 15%][0m
+test_gpr.py::test_solution_inside_bounds[kernel1] [32mPASSED[0m[33m                 [ 15%][0m
+test_gpr.py::test_solution_inside_bounds[kernel2] [32mPASSED[0m[33m                 [ 15%][0m
+test_gpr.py::test_solution_inside_bounds[kernel3] [32mPASSED[0m[33m                 [ 16%][0m
+test_gpr.py::test_solution_inside_bounds[kernel4] [32mPASSED[0m[33m                 [ 16%][0m
+test_gpr.py::test_lml_gradient[kernel0] [32mPASSED[0m[33m                           [ 16%][0m
+test_gpr.py::test_lml_gradient[kernel1] [32mPASSED[0m[33m                           [ 16%][0m
+test_gpr.py::test_lml_gradient[kernel2] [32mPASSED[0m[33m                           [ 17%][0m
+test_gpr.py::test_lml_gradient[kernel3] [32mPASSED[0m[33m                           [ 17%][0m
+test_gpr.py::test_lml_gradient[kernel4] [32mPASSED[0m[33m                           [ 17%][0m
+test_gpr.py::test_lml_gradient[kernel5] [32mPASSED[0m[33m                           [ 17%][0m
+test_gpr.py::test_prior[kernel0] [32mPASSED[0m[33m                                  [ 18%][0m
+test_gpr.py::test_prior[kernel1] [32mPASSED[0m[33m                                  [ 18%][0m
+test_gpr.py::test_prior[kernel2] [32mPASSED[0m[33m                                  [ 18%][0m
+test_gpr.py::test_prior[kernel3] [32mPASSED[0m[33m                                  [ 18%][0m
+test_gpr.py::test_prior[kernel4] [32mPASSED[0m[33m                                  [ 18%][0m
+test_gpr.py::test_prior[kernel5] [32mPASSED[0m[33m                                  [ 19%][0m
+test_gpr.py::test_sample_statistics[kernel0] [32mPASSED[0m[33m                      [ 19%][0m
+test_gpr.py::test_sample_statistics[kernel1] [32mPASSED[0m[33m                      [ 19%][0m
+test_gpr.py::test_sample_statistics[kernel2] [32mPASSED[0m[33m                      [ 19%][0m
+test_gpr.py::test_sample_statistics[kernel3] [32mPASSED[0m[33m                      [ 20%][0m
+test_gpr.py::test_sample_statistics[kernel4] [32mPASSED[0m[33m                      [ 20%][0m
+test_gpr.py::test_sample_statistics[kernel5] [32mPASSED[0m[33m                      [ 20%][0m
+test_gpr.py::test_no_optimizer [32mPASSED[0m[33m                                    [ 20%][0m
+test_gpr.py::test_predict_cov_vs_std[target0-kernel0] [33mXFAIL[0m (This te...)[33m [ 21%][0m
+test_gpr.py::test_predict_cov_vs_std[target0-kernel1] [33mXFAIL[0m (This te...)[33m [ 21%][0m
+test_gpr.py::test_predict_cov_vs_std[target0-kernel2] [33mXFAIL[0m (This te...)[33m [ 21%][0m
+test_gpr.py::test_predict_cov_vs_std[target0-kernel3] [33mXFAIL[0m (This te...)[33m [ 21%][0m
+test_gpr.py::test_predict_cov_vs_std[target0-kernel4] [33mXFAIL[0m (This te...)[33m [ 21%][0m
+test_gpr.py::test_predict_cov_vs_std[target0-kernel5] [33mXFAIL[0m (This te...)[33m [ 22%][0m
+test_gpr.py::test_predict_cov_vs_std[target1-kernel0] [33mXFAIL[0m (This te...)[33m [ 22%][0m
+test_gpr.py::test_predict_cov_vs_std[target1-kernel1] [33mXFAIL[0m (This te...)[33m [ 22%][0m
+test_gpr.py::test_predict_cov_vs_std[target1-kernel2] [33mXFAIL[0m (This te...)[33m [ 22%][0m
+test_gpr.py::test_predict_cov_vs_std[target1-kernel3] [33mXFAIL[0m (This te...)[33m [ 23%][0m
+test_gpr.py::test_predict_cov_vs_std[target1-kernel4] [33mXFAIL[0m (This te...)[33m [ 23%][0m
+test_gpr.py::test_predict_cov_vs_std[target1-kernel5] [33mXFAIL[0m (This te...)[33m [ 23%][0m
+test_gpr.py::test_anisotropic_kernel [32mPASSED[0m[33m                              [ 23%][0m
+test_gpr.py::test_random_starts [32mPASSED[0m[33m                                   [ 24%][0m
+test_gpr.py::test_y_normalization[kernel0] [32mPASSED[0m[33m                        [ 24%][0m
+test_gpr.py::test_y_normalization[kernel1] [32mPASSED[0m[33m                        [ 24%][0m
+test_gpr.py::test_y_normalization[kernel2] [32mPASSED[0m[33m                        [ 24%][0m
+test_gpr.py::test_y_normalization[kernel3] [32mPASSED[0m[33m                        [ 25%][0m
+test_gpr.py::test_y_normalization[kernel4] [32mPASSED[0m[33m                        [ 25%][0m
+test_gpr.py::test_y_normalization[kernel5] [32mPASSED[0m[33m                        [ 25%][0m
+test_gpr.py::test_large_variance_y [32mPASSED[0m[33m                                [ 25%][0m
+test_gpr.py::test_y_multioutput [32mPASSED[0m[33m                                   [ 25%][0m
+test_gpr.py::test_custom_optimizer[kernel0] [32mPASSED[0m[33m                       [ 26%][0m
+test_gpr.py::test_custom_optimizer[kernel1] [32mPASSED[0m[33m                       [ 26%][0m
+test_gpr.py::test_custom_optimizer[kernel2] [32mPASSED[0m[33m                       [ 26%][0m
+test_gpr.py::test_custom_optimizer[kernel3] [32mPASSED[0m[33m                       [ 26%][0m
+test_gpr.py::test_custom_optimizer[kernel4] [32mPASSED[0m[33m                       [ 27%][0m
+test_gpr.py::test_gpr_correct_error_message [32mPASSED[0m[33m                       [ 27%][0m
+test_gpr.py::test_duplicate_input[kernel0] [32mPASSED[0m[33m                        [ 27%][0m
+test_gpr.py::test_duplicate_input[kernel1] [32mPASSED[0m[33m                        [ 27%][0m
+test_gpr.py::test_duplicate_input[kernel2] [32mPASSED[0m[33m                        [ 28%][0m
+test_gpr.py::test_duplicate_input[kernel3] [32mPASSED[0m[33m                        [ 28%][0m
+test_gpr.py::test_duplicate_input[kernel4] [32mPASSED[0m[33m                        [ 28%][0m
+test_gpr.py::test_duplicate_input[kernel5] [32mPASSED[0m[33m                        [ 28%][0m
+test_gpr.py::test_no_fit_default_predict [32mPASSED[0m[33m                          [ 28%][0m
+test_gpr.py::test_warning_bounds [32mPASSED[0m[33m                                  [ 29%][0m
+test_gpr.py::test_bound_check_fixed_hyperparameter [32mPASSED[0m[33m                [ 29%][0m
+test_gpr.py::test_constant_target[kernel0] [32mPASSED[0m[33m                        [ 29%][0m
+test_gpr.py::test_constant_target[kernel1] [32mPASSED[0m[33m                        [ 29%][0m
+test_gpr.py::test_constant_target[kernel2] [32mPASSED[0m[33m                        [ 30%][0m
+test_gpr.py::test_constant_target[kernel3] [32mPASSED[0m[33m                        [ 30%][0m
+test_gpr.py::test_constant_target[kernel4] [32mPASSED[0m[33m                        [ 30%][0m
+test_gpr.py::test_constant_target[kernel5] [32mPASSED[0m[33m                        [ 30%][0m
+test_gpr.py::test_gpr_consistency_std_cov_non_invertible_kernel [32mPASSED[0m[33m   [ 31%][0m
+test_gpr.py::test_gpr_fit_error[params0-ValueError-Unknown optimizer] [32mPASSED[0m[33m [ 31%][0m
+test_gpr.py::test_gpr_fit_error[params1-ValueError-alpha must be a scalar or an array] [32mPASSED[0m[33m [ 31%][0m
+test_gpr.py::test_gpr_fit_error[params2-ValueError-requires that all bounds are finite] [32mPASSED[0m[33m [ 31%][0m
+test_gpr.py::test_gpr_lml_error [32mPASSED[0m[33m                                   [ 31%][0m
+test_gpr.py::test_gpr_predict_error [32mPASSED[0m[33m                               [ 32%][0m
+test_gpr.py::test_predict_shapes[None-True] [32mPASSED[0m[33m                       [ 32%][0m
+test_gpr.py::test_predict_shapes[None-False] [32mPASSED[0m[33m                      [ 32%][0m
+test_gpr.py::test_predict_shapes[1-True] [32mPASSED[0m[33m                          [ 32%][0m
+test_gpr.py::test_predict_shapes[1-False] [32mPASSED[0m[33m                         [ 33%][0m
+test_gpr.py::test_predict_shapes[10-True] [32mPASSED[0m[33m                         [ 33%][0m
+test_gpr.py::test_predict_shapes[10-False] [32mPASSED[0m[33m                        [ 33%][0m
+test_gpr.py::test_sample_y_shapes[None-True] [32mPASSED[0m[33m                      [ 33%][0m
+test_gpr.py::test_sample_y_shapes[None-False] [32mPASSED[0m[33m                     [ 34%][0m
+test_gpr.py::test_sample_y_shapes[1-True] [32mPASSED[0m[33m                         [ 34%][0m
+test_gpr.py::test_sample_y_shapes[1-False] [32mPASSED[0m[33m                        [ 34%][0m
+test_gpr.py::test_sample_y_shapes[10-True] [32mPASSED[0m[33m                        [ 34%][0m
+test_gpr.py::test_sample_y_shapes[10-False] [32mPASSED[0m[33m                       [ 34%][0m
+test_kernels.py::test_kernel_gradient[kernel0] [32mPASSED[0m[33m                    [ 35%][0m
+test_kernels.py::test_kernel_gradient[kernel1] [32mPASSED[0m[33m                    [ 35%][0m
+test_kernels.py::test_kernel_gradient[kernel2] [32mPASSED[0m[33m                    [ 35%][0m
+test_kernels.py::test_kernel_gradient[kernel3] [32mPASSED[0m[33m                    [ 35%][0m
+test_kernels.py::test_kernel_gradient[kernel4] [32mPASSED[0m[33m                    [ 36%][0m
+test_kernels.py::test_kernel_gradient[kernel5] [32mPASSED[0m[33m                    [ 36%][0m
+test_kernels.py::test_kernel_gradient[kernel6] [32mPASSED[0m[33m                    [ 36%][0m
+test_kernels.py::test_kernel_gradient[kernel7] [32mPASSED[0m[33m                    [ 36%][0m
+test_kernels.py::test_kernel_gradient[kernel8] [32mPASSED[0m[33m                    [ 37%][0m
+test_kernels.py::test_kernel_gradient[kernel9] [32mPASSED[0m[33m                    [ 37%][0m
+test_kernels.py::test_kernel_gradient[kernel10] [32mPASSED[0m[33m                   [ 37%][0m
+test_kernels.py::test_kernel_gradient[kernel11] [32mPASSED[0m[33m                   [ 37%][0m
+test_kernels.py::test_kernel_gradient[kernel12] [32mPASSED[0m[33m                   [ 37%][0m
+test_kernels.py::test_kernel_gradient[kernel13] [32mPASSED[0m[33m                   [ 38%][0m
+test_kernels.py::test_kernel_gradient[kernel14] [32mPASSED[0m[33m                   [ 38%][0m
+test_kernels.py::test_kernel_gradient[kernel15] [32mPASSED[0m[33m                   [ 38%][0m
+test_kernels.py::test_kernel_gradient[kernel16] [32mPASSED[0m[33m                   [ 38%][0m
+test_kernels.py::test_kernel_gradient[kernel17] [32mPASSED[0m[33m                   [ 39%][0m
+test_kernels.py::test_kernel_gradient[kernel18] [32mPASSED[0m[33m                   [ 39%][0m
+test_kernels.py::test_kernel_gradient[kernel19] [32mPASSED[0m[33m                   [ 39%][0m
+test_kernels.py::test_kernel_gradient[kernel20] [32mPASSED[0m[33m                   [ 39%][0m
+test_kernels.py::test_kernel_gradient[kernel21] [32mPASSED[0m[33m                   [ 40%][0m
+test_kernels.py::test_kernel_gradient[kernel22] [32mPASSED[0m[33m                   [ 40%][0m
+test_kernels.py::test_kernel_gradient[kernel23] [32mPASSED[0m[33m                   [ 40%][0m
+test_kernels.py::test_kernel_gradient[kernel24] [32mPASSED[0m[33m                   [ 40%][0m
+test_kernels.py::test_kernel_gradient[kernel25] [32mPASSED[0m[33m                   [ 40%][0m
+test_kernels.py::test_kernel_gradient[kernel26] [32mPASSED[0m[33m                   [ 41%][0m
+test_kernels.py::test_kernel_theta[kernel0] [32mPASSED[0m[33m                       [ 41%][0m
+test_kernels.py::test_kernel_theta[kernel1] [32mPASSED[0m[33m                       [ 41%][0m
+test_kernels.py::test_kernel_theta[kernel2] [32mPASSED[0m[33m                       [ 41%][0m
+test_kernels.py::test_kernel_theta[kernel3] [32mPASSED[0m[33m                       [ 42%][0m
+test_kernels.py::test_kernel_theta[kernel4] [32mPASSED[0m[33m                       [ 42%][0m
+test_kernels.py::test_kernel_theta[kernel5] [32mPASSED[0m[33m                       [ 42%][0m
+test_kernels.py::test_kernel_theta[kernel6] [32mPASSED[0m[33m                       [ 42%][0m
+test_kernels.py::test_kernel_theta[kernel7] [32mPASSED[0m[33m                       [ 43%][0m
+test_kernels.py::test_kernel_theta[kernel8] [32mPASSED[0m[33m                       [ 43%][0m
+test_kernels.py::test_kernel_theta[kernel9] [32mPASSED[0m[33m                       [ 43%][0m
+test_kernels.py::test_kernel_theta[kernel10] [32mPASSED[0m[33m                      [ 43%][0m
+test_kernels.py::test_kernel_theta[kernel11] [32mPASSED[0m[33m                      [ 43%][0m
+test_kernels.py::test_kernel_theta[kernel12] [32mPASSED[0m[33m                      [ 44%][0m
+test_kernels.py::test_kernel_theta[kernel13] [32mPASSED[0m[33m                      [ 44%][0m
+test_kernels.py::test_kernel_theta[kernel14] [32mPASSED[0m[33m                      [ 44%][0m
+test_kernels.py::test_auto_vs_cross[kernel0] [32mPASSED[0m[33m                      [ 44%][0m
+test_kernels.py::test_auto_vs_cross[kernel1] [32mPASSED[0m[33m                      [ 45%][0m
+test_kernels.py::test_auto_vs_cross[kernel2] [32mPASSED[0m[33m                      [ 45%][0m
+test_kernels.py::test_auto_vs_cross[kernel3] [32mPASSED[0m[33m                      [ 45%][0m
+test_kernels.py::test_auto_vs_cross[kernel4] [32mPASSED[0m[33m                      [ 45%][0m
+test_kernels.py::test_auto_vs_cross[kernel5] [32mPASSED[0m[33m                      [ 46%][0m
+test_kernels.py::test_auto_vs_cross[kernel6] [32mPASSED[0m[33m                      [ 46%][0m
+test_kernels.py::test_auto_vs_cross[kernel7] [32mPASSED[0m[33m                      [ 46%][0m
+test_kernels.py::test_auto_vs_cross[kernel8] [32mPASSED[0m[33m                      [ 46%][0m
+test_kernels.py::test_auto_vs_cross[kernel9] [32mPASSED[0m[33m                      [ 46%][0m
+test_kernels.py::test_auto_vs_cross[kernel10] [32mPASSED[0m[33m                     [ 47%][0m
+test_kernels.py::test_auto_vs_cross[kernel11] [32mPASSED[0m[33m                     [ 47%][0m
+test_kernels.py::test_auto_vs_cross[kernel12] [32mPASSED[0m[33m                     [ 47%][0m
+test_kernels.py::test_auto_vs_cross[kernel13] [32mPASSED[0m[33m                     [ 47%][0m
+test_kernels.py::test_auto_vs_cross[kernel14] [32mPASSED[0m[33m                     [ 48%][0m
+test_kernels.py::test_auto_vs_cross[kernel15] [32mPASSED[0m[33m                     [ 48%][0m
+test_kernels.py::test_auto_vs_cross[kernel16] [32mPASSED[0m[33m                     [ 48%][0m
+test_kernels.py::test_auto_vs_cross[kernel17] [32mPASSED[0m[33m                     [ 48%][0m
+test_kernels.py::test_auto_vs_cross[kernel18] [32mPASSED[0m[33m                     [ 49%][0m
+test_kernels.py::test_auto_vs_cross[kernel19] [32mPASSED[0m[33m                     [ 49%][0m
+test_kernels.py::test_auto_vs_cross[kernel20] [32mPASSED[0m[33m                     [ 49%][0m
+test_kernels.py::test_auto_vs_cross[kernel21] [32mPASSED[0m[33m                     [ 49%][0m
+test_kernels.py::test_auto_vs_cross[kernel22] [32mPASSED[0m[33m                     [ 50%][0m
+test_kernels.py::test_auto_vs_cross[kernel23] [32mPASSED[0m[33m                     [ 50%][0m
+test_kernels.py::test_auto_vs_cross[kernel24] [32mPASSED[0m[33m                     [ 50%][0m
+test_kernels.py::test_auto_vs_cross[kernel25] [32mPASSED[0m[33m                     [ 50%][0m
+test_kernels.py::test_kernel_diag[kernel0] [32mPASSED[0m[33m                        [ 50%][0m
+test_kernels.py::test_kernel_diag[kernel1] [32mPASSED[0m[33m                        [ 51%][0m
+test_kernels.py::test_kernel_diag[kernel2] [32mPASSED[0m[33m                        [ 51%][0m
+test_kernels.py::test_kernel_diag[kernel3] [32mPASSED[0m[33m                        [ 51%][0m
+test_kernels.py::test_kernel_diag[kernel4] [32mPASSED[0m[33m                        [ 51%][0m
+test_kernels.py::test_kernel_diag[kernel5] [32mPASSED[0m[33m                        [ 52%][0m
+test_kernels.py::test_kernel_diag[kernel6] [32mPASSED[0m[33m                        [ 52%][0m
+test_kernels.py::test_kernel_diag[kernel7] [32mPASSED[0m[33m                        [ 52%][0m
+test_kernels.py::test_kernel_diag[kernel8] [32mPASSED[0m[33m                        [ 52%][0m
+test_kernels.py::test_kernel_diag[kernel9] [32mPASSED[0m[33m                        [ 53%][0m
+test_kernels.py::test_kernel_diag[kernel10] [32mPASSED[0m[33m                       [ 53%][0m
+test_kernels.py::test_kernel_diag[kernel11] [32mPASSED[0m[33m                       [ 53%][0m
+test_kernels.py::test_kernel_diag[kernel12] [32mPASSED[0m[33m                       [ 53%][0m
+test_kernels.py::test_kernel_diag[kernel13] [32mPASSED[0m[33m                       [ 53%][0m
+test_kernels.py::test_kernel_diag[kernel14] [32mPASSED[0m[33m                       [ 54%][0m
+test_kernels.py::test_kernel_diag[kernel15] [32mPASSED[0m[33m                       [ 54%][0m
+test_kernels.py::test_kernel_diag[kernel16] [32mPASSED[0m[33m                       [ 54%][0m
+test_kernels.py::test_kernel_diag[kernel17] [32mPASSED[0m[33m                       [ 54%][0m
+test_kernels.py::test_kernel_diag[kernel18] [32mPASSED[0m[33m                       [ 55%][0m
+test_kernels.py::test_kernel_diag[kernel19] [32mPASSED[0m[33m                       [ 55%][0m
+test_kernels.py::test_kernel_diag[kernel20] [32mPASSED[0m[33m                       [ 55%][0m
+test_kernels.py::test_kernel_diag[kernel21] [32mPASSED[0m[33m                       [ 55%][0m
+test_kernels.py::test_kernel_diag[kernel22] [32mPASSED[0m[33m                       [ 56%][0m
+test_kernels.py::test_kernel_diag[kernel23] [32mPASSED[0m[33m                       [ 56%][0m
+test_kernels.py::test_kernel_diag[kernel24] [32mPASSED[0m[33m                       [ 56%][0m
+test_kernels.py::test_kernel_diag[kernel25] [32mPASSED[0m[33m                       [ 56%][0m
+test_kernels.py::test_kernel_diag[kernel26] [32mPASSED[0m[33m                       [ 56%][0m
+test_kernels.py::test_kernel_operator_commutative [32mPASSED[0m[33m                 [ 57%][0m
+test_kernels.py::test_kernel_anisotropic [32mPASSED[0m[33m                          [ 57%][0m
+test_kernels.py::test_kernel_stationary[kernel0] [32mPASSED[0m[33m                  [ 57%][0m
+test_kernels.py::test_kernel_stationary[kernel1] [32mPASSED[0m[33m                  [ 57%][0m
+test_kernels.py::test_kernel_stationary[kernel2] [32mPASSED[0m[33m                  [ 58%][0m
+test_kernels.py::test_kernel_stationary[kernel3] [32mPASSED[0m[33m                  [ 58%][0m
+test_kernels.py::test_kernel_stationary[kernel4] [32mPASSED[0m[33m                  [ 58%][0m
+test_kernels.py::test_kernel_stationary[kernel5] [32mPASSED[0m[33m                  [ 58%][0m
+test_kernels.py::test_kernel_stationary[kernel6] [32mPASSED[0m[33m                  [ 59%][0m
+test_kernels.py::test_kernel_stationary[kernel7] [32mPASSED[0m[33m                  [ 59%][0m
+test_kernels.py::test_kernel_stationary[kernel8] [32mPASSED[0m[33m                  [ 59%][0m
+test_kernels.py::test_kernel_stationary[kernel9] [32mPASSED[0m[33m                  [ 59%][0m
+test_kernels.py::test_kernel_stationary[kernel10] [32mPASSED[0m[33m                 [ 59%][0m
+test_kernels.py::test_kernel_stationary[kernel11] [32mPASSED[0m[33m                 [ 60%][0m
+test_kernels.py::test_kernel_stationary[kernel12] [32mPASSED[0m[33m                 [ 60%][0m
+test_kernels.py::test_kernel_stationary[kernel13] [32mPASSED[0m[33m                 [ 60%][0m
+test_kernels.py::test_kernel_stationary[kernel14] [32mPASSED[0m[33m                 [ 60%][0m
+test_kernels.py::test_kernel_stationary[kernel15] [32mPASSED[0m[33m                 [ 61%][0m
+test_kernels.py::test_kernel_stationary[kernel16] [32mPASSED[0m[33m                 [ 61%][0m
+test_kernels.py::test_kernel_stationary[kernel17] [32mPASSED[0m[33m                 [ 61%][0m
+test_kernels.py::test_kernel_stationary[kernel18] [32mPASSED[0m[33m                 [ 61%][0m
+test_kernels.py::test_kernel_input_type[kernel0] [32mPASSED[0m[33m                  [ 62%][0m
+test_kernels.py::test_kernel_input_type[kernel1] [32mPASSED[0m[33m                  [ 62%][0m
+test_kernels.py::test_kernel_input_type[kernel2] [32mPASSED[0m[33m                  [ 62%][0m
+test_kernels.py::test_kernel_input_type[kernel3] [32mPASSED[0m[33m                  [ 62%][0m
+test_kernels.py::test_kernel_input_type[kernel4] [32mPASSED[0m[33m                  [ 62%][0m
+test_kernels.py::test_kernel_input_type[kernel5] [32mPASSED[0m[33m                  [ 63%][0m
+test_kernels.py::test_kernel_input_type[kernel6] [32mPASSED[0m[33m                  [ 63%][0m
+test_kernels.py::test_kernel_input_type[kernel7] [32mPASSED[0m[33m                  [ 63%][0m
+test_kernels.py::test_kernel_input_type[kernel8] [32mPASSED[0m[33m                  [ 63%][0m
+test_kernels.py::test_kernel_input_type[kernel9] [32mPASSED[0m[33m                  [ 64%][0m
+test_kernels.py::test_kernel_input_type[kernel10] [32mPASSED[0m[33m                 [ 64%][0m
+test_kernels.py::test_kernel_input_type[kernel11] [32mPASSED[0m[33m                 [ 64%][0m
+test_kernels.py::test_kernel_input_type[kernel12] [32mPASSED[0m[33m                 [ 64%][0m
+test_kernels.py::test_kernel_input_type[kernel13] [32mPASSED[0m[33m                 [ 65%][0m
+test_kernels.py::test_kernel_input_type[kernel14] [32mPASSED[0m[33m                 [ 65%][0m
+test_kernels.py::test_kernel_input_type[kernel15] [32mPASSED[0m[33m                 [ 65%][0m
+test_kernels.py::test_kernel_input_type[kernel16] [32mPASSED[0m[33m                 [ 65%][0m
+test_kernels.py::test_kernel_input_type[kernel17] [32mPASSED[0m[33m                 [ 65%][0m
+test_kernels.py::test_kernel_input_type[kernel18] [32mPASSED[0m[33m                 [ 66%][0m
+test_kernels.py::test_kernel_input_type[kernel19] [32mPASSED[0m[33m                 [ 66%][0m
+test_kernels.py::test_kernel_input_type[kernel20] [32mPASSED[0m[33m                 [ 66%][0m
+test_kernels.py::test_kernel_input_type[kernel21] [32mPASSED[0m[33m                 [ 66%][0m
+test_kernels.py::test_kernel_input_type[kernel22] [32mPASSED[0m[33m                 [ 67%][0m
+test_kernels.py::test_kernel_input_type[kernel23] [32mPASSED[0m[33m                 [ 67%][0m
+test_kernels.py::test_kernel_input_type[kernel24] [32mPASSED[0m[33m                 [ 67%][0m
+test_kernels.py::test_kernel_input_type[kernel25] [32mPASSED[0m[33m                 [ 67%][0m
+test_kernels.py::test_kernel_input_type[kernel26] [32mPASSED[0m[33m                 [ 68%][0m
+test_kernels.py::test_compound_kernel_input_type [32mPASSED[0m[33m                  [ 68%][0m
+test_kernels.py::test_kernel_clone[kernel0] [32mPASSED[0m[33m                       [ 68%][0m
+test_kernels.py::test_kernel_clone[kernel1] [32mPASSED[0m[33m                       [ 68%][0m
+test_kernels.py::test_kernel_clone[kernel2] [32mPASSED[0m[33m                       [ 68%][0m
+test_kernels.py::test_kernel_clone[kernel3] [32mPASSED[0m[33m                       [ 69%][0m
+test_kernels.py::test_kernel_clone[kernel4] [32mPASSED[0m[33m                       [ 69%][0m
+test_kernels.py::test_kernel_clone[kernel5] [32mPASSED[0m[33m                       [ 69%][0m
+test_kernels.py::test_kernel_clone[kernel6] [32mPASSED[0m[33m                       [ 69%][0m
+test_kernels.py::test_kernel_clone[kernel7] [32mPASSED[0m[33m                       [ 70%][0m
+test_kernels.py::test_kernel_clone[kernel8] [32mPASSED[0m[33m                       [ 70%][0m
+test_kernels.py::test_kernel_clone[kernel9] [32mPASSED[0m[33m                       [ 70%][0m
+test_kernels.py::test_kernel_clone[kernel10] [32mPASSED[0m[33m                      [ 70%][0m
+test_kernels.py::test_kernel_clone[kernel11] [32mPASSED[0m[33m                      [ 71%][0m
+test_kernels.py::test_kernel_clone[kernel12] [32mPASSED[0m[33m                      [ 71%][0m
+test_kernels.py::test_kernel_clone[kernel13] [32mPASSED[0m[33m                      [ 71%][0m
+test_kernels.py::test_kernel_clone[kernel14] [32mPASSED[0m[33m                      [ 71%][0m
+test_kernels.py::test_kernel_clone[kernel15] [32mPASSED[0m[33m                      [ 71%][0m
+test_kernels.py::test_kernel_clone[kernel16] [32mPASSED[0m[33m                      [ 72%][0m
+test_kernels.py::test_kernel_clone[kernel17] [32mPASSED[0m[33m                      [ 72%][0m
+test_kernels.py::test_kernel_clone[kernel18] [32mPASSED[0m[33m                      [ 72%][0m
+test_kernels.py::test_kernel_clone[kernel19] [32mPASSED[0m[33m                      [ 72%][0m
+test_kernels.py::test_kernel_clone[kernel20] [32mPASSED[0m[33m                      [ 73%][0m
+test_kernels.py::test_kernel_clone[kernel21] [32mPASSED[0m[33m                      [ 73%][0m
+test_kernels.py::test_kernel_clone[kernel22] [32mPASSED[0m[33m                      [ 73%][0m
+test_kernels.py::test_kernel_clone[kernel23] [32mPASSED[0m[33m                      [ 73%][0m
+test_kernels.py::test_kernel_clone[kernel24] [32mPASSED[0m[33m                      [ 74%][0m
+test_kernels.py::test_kernel_clone[kernel25] [32mPASSED[0m[33m                      [ 74%][0m
+test_kernels.py::test_kernel_clone[kernel26] [32mPASSED[0m[33m                      [ 74%][0m
+test_kernels.py::test_kernel_clone_after_set_params[kernel0] [32mPASSED[0m[33m      [ 74%][0m
+test_kernels.py::test_kernel_clone_after_set_params[kernel1] [32mPASSED[0m[33m      [ 75%][0m
+test_kernels.py::test_kernel_clone_after_set_params[kernel2] [32mPASSED[0m[33m      [ 75%][0m
+test_kernels.py::test_kernel_clone_after_set_params[kernel3] [32mPASSED[0m[33m      [ 75%][0m
+test_kernels.py::test_kernel_clone_after_set_params[kernel4] [32mPASSED[0m[33m      [ 75%][0m
+test_kernels.py::test_kernel_clone_after_set_params[kernel5] [32mPASSED[0m[33m      [ 75%][0m
+test_kernels.py::test_kernel_clone_after_set_params[kernel6] [32mPASSED[0m[33m      [ 76%][0m
+test_kernels.py::test_kernel_clone_after_set_params[kernel7] [32mPASSED[0m[33m      [ 76%][0m
+test_kernels.py::test_kernel_clone_after_set_params[kernel8] [32mPASSED[0m[33m      [ 76%][0m
+test_kernels.py::test_kernel_clone_after_set_params[kernel9] [32mPASSED[0m[33m      [ 76%][0m
+test_kernels.py::test_kernel_clone_after_set_params[kernel10] [32mPASSED[0m[33m     [ 77%][0m
+test_kernels.py::test_kernel_clone_after_set_params[kernel11] [32mPASSED[0m[33m     [ 77%][0m
+test_kernels.py::test_kernel_clone_after_set_params[kernel12] [32mPASSED[0m[33m     [ 77%][0m
+test_kernels.py::test_kernel_clone_after_set_params[kernel13] [32mPASSED[0m[33m     [ 77%][0m
+test_kernels.py::test_kernel_clone_after_set_params[kernel14] [32mPASSED[0m[33m     [ 78%][0m
+test_kernels.py::test_kernel_clone_after_set_params[kernel15] [32mPASSED[0m[33m     [ 78%][0m
+test_kernels.py::test_kernel_clone_after_set_params[kernel16] [32mPASSED[0m[33m     [ 78%][0m
+test_kernels.py::test_kernel_clone_after_set_params[kernel17] [32mPASSED[0m[33m     [ 78%][0m
+test_kernels.py::test_kernel_clone_after_set_params[kernel18] [32mPASSED[0m[33m     [ 78%][0m
+test_kernels.py::test_kernel_clone_after_set_params[kernel19] [32mPASSED[0m[33m     [ 79%][0m
+test_kernels.py::test_kernel_clone_after_set_params[kernel20] [32mPASSED[0m[33m     [ 79%][0m
+test_kernels.py::test_kernel_clone_after_set_params[kernel21] [32mPASSED[0m[33m     [ 79%][0m
+test_kernels.py::test_kernel_clone_after_set_params[kernel22] [32mPASSED[0m[33m     [ 79%][0m
+test_kernels.py::test_kernel_clone_after_set_params[kernel23] [32mPASSED[0m[33m     [ 80%][0m
+test_kernels.py::test_kernel_clone_after_set_params[kernel24] [32mPASSED[0m[33m     [ 80%][0m
+test_kernels.py::test_kernel_clone_after_set_params[kernel25] [32mPASSED[0m[33m     [ 80%][0m
+test_kernels.py::test_kernel_clone_after_set_params[kernel26] [32mPASSED[0m[33m     [ 80%][0m
+test_kernels.py::test_matern_kernel [32mPASSED[0m[33m                               [ 81%][0m
+test_kernels.py::test_kernel_versus_pairwise[kernel0] [32mPASSED[0m[33m             [ 81%][0m
+test_kernels.py::test_kernel_versus_pairwise[kernel1] [32mPASSED[0m[33m             [ 81%][0m
+test_kernels.py::test_kernel_versus_pairwise[kernel2] [32mPASSED[0m[33m             [ 81%][0m
+test_kernels.py::test_kernel_versus_pairwise[kernel3] [32mPASSED[0m[33m             [ 81%][0m
+test_kernels.py::test_kernel_versus_pairwise[kernel4] [32mPASSED[0m[33m             [ 82%][0m
+test_kernels.py::test_kernel_versus_pairwise[kernel5] [32mPASSED[0m[33m             [ 82%][0m
+test_kernels.py::test_kernel_versus_pairwise[kernel6] [32mPASSED[0m[33m             [ 82%][0m
+test_kernels.py::test_kernel_versus_pairwise[kernel7] [32mPASSED[0m[33m             [ 82%][0m
+test_kernels.py::test_kernel_versus_pairwise[kernel8] [32mPASSED[0m[33m             [ 83%][0m
+test_kernels.py::test_kernel_versus_pairwise[kernel9] [32mPASSED[0m[33m             [ 83%][0m
+test_kernels.py::test_kernel_versus_pairwise[kernel10] [32mPASSED[0m[33m            [ 83%][0m
+test_kernels.py::test_kernel_versus_pairwise[kernel11] [32mPASSED[0m[33m            [ 83%][0m
+test_kernels.py::test_kernel_versus_pairwise[kernel12] [32mPASSED[0m[33m            [ 84%][0m
+test_kernels.py::test_kernel_versus_pairwise[kernel13] [32mPASSED[0m[33m            [ 84%][0m
+test_kernels.py::test_kernel_versus_pairwise[kernel14] [32mPASSED[0m[33m            [ 84%][0m
+test_kernels.py::test_kernel_versus_pairwise[kernel15] [32mPASSED[0m[33m            [ 84%][0m
+test_kernels.py::test_kernel_versus_pairwise[kernel16] [32mPASSED[0m[33m            [ 84%][0m
+test_kernels.py::test_kernel_versus_pairwise[kernel17] [32mPASSED[0m[33m            [ 85%][0m
+test_kernels.py::test_kernel_versus_pairwise[kernel18] [32mPASSED[0m[33m            [ 85%][0m
+test_kernels.py::test_kernel_versus_pairwise[kernel19] [32mPASSED[0m[33m            [ 85%][0m
+test_kernels.py::test_kernel_versus_pairwise[kernel20] [32mPASSED[0m[33m            [ 85%][0m
+test_kernels.py::test_kernel_versus_pairwise[kernel21] [32mPASSED[0m[33m            [ 86%][0m
+test_kernels.py::test_kernel_versus_pairwise[kernel22] [32mPASSED[0m[33m            [ 86%][0m
+test_kernels.py::test_kernel_versus_pairwise[kernel23] [32mPASSED[0m[33m            [ 86%][0m
+test_kernels.py::test_kernel_versus_pairwise[kernel24] [32mPASSED[0m[33m            [ 86%][0m
+test_kernels.py::test_kernel_versus_pairwise[kernel25] [32mPASSED[0m[33m            [ 87%][0m
+test_kernels.py::test_kernel_versus_pairwise[kernel26] [32mPASSED[0m[33m            [ 87%][0m
+test_kernels.py::test_set_get_params[kernel0] [32mPASSED[0m[33m                     [ 87%][0m
+test_kernels.py::test_set_get_params[kernel1] [32mPASSED[0m[33m                     [ 87%][0m
+test_kernels.py::test_set_get_params[kernel2] [32mPASSED[0m[33m                     [ 87%][0m
+test_kernels.py::test_set_get_params[kernel3] [32mPASSED[0m[33m                     [ 88%][0m
+test_kernels.py::test_set_get_params[kernel4] [32mPASSED[0m[33m                     [ 88%][0m
+test_kernels.py::test_set_get_params[kernel5] [32mPASSED[0m[33m                     [ 88%][0m
+test_kernels.py::test_set_get_params[kernel6] [32mPASSED[0m[33m                     [ 88%][0m
+test_kernels.py::test_set_get_params[kernel7] [32mPASSED[0m[33m                     [ 89%][0m
+test_kernels.py::test_set_get_params[kernel8] [32mPASSED[0m[33m                     [ 89%][0m
+test_kernels.py::test_set_get_params[kernel9] [32mPASSED[0m[33m                     [ 89%][0m
+test_kernels.py::test_set_get_params[kernel10] [32mPASSED[0m[33m                    [ 89%][0m
+test_kernels.py::test_set_get_params[kernel11] [32mPASSED[0m[33m                    [ 90%][0m
+test_kernels.py::test_set_get_params[kernel12] [32mPASSED[0m[33m                    [ 90%][0m
+test_kernels.py::test_set_get_params[kernel13] [32mPASSED[0m[33m                    [ 90%][0m
+test_kernels.py::test_set_get_params[kernel14] [32mPASSED[0m[33m                    [ 90%][0m
+test_kernels.py::test_set_get_params[kernel15] [32mPASSED[0m[33m                    [ 90%][0m
+test_kernels.py::test_set_get_params[kernel16] [32mPASSED[0m[33m                    [ 91%][0m
+test_kernels.py::test_set_get_params[kernel17] [32mPASSED[0m[33m                    [ 91%][0m
+test_kernels.py::test_set_get_params[kernel18] [32mPASSED[0m[33m                    [ 91%][0m
+test_kernels.py::test_set_get_params[kernel19] [32mPASSED[0m[33m                    [ 91%][0m
+test_kernels.py::test_set_get_params[kernel20] [32mPASSED[0m[33m                    [ 92%][0m
+test_kernels.py::test_set_get_params[kernel21] [32mPASSED[0m[33m                    [ 92%][0m
+test_kernels.py::test_set_get_params[kernel22] [32mPASSED[0m[33m                    [ 92%][0m
+test_kernels.py::test_set_get_params[kernel23] [32mPASSED[0m[33m                    [ 92%][0m
+test_kernels.py::test_set_get_params[kernel24] [32mPASSED[0m[33m                    [ 93%][0m
+test_kernels.py::test_set_get_params[kernel25] [32mPASSED[0m[33m                    [ 93%][0m
+test_kernels.py::test_set_get_params[kernel26] [32mPASSED[0m[33m                    [ 93%][0m
+test_kernels.py::test_repr_kernels[kernel0] [32mPASSED[0m[33m                       [ 93%][0m
+test_kernels.py::test_repr_kernels[kernel1] [32mPASSED[0m[33m                       [ 93%][0m
+test_kernels.py::test_repr_kernels[kernel2] [32mPASSED[0m[33m                       [ 94%][0m
+test_kernels.py::test_repr_kernels[kernel3] [32mPASSED[0m[33m                       [ 94%][0m
+test_kernels.py::test_repr_kernels[kernel4] [32mPASSED[0m[33m                       [ 94%][0m
+test_kernels.py::test_repr_kernels[kernel5] [32mPASSED[0m[33m                       [ 94%][0m
+test_kernels.py::test_repr_kernels[kernel6] [32mPASSED[0m[33m                       [ 95%][0m
+test_kernels.py::test_repr_kernels[kernel7] [32mPASSED[0m[33m                       [ 95%][0m
+test_kernels.py::test_repr_kernels[kernel8] [32mPASSED[0m[33m                       [ 95%][0m
+test_kernels.py::test_repr_kernels[kernel9] [32mPASSED[0m[33m                       [ 95%][0m
+test_kernels.py::test_repr_kernels[kernel10] [32mPASSED[0m[33m                      [ 96%][0m
+test_kernels.py::test_repr_kernels[kernel11] [32mPASSED[0m[33m                      [ 96%][0m
+test_kernels.py::test_repr_kernels[kernel12] [32mPASSED[0m[33m                      [ 96%][0m
+test_kernels.py::test_repr_kernels[kernel13] [32mPASSED[0m[33m                      [ 96%][0m
+test_kernels.py::test_repr_kernels[kernel14] [32mPASSED[0m[33m                      [ 96%][0m
+test_kernels.py::test_repr_kernels[kernel15] [32mPASSED[0m[33m                      [ 97%][0m
+test_kernels.py::test_repr_kernels[kernel16] [32mPASSED[0m[33m                      [ 97%][0m
+test_kernels.py::test_repr_kernels[kernel17] [32mPASSED[0m[33m                      [ 97%][0m
+test_kernels.py::test_repr_kernels[kernel18] [32mPASSED[0m[33m                      [ 97%][0m
+test_kernels.py::test_repr_kernels[kernel19] [32mPASSED[0m[33m                      [ 98%][0m
+test_kernels.py::test_repr_kernels[kernel20] [32mPASSED[0m[33m                      [ 98%][0m
+test_kernels.py::test_repr_kernels[kernel21] [32mPASSED[0m[33m                      [ 98%][0m
+test_kernels.py::test_repr_kernels[kernel22] [32mPASSED[0m[33m                      [ 98%][0m
+test_kernels.py::test_repr_kernels[kernel23] [32mPASSED[0m[33m                      [ 99%][0m
+test_kernels.py::test_repr_kernels[kernel24] [32mPASSED[0m[33m                      [ 99%][0m
+test_kernels.py::test_repr_kernels[kernel25] [32mPASSED[0m[33m                      [ 99%][0m
+test_kernels.py::test_repr_kernels[kernel26] [32mPASSED[0m[33m                      [ 99%][0m
+test_kernels.py::test_rational_quadratic_kernel [32mPASSED[0m[33m                   [100%][0m
+
+[33m=============================== warnings summary ===============================[0m
+test_gpc.py::test_predict_consistent[kernel3]
+test_gpc.py::test_lml_improving[kernel2]
+test_gpc.py::test_lml_precomputed[kernel3]
+test_gpc.py::test_lml_without_cloning_kernel[kernel3]
+test_gpc.py::test_converged_to_local_maximum[kernel2]
+test_gpc.py::test_lml_gradient[kernel3]
+test_gpc.py::test_multi_class[kernel3]
+test_gpc.py::test_multi_class_n_jobs[kernel3]
+test_gpc.py::test_multi_class_n_jobs[kernel3]
+  /lib/python3.10/site-packages/sklearn/gaussian_process/kernels.py:430: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__constant_value is close to the specified upper bound 100.0. Increasing the bound and calling fit again may find a better value.
+    warnings.warn(
+
+test_gpc.py::test_random_starts
+test_gpr.py::test_constant_target[kernel3]
+  /lib/python3.10/site-packages/sklearn/gaussian_process/kernels.py:420: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__constant_value is close to the specified lower bound 0.01. Decreasing the bound and calling fit again may find a better value.
+    warnings.warn(
+
+test_gpc.py::test_random_starts
+test_gpc.py::test_random_starts
+test_gpc.py::test_random_starts
+test_gpc.py::test_random_starts
+  /lib/python3.10/site-packages/sklearn/gaussian_process/kernels.py:430: ConvergenceWarning: The optimal value found for dimension 1 of parameter k2__length_scale is close to the specified upper bound 100.0. Increasing the bound and calling fit again may find a better value.
+    warnings.warn(
+
+test_gpc.py::test_multi_class[kernel0]
+test_gpc.py::test_multi_class_n_jobs[kernel0]
+test_gpc.py::test_multi_class_n_jobs[kernel0]
+test_gpr.py::test_constant_target[kernel0]
+  /lib/python3.10/site-packages/sklearn/gaussian_process/kernels.py:430: ConvergenceWarning: The optimal value found for dimension 0 of parameter length_scale is close to the specified upper bound 100000.0. Increasing the bound and calling fit again may find a better value.
+    warnings.warn(
+
+test_gpr.py: 20 warnings
+  /lib/python3.10/site-packages/sklearn/gaussian_process/kernels.py:420: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__constant_value is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+    warnings.warn(
+
+test_gpr.py::test_lml_precomputed[kernel5]
+test_gpr.py::test_lml_without_cloning_kernel[kernel5]
+test_gpr.py::test_converged_to_local_maximum[kernel4]
+test_gpr.py::test_solution_inside_bounds[kernel4]
+test_gpr.py::test_lml_gradient[kernel5]
+test_gpr.py::test_sample_statistics[kernel5]
+test_gpr.py::test_duplicate_input[kernel5]
+test_gpr.py::test_duplicate_input[kernel5]
+test_gpr.py::test_constant_target[kernel5]
+  /lib/python3.10/site-packages/sklearn/gaussian_process/kernels.py:420: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__k2__length_scale is close to the specified lower bound 0.001. Decreasing the bound and calling fit again may find a better value.
+    warnings.warn(
+
+test_gpr.py::test_random_starts
+  /lib/python3.10/site-packages/sklearn/gaussian_process/kernels.py:420: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__k2__length_scale is close to the specified lower bound 0.0001. Decreasing the bound and calling fit again may find a better value.
+    warnings.warn(
+
+test_gpr.py::test_random_starts
+  /lib/python3.10/site-packages/sklearn/gaussian_process/kernels.py:420: ConvergenceWarning: The optimal value found for dimension 1 of parameter k1__k2__length_scale is close to the specified lower bound 0.0001. Decreasing the bound and calling fit again may find a better value.
+    warnings.warn(
+
+test_gpr.py::test_bound_check_fixed_hyperparameter
+  /lib/python3.10/site-packages/sklearn/gaussian_process/kernels.py:420: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__k2__length_scale is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+    warnings.warn(
+
+test_gpr.py::test_constant_target[kernel2]
+  /lib/python3.10/site-packages/sklearn/gaussian_process/kernels.py:430: ConvergenceWarning: The optimal value found for dimension 0 of parameter length_scale is close to the specified upper bound 1000.0. Increasing the bound and calling fit again may find a better value.
+    warnings.warn(
+
+test_gpr.py::test_constant_target[kernel3]
+  /lib/python3.10/site-packages/sklearn/gaussian_process/kernels.py:430: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__length_scale is close to the specified upper bound 1000.0. Increasing the bound and calling fit again may find a better value.
+    warnings.warn(
+
+test_gpr.py::test_constant_target[kernel4]
+test_gpr.py::test_constant_target[kernel5]
+  /lib/python3.10/site-packages/sklearn/gaussian_process/kernels.py:420: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__k1__constant_value is close to the specified lower bound 0.01. Decreasing the bound and calling fit again may find a better value.
+    warnings.warn(
+
+test_gpr.py::test_constant_target[kernel4]
+test_gpr.py::test_constant_target[kernel5]
+  /lib/python3.10/site-packages/sklearn/gaussian_process/kernels.py:430: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__k2__length_scale is close to the specified upper bound 1000.0. Increasing the bound and calling fit again may find a better value.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+[33m================= [32m409 passed[0m, [33m[1m23 xfailed[0m, [33m[1m57 warnings[0m[33m in 9.22s[0m[33m =================[0m
