@@ -1,0 +1,57 @@
+name: Test Emscripten/Pyodide build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-wasm-emscripten:
+    runs-on: ubuntu-latest
+    env:
+      PYODIDE_VERSION: '0.22.0a1'
+      PYTHON_VERSION: '3.10.2'
+      NODE_VERSION: 18
+      EMSCRIPTEN_VERSION: 3.1.21
+    steps:
+      - name: Checkout scikit-learn
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: set up python
+        id: setup-python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - uses: mymindstorm/setup-emsdk@v11
+        with:
+          version: ${{ env.EMSCRIPTEN_VERSION }}
+          actions-cache-folder: emsdk-cache
+      
+      - name: Install pyodide-build
+        run: pip install pyodide-build==$PYODIDE_VERSION
+
+      - name: Build
+        run: CFLAGS=-g2 LDFLAGS=-g2 pyodide build
+
+      - name: set up node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: install Pyodide
+        run: |
+          pyodide venv .venv-pyodide
+      - name: Test
+        run: |
+          source .venv-pyodide/bin/activate
+          pip install dist/*.whl
+          pip install -r test_requirements.txt
+          cp ./tools/pyodide_python .pyodide-xbuildenv/xbuildenv/pyodide-root/tools/python
+          cd ..
+          bash run-tests-by-module.sh
