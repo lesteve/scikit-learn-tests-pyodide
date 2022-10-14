@@ -92,14 +92,14 @@ async function main() {
 
       sklearn_folder = os.path.dirname(sklearn.__file__)
 
-      test_src_folders = glob.glob('scikit-learn-1.1.1/**/tests', recursive=True)
+      test_src_folders = glob.glob('scikit-learn/**/tests', recursive=True)
 
       for src in test_src_folders:
-          dst = src.replace('scikit-learn-1.1.1/sklearn', sklearn_folder)
+          dst = src.replace('scikit-learn/sklearn', sklearn_folder)
           shutil.copytree(src, dst)
 
       # sklearn.conftest is needed
-      shutil.copy('scikit-learn-1.1.1/sklearn/conftest.py', f'{sklearn_folder}/conftest.py')
+      shutil.copy('scikit-learn/sklearn/conftest.py', f'{sklearn_folder}/conftest.py')
 
     `);
     await pyodide.runPythonAsync("import micropip; micropip.install('pytest')");

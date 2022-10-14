@@ -35,7 +35,7 @@ jobs:
       
       - name: Install pyodide-build
         run: pip install pyodide-build==$PYODIDE_VERSION
-          p
+
       - name: Download scikit-learn
         run: |
           # Main branch fails to build due to some additional omp.h include that doesn't work
@@ -44,6 +44,7 @@ jobs:
           tar xzf 1.1.1.tar.gz
           mv scikit-learn-1.1.1/ scikit-learn/
 
+      # TODO: cache the wheel and avoid rebuilding
       - name: Build
         run: |
           cd scikit-learn/
@@ -54,11 +55,17 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - name: install Pyodide
-        run: |
-          pyodide venv .venv-pyodide
+      # Note: Pyodide venv with scipy doesn't work for now due to https://github.com/pyodide/pyodide/issues/3186
+      # - name: install Pyodide
+      #   run: |
+      #     pyodide venv .venv-pyodide
+      # - name: Test
+      #   run: |
+      #     source .venv-pyodide/bin/activate
+      #     pip install scikit-learn/dist/*.whl pytest
+      #     pytest --pyargs sklearn.preprocessing
+      
+      # TODO: actually install the scikit-learn wheel we built when running these tests
       - name: Test
         run: |
-          source .venv-pyodide/bin/activate
-          pip install scikit-learn/dist/*.whl pytest
-          pytest --pyargs sklearn.preprocessing
+          bash run-tests-by-module.sh

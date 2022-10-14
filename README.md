@@ -27,26 +27,14 @@ and the matching version of [Emscripten toolchain](https://emscripten.org/docs/g
 ```
 git clone https://github.com/emscripten-core/emsdk.git
 cd emsdk
-./emsdk install latest
-./emsdk activate 
+./emsdk install 3.1.21
+./emsdk 3.1.21
 source ./emsdk_env.sh
 ```
 Then you can build a Emscripten/wasm wheel with,
 ```
 cd scikit-learn/
 pyodide build
-```
-Now we can create a Pyodide venv and install scikit-learn there,
-```
-pyodide venv .venv-pyodide
-source .venv-pyodide/bin/activate
-pip install dist/*.whl pytest
-
-```
-Finally tests can be run with,
-```
-# Not sure if this actually works
-pytest --pyargs sklearn
 ```
 
 # Manually curated list of issues
