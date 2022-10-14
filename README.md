@@ -15,6 +15,40 @@ node --experimental-fetch scikit-learn-pytest.js --pyargs 'sklearn.tree'
 `scikit-learn-pytest.js` is strongly inspired from
 https://github.com/numpy/numpy/pull/21895.
 
+# Building from sources
+
+On Linux, install the expected version of Python and pyodide-build
+```
+conda create -n pyodide python=3.10.2
+conda activate pyodide
+pip install pyodide-build==0.22.0a1
+```
+and the matching version of [Emscripten toolchain](https://emscripten.org/docs/getting_started/downloads.html),
+```
+git clone https://github.com/emscripten-core/emsdk.git
+cd emsdk
+./emsdk install latest
+./emsdk activate 
+source ./emsdk_env.sh
+```
+Then you can build a Emscripten/wasm wheel with,
+```
+cd scikit-learn/
+pyodide build
+```
+Now we can create a Pyodide venv and install scikit-learn there,
+```
+pyodide venv .venv-pyodide
+source .venv-pyodide/bin/activate
+pip install dist/*.whl pytest
+
+```
+Finally tests can be run with,
+```
+# Not sure if this actually works
+pytest --pyargs sklearn
+```
+
 # Manually curated list of issues
 
 ## Test failures

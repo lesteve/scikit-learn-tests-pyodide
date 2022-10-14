@@ -42,7 +42,7 @@ jobs:
           # with cross-compilation
           wget https://github.com/scikit-learn/scikit-learn/archive/refs/tags/1.1.1.tar.gz
           tar xzf 1.1.1.tar.gz
-          mv scikit-learn-1.1.1./ scikit-learn/
+          mv scikit-learn-1.1.1/ scikit-learn/
 
       - name: Build
         run: |
@@ -60,6 +60,5 @@ jobs:
       - name: Test
         run: |
           source .venv-pyodide/bin/activate
-          pip install scikit-learn/dist/*.whl
-          pip install -r pytest
+          pip install scikit-learn/dist/*.whl pytest
           pytest --pyargs sklearn.preprocessing
