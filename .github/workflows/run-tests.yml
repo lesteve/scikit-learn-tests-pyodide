@@ -40,9 +40,9 @@ jobs:
         run: |
           # Main branch fails to build due to some additional omp.h include that doesn't work
           # with cross-compilation
-          wget https://github.com/scikit-learn/scikit-learn/archive/refs/tags/1.1.1.tar.gz
-          tar xzf 1.1.1.tar.gz
-          mv scikit-learn-1.1.1/ scikit-learn/
+          wget https://github.com/scikit-learn/scikit-learn/archive/heads/main.tar.gz
+          tar xzf main.tar.gz
+          mv scikit-learn-main/ scikit-learn/
 
       # TODO: cache the wheel and avoid rebuilding
       - name: Build
