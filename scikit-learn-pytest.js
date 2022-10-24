@@ -73,35 +73,30 @@ async function main() {
     global.pyodide = await loadPyodide();
     let pyodide = global.pyodide;
     const FS = pyodide.FS;
-    setupStreams(FS, pyodide._module.TTY);
+    // For now disabling this to avoid causing unknown issues. The pytest
+    // output is not as nice but we can live with this
+    // setupStreams(FS, pyodide._module.TTY);
     const NODEFS = FS.filesystems.NODEFS;
-    await pyodide.runPythonAsync(`
-      from pyodide.http import pyfetch
-      response = await pyfetch("https://github.com/scikit-learn/scikit-learn/archive/refs/tags/1.1.1.zip")
-      await response.unpack_archive() # by default, unpacks to the current dir
-    `);
+
+    let mountDir = "/mnt";
+    pyodide.FS.mkdir(mountDir);
+    pyodide.FS.mount(pyodide.FS.filesystems.NODEFS, { root: "." }, mountDir);
+
 
     await pyodide.loadPackage(["micropip"]);
-    await pyodide.loadPackage(["scikit-learn"]);
+    // Install previously built scikit-learn wheel
     await pyodide.runPythonAsync(`
-      import os
-      import shutil
-      import glob
+      import micropip
 
-      import sklearn
-
-      sklearn_folder = os.path.dirname(sklearn.__file__)
-
-      test_src_folders = glob.glob('scikit-learn/**/tests', recursive=True)
-
-      for src in test_src_folders:
-          dst = src.replace('scikit-learn/sklearn', sklearn_folder)
-          shutil.copytree(src, dst)
-
-      # sklearn.conftest is needed
-      shutil.copy('scikit-learn/sklearn/conftest.py', f'{sklearn_folder}/conftest.py')
-
+      micropip.install('emfs:/mnt/dist/scikit_learn-1.2.dev0-cp310-cp310-emscripten_3_1_21_wasm32.whl')
     `);
+
+    // Needed somehow scikit-learn 1.2 needs recent joblib and recent joblib
+    // needs distutils which is not packaged in Pyodide
+    await pyodide.runPythonAsync(`micropip.install('distutils')`);
+    await pyodide.runPythonAsync(`import joblib`);
+    await pyodide.runPythonAsync(`import sklearn; print(f"scikit-learn version: {sklearn.__version__}")`);
+
     await pyodide.runPythonAsync("import micropip; micropip.install('pytest')");
     // somehow this import is needed not sure why import pytest is not enough...
     await pyodide.runPythonAsync("micropip.install('tomli')");
