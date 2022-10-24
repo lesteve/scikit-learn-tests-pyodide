@@ -65,8 +65,10 @@ jobs:
       #     source .venv-pyodide/bin/activate
       #     pip install scikit-learn/dist/*.whl pytest
       #     pytest --pyargs sklearn.preprocessing
-      
-      # TODO: actually install the scikit-learn wheel we built when running these tests
+
+      - name: install Pyodide
+        run: |
+          npm install pyodide@next
       - name: Test
         run: |
           bash run-tests-by-module.sh
