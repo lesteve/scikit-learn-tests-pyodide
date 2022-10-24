@@ -40,7 +40,7 @@ jobs:
         run: |
           git clone https://github.com/scikit-learn/scikit-learn --depth 1
           echo scikit-learn commit information
-          git log -1
+          git -C scikit-learn log -1
 
       # TODO: cache the wheel and avoid rebuilding
       - name: Build
@@ -48,8 +48,8 @@ jobs:
           cd scikit-learn/
           CFLAGS=-g2 LDFLAGS=-g2 pyodide build
 
-          # Make the dist folder available on the top-level folder
-          cp -r scikit-learn/dist ..
+          # Make the dist available on the root folder
+          cp -r dist ..
 
       - name: set up node
         uses: actions/setup-node@v3
