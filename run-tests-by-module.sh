@@ -44,9 +44,11 @@ for t in \
     sklearn.tree.tests \
     sklearn.utils.tests
 do
-    echo '----------------------------------------------------------------------'
-    echo tested module: $t
-    echo '----------------------------------------------------------------------'
+    echo "::group::testing module $t"
+    echo "------------------------------------------------------------"
+    echo "testing module $t"
+    echo "------------------------------------------------------------"
     run_tests_for_module $t
+    echo "::endgroup::"
 done
 
