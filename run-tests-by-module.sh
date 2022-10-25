@@ -5,7 +5,7 @@ mkdir -p logs
 
 function run_tests_for_module {
     # sometimes the command seems to hang, use a timeout of 5 minutes
-    (timeout -v 40 node --experimental-fetch scikit-learn-pytest.js $1 -v || \
+    (timeout -v 300 node --experimental-fetch scikit-learn-pytest.js $1 -v || \
         echo "command timed out") 2>&1 | tee logs/$t.log
 }
 
