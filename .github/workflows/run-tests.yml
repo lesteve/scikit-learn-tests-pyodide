@@ -25,6 +25,9 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Install timeout
+        run: sudo apt-get install timeout -y
+
       - name: set up python
         id: setup-python
         uses: actions/setup-python@v4
