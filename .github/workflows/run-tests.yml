@@ -25,9 +25,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: test timeout
-        run: timeout -v 1 yes
-
       - name: set up python
         id: setup-python
         uses: actions/setup-python@v4
