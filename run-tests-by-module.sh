@@ -4,9 +4,10 @@ set -e
 mkdir -p logs
 
 function run_tests_for_module {
+    tested_module=$1
     # sometimes the command seems to hang, use a timeout of 5 minutes
-    (timeout -v 300 node --experimental-fetch scikit-learn-pytest.js $1 -v || \
-        echo "command timed out") 2>&1 | tee logs/$t.log
+    (timeout -v 300 node --experimental-fetch scikit-learn-pytest.js ${tested_module} -v || \
+        echo -e "\ncommand timed out for module ${tested_module}") 2>&1 | tee logs/$t.log
 }
 
 
@@ -44,11 +45,9 @@ for t in \
     sklearn.tree.tests \
     sklearn.utils.tests
 do
-    echo "::group::testing module $t"
     echo "------------------------------------------------------------"
     echo "testing module $t"
     echo "------------------------------------------------------------"
     run_tests_for_module $t
-    echo "::endgroup::"
 done
 
