@@ -104,9 +104,11 @@ async function main() {
     let args = process.argv.slice(2);
     let args_str = args.join(' ');
 
-    let pytest_cmd_str = `pytest.main("--pyargs ${args_str}".split())`;
+    let pytest_cmd_str = `pytest_result = int(pytest.main("--pyargs ${args_str}".split()))`;
     console.log('pytest command:', pytest_cmd_str);
-      await pyodide.runPythonAsync(pytest_cmd_str);
+    await pyodide.runPythonAsync(pytest_cmd_str);
+    let pytest_result = pyodide.globals.get("pytest_result")
+    process.exit(pytest_result)
   } catch (e) {
     console.error(e);
     exitcode = 1;

@@ -43,7 +43,7 @@ sklearn.tree.tests
 sklearn.utils.tests
 """
 
-test_submodules = test_submodules_str.split()[2:3]
+test_submodules = test_submodules_str.split()
 command_result_type = collections.namedtuple("CommandResult", "exit_code stdout stderr")
 
 
