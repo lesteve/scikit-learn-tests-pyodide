@@ -111,9 +111,9 @@ async function main() {
 
   } catch (e) {
     console.error(e);
-    // special exit code (SIGKILL was chosen for lack of a better idea) for
-    // js error (generally nodejs crash because of Pyodide fatal error)
-    exitcode = 137;
+    // Arbitrary exit code here, not sure when we reach this. Somehow when
+    // there is a Pyodide fatal error we don't, and the exit code is 7
+    exitcode = 66;
 
   } finally {
     process.exit(exitcode);

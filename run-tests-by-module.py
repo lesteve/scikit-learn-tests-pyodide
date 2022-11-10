@@ -111,6 +111,8 @@ def run_tests_for_module(module_str):
 
     if command_result.exit_code is None:
         print(f"{module_str} timed out")
+    else:
+        print(f"{module_str} exited with exit code: {command_result.exit_code}")
 
     return command_result
 
@@ -129,7 +131,7 @@ def print_summary(module_results):
             stdout_last_10_lines = command_result.stdout.splitlines()[-10:]
             print("\n".join(stdout_last_10_lines))
         else:
-            print(f"module {module_str} exited with {command_result.exit_code}")
+            print(f"module {module_str} exited with exit code: {command_result.exit_code}")
             stdout_last_10_lines = command_result.stdout.splitlines()[-10:]
             print("\n".join(stdout_last_10_lines))
 
