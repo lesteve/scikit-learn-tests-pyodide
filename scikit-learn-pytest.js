@@ -107,13 +107,15 @@ async function main() {
     let pytest_cmd_str = `pytest_result = int(pytest.main("--pyargs ${args_str}".split()))`;
     console.log('pytest command:', pytest_cmd_str);
     await pyodide.runPythonAsync(pytest_cmd_str);
-    let pytest_result = pyodide.globals.get("pytest_result")
-    process.exit(pytest_result)
+    let exit_code = pyodide.globals.get("pytest_result");
+
   } catch (e) {
     console.error(e);
-    exitcode = 1;
+    // special exit code (SIGKILL was chosen for lack of a better idea) for
+    // js error (generally nodejs crash because of Pyodide fatal error)
+    exitcode = 137;
+
   } finally {
-    // worker.terminate();
     process.exit(exitcode);
   }
 }
