@@ -5,6 +5,7 @@ import fcntl
 import os
 import time
 import collections
+import itertools
 
 # This is the output of the command run from the scikit-learn root folder:
 # find sklearn -name tests | sort | perl -pe 's@\./@@g' | perl -pe 's@/@.@g'
@@ -44,7 +45,6 @@ sklearn.utils.tests
 """
 
 test_submodules = test_submodules_str.split()
-command_result_type = collections.namedtuple("CommandResult", "exit_code stdout stderr")
 
 
 def set_non_blocking(file_):
@@ -59,7 +59,7 @@ def execute_command_with_timeout(command_list, timeout):
 
     Returns
     -------
-    command_result_type(exit_code, stdout, stderr)
+    dict containing exit_code, stdout, stderr
     """
     start = time.time()
     p = subprocess.Popen(
@@ -93,12 +93,14 @@ def execute_command_with_timeout(command_list, timeout):
             stderr_list.append(this_stderr)
 
         command_timed_out = time.time() - start > timeout
+        if command_timed_out:
+            p.kill()
 
         if exit_code is not None or command_timed_out:
             stdout = "".join(stdout_list)
             stderr = "".join(stderr_list)
 
-            return command_result_type(exit_code, stdout, stderr)
+            return {"exit_code": exit_code, "stdout": stdout, "stderr": stderr}
 
 
 def run_tests_for_module(module_str):
@@ -109,40 +111,60 @@ def run_tests_for_module(module_str):
         command_list=command_list, timeout=timeout
     )
 
-    if command_result.exit_code is None:
+    if command_result["exit_code"] is None:
         print(f"{module_str} timed out")
     else:
-        print(f"{module_str} exited with exit code: {command_result.exit_code}")
+        print(f"{module_str} exited with exit code: {command_result['exit_code']}")
 
     return command_result
 
 
+def exit_code_to_category(exit_code):
+    if exit_code == 0:
+        return 'passed'
+    if exit_code in (None, 7):
+        return 'fatal error or timeout'
+    return 'failed'
+
+
 def print_summary(module_results):
     # TODO: mark some modules which are expected to fail
-    # TODO: do better summary at the end to show what happened and exit code base on this
-
     print()
     print("=" * 80)
     print("Test results summary")
     print("=" * 80)
-    for module_str, command_result in module_results.items():
-        if command_result.exit_code is None:
-            print(f"module {module_str} timed out")
-            stdout_last_10_lines = command_result.stdout.splitlines()[-10:]
-            print("\n".join(stdout_last_10_lines))
-        else:
-            print(f"module {module_str} exited with exit code: {command_result.exit_code}")
-            stdout_last_10_lines = command_result.stdout.splitlines()[-10:]
-            print("\n".join(stdout_last_10_lines))
+
+    for each in module_results:
+        print(f"{each['module']} {each['category']} (exit code {each['exit_code']})")
+
+    print()
+    print("Grouped by category:")
+    print("-" * 80)
+
+    def fun(each):
+        return each['category']
+
+    iterable = itertools.groupby(
+        sorted(module_results, key=fun),
+        fun
+    )
+    for category, group in iterable:
+        group = list(group)
+        print(f"category {category} ({len(group)} modules)")
+        for each in group:
+            print(f"    {each['module']}")
 
 
 def main():
-    module_results = {}
+    module_results = []
     for module in test_submodules:
         print("-" * 80)
         print(f"testing module {module}")
         print("-" * 80)
-        module_results[module] = run_tests_for_module(module)
+        this_module_result = run_tests_for_module(module)
+        this_module_result['module'] = module
+        this_module_result['category'] = exit_code_to_category(this_module_result['exit_code'])
+        module_results.append(this_module_result)
 
     print_summary(module_results)
 
