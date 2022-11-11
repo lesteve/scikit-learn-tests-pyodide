@@ -68,7 +68,7 @@ function setupStreams(FS, TTY){
 }
 
 async function main() {
-  let exitcode = 0;
+  let exit_code = 0;
   try {
     global.pyodide = await loadPyodide();
     let pyodide = global.pyodide;
@@ -104,15 +104,18 @@ async function main() {
     let args = process.argv.slice(2);
     let args_str = args.join(' ');
 
-    let pytest_cmd_str = `pytest.main("--pyargs ${args_str}".split())`;
+    let pytest_cmd_str = `pytest_result = int(pytest.main("--pyargs ${args_str}".split()))`;
     console.log('pytest command:', pytest_cmd_str);
-      await pyodide.runPythonAsync(pytest_cmd_str);
+    await pyodide.runPythonAsync(pytest_cmd_str);
+    exit_code = pyodide.globals.get("pytest_result");
   } catch (e) {
     console.error(e);
-    exitcode = 1;
+    // Arbitrary exit code here, not sure when we reach this. Somehow when
+    // there is a Pyodide fatal error we don't, and the exit code is 7
+    exit_code = 66;
+
   } finally {
-    // worker.terminate();
-    process.exit(exitcode);
+    process.exit(exit_code);
   }
 }
 
