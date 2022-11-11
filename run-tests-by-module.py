@@ -54,14 +54,14 @@ def set_non_blocking(file_):
     fcntl.fcntl(fd, fcntl.F_SETFL, flags | os.O_NONBLOCK)
 
 
-def execute_command_with_timeout(command_list, timeout):
+def execute_command_with_timeout(command_list, timeout_without_output):
     """Run command while showing its stdout and stderr continuously.
 
     Returns
     -------
     dict containing exit_code, stdout, stderr
     """
-    start = time.time()
+    last_time_with_output = time.time()
     p = subprocess.Popen(
         command_list,
         stdout=subprocess.PIPE,
@@ -86,13 +86,15 @@ def execute_command_with_timeout(command_list, timeout):
             this_stderr = p.stderr.read()
 
         if this_stdout:
+            last_time_with_output = time.time()
             print(this_stdout, end="")
             stdout_list.append(this_stdout)
         if this_stderr:
+            last_time_with_output = time.time()
             sys.stderr.write(this_stderr)
             stderr_list.append(this_stderr)
 
-        command_timed_out = time.time() - start > timeout
+        command_timed_out = (time.time() - last_time_with_output) > timeout_without_output
         if command_timed_out:
             p.kill()
 
@@ -104,11 +106,11 @@ def execute_command_with_timeout(command_list, timeout):
 
 
 def run_tests_for_module(module_str):
-    timeout = 5 * 60
+    timeout_without_output = 60
     command_str = f"node --experimental-fetch scikit-learn-pytest.js {module_str} -v"
     command_list = shlex.split(command_str)
     command_result = execute_command_with_timeout(
-        command_list=command_list, timeout=timeout
+        command_list=command_list, timeout_without_output=timeout_without_output
     )
 
     if command_result["exit_code"] is None:
@@ -121,10 +123,10 @@ def run_tests_for_module(module_str):
 
 def exit_code_to_category(exit_code):
     if exit_code == 0:
-        return 'passed'
+        return "passed"
     if exit_code in (None, 7):
-        return 'fatal error or timeout'
-    return 'failed'
+        return "fatal error or timeout"
+    return "failed"
 
 
 def print_summary(module_results):
@@ -142,12 +144,9 @@ def print_summary(module_results):
     print("-" * 80)
 
     def fun(each):
-        return each['category']
+        return each["category"]
 
-    iterable = itertools.groupby(
-        sorted(module_results, key=fun),
-        fun
-    )
+    iterable = itertools.groupby(sorted(module_results, key=fun), fun)
     for category, group in iterable:
         group = list(group)
         print(f"category {category} ({len(group)} modules)")
@@ -162,8 +161,10 @@ def main():
         print(f"testing module {module}")
         print("-" * 80)
         this_module_result = run_tests_for_module(module)
-        this_module_result['module'] = module
-        this_module_result['category'] = exit_code_to_category(this_module_result['exit_code'])
+        this_module_result["module"] = module
+        this_module_result["category"] = exit_code_to_category(
+            this_module_result["exit_code"]
+        )
         module_results.append(this_module_result)
 
     print_summary(module_results)
