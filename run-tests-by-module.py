@@ -167,9 +167,10 @@ def run_tests_for_module(module_str):
 def exit_code_to_category(exit_code):
     if exit_code == 0:
         return "passed"
-    if exit_code in (None, 7):
-        return "fatal error or timeout"
-    return "failed"
+    if exit_code == 1:
+        return "failed"
+    # this also covers exit code 3 which is pytest internal error
+    return "fatal error or timeout"
 
 
 def print_summary(module_results):
