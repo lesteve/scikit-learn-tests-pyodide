@@ -15,10 +15,10 @@ jobs:
   build-wasm-emscripten:
     runs-on: ubuntu-latest
     env:
-      PYODIDE_VERSION: '0.22.0a1'
+      PYODIDE_VERSION: '0.22.0a3'
       PYTHON_VERSION: '3.10.2'
       NODE_VERSION: 18
-      EMSCRIPTEN_VERSION: 3.1.21
+      EMSCRIPTEN_VERSION: 3.1.24
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -71,7 +71,7 @@ jobs:
 
       - name: install Pyodide
         run: |
-          npm install pyodide@0.22.0-alpha.1
+          npm install "pyodide@$PYODIDE_VERSION"
       - name: Test
         run: |
           python run-tests-by-module.py
