@@ -4,8 +4,8 @@ import sys
 import fcntl
 import os
 import time
-import collections
 import itertools
+import unittest
 
 # This is the output of the command run from the scikit-learn root folder:
 # find sklearn -name tests | sort | perl -pe 's@\./@@g' | perl -pe 's@/@.@g'
@@ -45,6 +45,47 @@ sklearn.utils.tests
 """
 
 test_submodules = test_submodules_str.split()
+
+expected_test_results_by_category = {
+    "failed": [
+        "sklearn.experimental.tests",
+        "sklearn.feature_extraction.tests",
+        "sklearn._loss.tests",
+        "sklearn.svm.tests",
+        "sklearn.tree.tests",
+    ],
+    "fatal error or timeout": [
+        "sklearn.decomposition.tests",
+        "sklearn.ensemble.tests",
+        "sklearn.feature_selection.tests",
+        "sklearn.inspection.tests",
+        "sklearn.linear_model.tests",
+        "sklearn.tests",
+        "sklearn.utils.tests",
+    ],
+    "passed": [
+        "sklearn.cluster.tests",
+        "sklearn.compose.tests",
+        "sklearn.covariance.tests",
+        "sklearn.cross_decomposition.tests",
+        "sklearn.datasets.tests",
+        "sklearn.ensemble._hist_gradient_boosting.tests",
+        "sklearn.gaussian_process.tests",
+        "sklearn.impute.tests",
+        "sklearn.inspection._plot.tests",
+        "sklearn.linear_model._glm.tests",
+        "sklearn.manifold.tests",
+        "sklearn.metrics.cluster.tests",
+        "sklearn.metrics._plot.tests",
+        "sklearn.metrics.tests",
+        "sklearn.mixture.tests",
+        "sklearn.model_selection.tests",
+        "sklearn.neighbors.tests",
+        "sklearn.neural_network.tests",
+        "sklearn.preprocessing.tests",
+        "sklearn.semi_supervised.tests",
+    ],
+}
 
 
 def set_non_blocking(file_):
@@ -94,7 +135,9 @@ def execute_command_with_timeout(command_list, timeout_without_output):
             sys.stderr.write(this_stderr)
             stderr_list.append(this_stderr)
 
-        command_timed_out = (time.time() - last_time_with_output) > timeout_without_output
+        command_timed_out = (
+            time.time() - last_time_with_output
+        ) > timeout_without_output
         if command_timed_out:
             p.kill()
 
@@ -130,7 +173,6 @@ def exit_code_to_category(exit_code):
 
 
 def print_summary(module_results):
-    # TODO: mark some modules which are expected to fail
     print()
     print("=" * 80)
     print("Test results summary")
@@ -146,12 +188,25 @@ def print_summary(module_results):
     def fun(each):
         return each["category"]
 
-    iterable = itertools.groupby(sorted(module_results, key=fun), fun)
-    for category, group in iterable:
-        group = list(group)
-        print(f"category {category} ({len(group)} modules)")
-        for each in group:
-            print(f"    {each['module']}")
+    test_results_by_category = {
+        category: [each["module"] for each in group]
+        for category, group in itertools.groupby(sorted(module_results, key=fun), fun)
+    }
+    for category, module_list in test_results_by_category.items():
+        print(f"category {category} ({len(module_list)} modules)")
+        for each in module_list:
+            print(f"    {each}")
+
+    # Compare test results with expectations. Easiest way I found to compare
+    # dicts with a good error message is to use unittest
+    tc = unittest.TestCase()
+    # to show full info about the diff
+    tc.maxDiff = None
+    test_results_with_sets = {k: set(v) for k, v in test_results_by_category.items()}
+    expected_test_results_with_sets = {
+        k: set(v) for k, v in expected_test_results_by_category.items()
+    }
+    tc.assertDictEqual(expected_test_results_with_sets, test_results_with_sets)
 
 
 def main():
