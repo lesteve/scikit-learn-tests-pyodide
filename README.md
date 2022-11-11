@@ -4,7 +4,7 @@ Proof of concept repo to run the scikit-learn tests in Pyodide.
 
 You can run all tests by module like this:
 ```bash
-./run-tests-by-modules.sh
+python run-tests-by-modules.py
 ```
 
 You can run selected tests like this:
