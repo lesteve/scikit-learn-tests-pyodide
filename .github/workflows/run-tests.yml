@@ -15,7 +15,7 @@ jobs:
   build-wasm-emscripten:
     runs-on: ubuntu-latest
     env:
-      PYODIDE_VERSION: '0.22.0a3'
+      PYODIDE_VERSION: '0.22.0a2'
       PYTHON_VERSION: '3.10.2'
       NODE_VERSION: 18
       EMSCRIPTEN_VERSION: 3.1.24
