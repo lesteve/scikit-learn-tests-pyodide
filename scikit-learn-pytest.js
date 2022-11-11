@@ -88,7 +88,7 @@ async function main() {
     await pyodide.runPythonAsync(`
       import micropip
 
-      micropip.install('emfs:/mnt/dist/scikit_learn-1.2.dev0-cp310-cp310-emscripten_3_1_21_wasm32.whl')
+      micropip.install('emfs:/mnt/dist/scikit_learn-1.2.dev0-cp310-cp310-emscripten_3_1_24_wasm32.whl')
     `);
 
     // Pyodide is built without OpenMP, need to set environment variable to
