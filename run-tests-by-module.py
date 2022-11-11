@@ -186,6 +186,7 @@ def print_summary(module_results):
         print(f"{each['module']} {each['category']} (exit code {each['exit_code']})")
 
     print()
+    print("-" * 80)
     print("Grouped by category:")
     print("-" * 80)
 
@@ -217,7 +218,7 @@ def main():
     module_results = []
     for module in test_submodules:
         print("-" * 80)
-        print(f"testing module {module}")
+        print(module)
         print("-" * 80)
         this_module_result = run_tests_for_module(module)
         this_module_result["module"] = module
