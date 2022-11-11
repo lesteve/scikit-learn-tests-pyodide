@@ -145,6 +145,9 @@ def execute_command_with_timeout(command_list, timeout_without_output):
             stdout = "".join(stdout_list)
             stderr = "".join(stderr_list)
 
+            sys.stdout.flush()
+            sys.stderr.flush()
+
             return {"exit_code": exit_code, "stdout": stdout, "stderr": stderr}
 
 
