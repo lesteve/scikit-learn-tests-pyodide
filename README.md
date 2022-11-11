@@ -41,30 +41,47 @@ pyodide build
 
 ## Test failures
 
-- sklearn.ensemble.tests.test_forest::test_poisson_vs_mse
-- sklearn.experimental.tests.test_enable_iterative_imputer.py::test_imports_strategies
-- sklearn.experimental.tests.test_enable_successive_halving.py::test_imports_strategies
-- sklearn.feature_extraction.tests.test_text.py::test_tfidf_no_smoothing
-- plenty of errors in sklearn._loss.tests.test_loss::test_loss_dtype
-- sklearn.svm.tests.test_bounds::test_newrand_set_seed[None-81]
-- sklearn.tests.test_build::test_openmp_parallelism_enabled
-- sklearn.tree.tests.test_tree::test_poisson_vs_mse
-- sklearn.utils.tests.test_estimator_checks::test_all_estimators_all_public
+### Failures that need investigation:
+- plenty of errors in `sklearn._loss.tests.test_loss::test_loss_dtype` some memmap issues
+- `sklearn.tree.tests.test_tree::test_poisson_vs_mse`
+- `sklearn.ensemble.tests.test_forest::test_poisson_vs_mse` very likely same
+  issue as for its `sklearn.tree` counterpart
+- `sklearn.svm.tests.test_bounds::test_newrand_set_seed[None-81]`
+- `sklearn.utils.tests.test_estimator_checks::test_all_estimators_all_public`
+
+
+### Tests to be skipped or xfailed
+
+Should be skipped because tests use a subprocess:
+- `sklearn.experimental.tests.test_enable_hist_gradient_boosting.py::test_import_raises_warning`
+- `sklearn.experimental.tests.test_enable_iterative_imputer.py::test_imports_strategies`
+- `sklearn.experimental.tests.test_enable_successive_halving.py::test_imports_strategies`
+
+Should be skipped (or xfailed) because lack of feature in wasm, see
+https://github.com/numpy/numpy/pull/21895#issuecomment-1311525881
+- `sklearn.feature_extraction.tests.test_text.py::test_tfidf_no_smoothing`
+
+This one should be skipped by setting SKLEARN_SKIP_OPENMP_TEST=true
+- `sklearn.tests.test_build::test_openmp_parallelism_enabled`
 
 ## Fatal errors
 
-Two different kind of errors: "null function or function signature mismatch"
-and "memory access out of bounds".
+Those can be Pyodide fatal errors e.g. "null function or function signature
+mismatch" or "memory access out of bounds". They can also happens as timeout,
+pytest internal error, or some Python error that does not make any sense.
 
-- sklearn.decomposition.tests
-- sklearn.ensemble.tests
-- sklearn.inspection.tests
-- sklearn.linear_model.tests
-- sklearn.tests
-- sklearn.utils.tests
+One snippet reproducing this behaviour with `numpy.random` and `scipy.linalg`
+has been reported upstream to Pyodide, see
+https://github.com/pyodide/pyodide/issues/3203 for more details.
+
+- `sklearn.decomposition.tests`
+- `sklearn.ensemble.tests`
+- `sklearn.inspection.tests`
+- `sklearn.linear_model.tests`
+- `sklearn.tests`
+- `sklearn.utils.tests`
 
 TODO: This would be nice to try to pinpoint whether some particular tests
 causes the issue. In my experience the pytest output can not be trusted for
 this since it can vary from run to run. `collected-tests.txt` could be used to
 run tests by smaller chunks in separate node instances.
-
