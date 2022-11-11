@@ -91,6 +91,13 @@ async function main() {
       micropip.install('emfs:/mnt/dist/scikit_learn-1.2.dev0-cp310-cp310-emscripten_3_1_21_wasm32.whl')
     `);
 
+    // Pyodide is built without OpenMP, need to set environment variable to
+    // skip related test
+    await pyodide.runPythonAsync(`
+        import os
+        os.environ['SKLEARN_SKIP_OPENMP_TEST'] = 'true'
+    `);
+
     // Needed somehow scikit-learn 1.2 needs recent joblib and recent joblib
     // needs distutils which is not packaged in Pyodide
     await pyodide.runPythonAsync(`micropip.install('distutils')`);

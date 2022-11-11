@@ -61,9 +61,6 @@ Should be skipped (or xfailed) because lack of feature in wasm, see
 https://github.com/numpy/numpy/pull/21895#issuecomment-1311525881
 - `sklearn.feature_extraction.tests.test_text.py::test_tfidf_no_smoothing`
 
-This one should be skipped by setting SKLEARN_SKIP_OPENMP_TEST=true
-- `sklearn.tests.test_build::test_openmp_parallelism_enabled`
-
 ## Fatal errors
 
 Those can be Pyodide fatal errors e.g. "null function or function signature
