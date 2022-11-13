@@ -153,7 +153,7 @@ def execute_command_with_timeout(command_list, timeout_without_output):
 
 def run_tests_for_module(module_str):
     timeout_without_output = 60
-    command_str = f"node --experimental-fetch scikit-learn-pytest.js {module_str} -v"
+    command_str = f"node --experimental-fetch scikit-learn-pytest.js -v {module_str}"
     command_list = shlex.split(command_str)
     command_result = execute_command_with_timeout(
         command_list=command_list, timeout_without_output=timeout_without_output
@@ -216,6 +216,11 @@ def print_summary(module_results):
 
 def main():
     module_results = []
+
+    custom_pytest_args = " ".join(sys.argv[1:])
+    if custom_pytest_args:
+        test_submodules = [" ".join(sys.argv[1:])]
+
     for module in test_submodules:
         print("-" * 80)
         print(module)
@@ -227,7 +232,10 @@ def main():
         )
         module_results.append(this_module_result)
 
-    print_summary(module_results)
+    # When using custom pytest args, we run a single pytest command and it does
+    # not make sense to compare results to expectation
+    if not custom_pytest_args:
+        print_summary(module_results)
 
 
 if __name__ == "__main__":
