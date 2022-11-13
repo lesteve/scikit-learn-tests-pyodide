@@ -164,7 +164,10 @@ def run_tests_for_module(module_str):
     if command_result["exit_code"] is None:
         print(f"{module_str} timed out", flush=True)
     else:
-        print(f"{module_str} exited with exit code {command_result['exit_code']}", flush=True)
+        print(
+            f"{module_str} exited with exit code {command_result['exit_code']}",
+            flush=True,
+        )
 
     return command_result
 
@@ -212,6 +215,8 @@ def print_summary(module_results):
         for each in module_list:
             print(f"    {each}")
 
+    sys.stdout.flush()
+
     # Compare test results with expectations. Easiest way I found to compare
     # dicts with a good error message is to use unittest
     tc = unittest.TestCase()
@@ -222,6 +227,7 @@ def print_summary(module_results):
         k: set(v) for k, v in expected_test_results_by_category.items()
     }
     tc.assertDictEqual(expected_test_results_with_sets, test_results_with_sets)
+    print("Test results matched expected ones")
 
 
 def main():
