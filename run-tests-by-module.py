@@ -150,6 +150,8 @@ def execute_command_with_timeout(command_list, timeout_without_output):
 
             return {"exit_code": exit_code, "stdout": stdout, "stderr": stderr}
 
+        time.sleep(0.01)
+
 
 def run_tests_for_module(module_str):
     timeout_without_output = 60
