@@ -7,12 +7,17 @@ You can run all tests by module like this:
 python run-tests-by-modules.py
 ```
 
-You can run selected tests like this:
+You can run selected tests with additional pytest arguments like this:
 ```bash
-node --experimental-fetch scikit-learn-pytest.js --pyargs 'sklearn.tree'
+python run-tests-by-modules.py sklearn.tree -k poisson -q
 ```
 
-`scikit-learn-pytest.js` is strongly inspired from
+Or do a similar thing it directly with the `js` helper:
+```bash
+node --experimental-fetch scikit-learn-pytest.js --pyargs sklearn.tree -k poisson -q
+```
+
+`scikit-learn-pytest.js` is strongly inspired from a previous version of
 https://github.com/numpy/numpy/pull/21895.
 
 # Building from sources
@@ -21,14 +26,14 @@ On Linux, install the expected version of Python and pyodide-build
 ```
 conda create -n pyodide python=3.10.2
 conda activate pyodide
-pip install pyodide-build==0.22.0a1
+pip install pyodide-build==0.22.0a3
 ```
 and the matching version of [Emscripten toolchain](https://emscripten.org/docs/getting_started/downloads.html),
 ```
 git clone https://github.com/emscripten-core/emsdk.git
 cd emsdk
-./emsdk install 3.1.21
-./emsdk 3.1.21
+./emsdk install 3.1.24
+./emsdk 3.1.24
 source ./emsdk_env.sh
 ```
 Then you can build a Emscripten/wasm wheel with,
