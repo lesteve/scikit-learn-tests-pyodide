@@ -174,7 +174,15 @@ def exit_code_to_category(exit_code):
         return "passed"
     if exit_code == 1:
         return "failed"
-    # this also covers exit code 3 which is pytest internal error
+    if exit_code == 2:
+        return "tests collection error"
+    if exit_code == 4:
+        return "pytest usage error"
+    if exit_code == 5:
+        return "no test collected"
+
+    # this also covers exit code 3 which is pytest internal error, because this
+    # is one of the symptom of a wasm memory corruption
     return "fatal error or timeout"
 
 
