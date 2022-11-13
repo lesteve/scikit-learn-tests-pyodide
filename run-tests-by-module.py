@@ -219,6 +219,7 @@ def main():
 
     custom_pytest_args = " ".join(sys.argv[1:])
     if custom_pytest_args:
+        global test_submodules
         test_submodules = [" ".join(sys.argv[1:])]
 
     for module in test_submodules:
