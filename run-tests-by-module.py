@@ -160,9 +160,9 @@ def run_tests_for_module(module_str):
     )
 
     if command_result["exit_code"] is None:
-        print(f"{module_str} timed out")
+        print(f"{module_str} timed out", flush=True)
     else:
-        print(f"{module_str} exited with exit code {command_result['exit_code']}")
+        print(f"{module_str} exited with exit code {command_result['exit_code']}", flush=True)
 
     return command_result
 
