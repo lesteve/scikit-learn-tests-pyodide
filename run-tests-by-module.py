@@ -223,9 +223,9 @@ def main():
         test_submodules = [" ".join(sys.argv[1:])]
 
     for module in test_submodules:
-        print("-" * 80)
-        print(module)
-        print("-" * 80)
+        print("-" * 80, flush=True)
+        print(module, flush=True)
+        print("-" * 80, flush=True)
         this_module_result = run_tests_for_module(module)
         this_module_result["module"] = module
         this_module_result["category"] = exit_code_to_category(

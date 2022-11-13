@@ -117,8 +117,10 @@ async function main() {
     exit_code = pyodide.globals.get("pytest_result");
   } catch (e) {
     console.error(e);
-    // Arbitrary exit code here, not sure when we reach this. Somehow when
-    // there is a Pyodide fatal error we don't, and the exit code is 7
+    // Arbitrary exit code here. I have seen this code reached instead of a
+    // Pyodide fatal error sometimes (I guess kind of similar to a random
+    // Python error). When there is a Pyodide fatal error we don't end up here
+    // somehow, and the exit code is 7
     exit_code = 66;
 
   } finally {
