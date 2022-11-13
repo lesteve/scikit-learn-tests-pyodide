@@ -8,7 +8,7 @@ import itertools
 import unittest
 
 # This is the output of the command run from the scikit-learn root folder:
-# find sklearn -name tests | sort | perl -pe 's@/tests@@' | perl -pe 's@/@.@g'
+# find sklearn -name tests | sort | perl -pe 's@/@.@g'
 test_submodules_str = """
 sklearn.cluster
 sklearn.compose
@@ -48,42 +48,42 @@ test_submodules = test_submodules_str.split()
 
 expected_test_results_by_category = {
     "failed": [
-        "sklearn.experimental",
-        "sklearn.feature_extraction",
-        "sklearn._loss",
-        "sklearn.svm",
-        "sklearn.tree",
+        "sklearn.experimental.tests",
+        "sklearn.feature_extraction.tests",
+        "sklearn._loss.tests",
+        "sklearn.svm.tests",
+        "sklearn.tree.tests",
     ],
     "fatal error or timeout": [
-        "sklearn.decomposition",
-        "sklearn.ensemble",
-        "sklearn.feature_selection",
-        "sklearn.inspection",
-        "sklearn.linear_model",
-        "sklearn",
-        "sklearn.utils",
+        "sklearn.decomposition.tests",
+        "sklearn.ensemble.tests",
+        "sklearn.feature_selection.tests",
+        "sklearn.inspection.tests",
+        "sklearn.linear_model.tests",
+        "sklearn.tests",
+        "sklearn.utils.tests",
     ],
     "passed": [
-        "sklearn.cluster",
-        "sklearn.compose",
-        "sklearn.covariance",
-        "sklearn.cross_decomposition",
-        "sklearn.datasets",
-        "sklearn.ensemble._hist_gradient_boosting",
-        "sklearn.gaussian_process",
-        "sklearn.impute",
-        "sklearn.inspection._plot",
-        "sklearn.linear_model._glm",
-        "sklearn.manifold",
-        "sklearn.metrics.cluster",
-        "sklearn.metrics._plot",
-        "sklearn.metrics",
-        "sklearn.mixture",
-        "sklearn.model_selection",
-        "sklearn.neighbors",
-        "sklearn.neural_network",
-        "sklearn.preprocessing",
-        "sklearn.semi_supervised",
+        "sklearn.cluster.tests",
+        "sklearn.compose.tests",
+        "sklearn.covariance.tests",
+        "sklearn.cross_decomposition.tests",
+        "sklearn.datasets.tests",
+        "sklearn.ensemble._hist_gradient_boosting.tests",
+        "sklearn.gaussian_process.tests",
+        "sklearn.impute.tests",
+        "sklearn.inspection._plot.tests",
+        "sklearn.linear_model._glm.tests",
+        "sklearn.manifold.tests",
+        "sklearn.metrics.cluster.tests",
+        "sklearn.metrics._plot.tests",
+        "sklearn.metrics.tests",
+        "sklearn.mixture.tests",
+        "sklearn.model_selection.tests",
+        "sklearn.neighbors.tests",
+        "sklearn.neural_network.tests",
+        "sklearn.preprocessing.tests",
+        "sklearn.semi_supervised.tests",
     ],
 }
 
