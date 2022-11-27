@@ -1,11 +1,8 @@
-import subprocess
 import shlex
 import sys
-import fcntl
-import os
-import time
 import itertools
 import unittest
+import asyncio
 
 # This is the output of the command run from the scikit-learn root folder:
 # find sklearn -name tests | sort | perl -pe 's@/@.@g'
@@ -88,11 +85,50 @@ expected_test_results_by_category = {
 }
 
 
-def set_non_blocking(file_):
-    """Needed to ensure that .read do not block if there is nothing to be read"""
-    fd = file_.fileno()
-    flags = fcntl.fcntl(fd, fcntl.F_GETFL)
-    fcntl.fcntl(fd, fcntl.F_SETFL, flags | os.O_NONBLOCK)
+async def _read_stream(stream, cb, timeout_without_output):
+    while True:
+        loop = asyncio.get_event_loop_policy().get_event_loop()
+
+        async def readline(stream):
+            return await stream.readline()
+
+        task = loop.create_task(readline(stream))
+
+        line = await asyncio.wait_for(task, timeout_without_output)
+        line = line.decode()
+        if line:
+            cb(line)
+        else:
+            break
+
+
+async def _stream_subprocess(cmd, stdout_cb, stderr_cb, timeout_without_output):
+    process = await asyncio.create_subprocess_exec(
+        *cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
+    )
+
+    loop = asyncio.get_event_loop_policy().get_event_loop()
+
+    stdout_task = loop.create_task(
+        _read_stream(
+            process.stdout, stdout_cb, timeout_without_output=timeout_without_output
+        )
+    )
+    stderr_task = loop.create_task(
+        _read_stream(
+            process.stderr, stderr_cb, timeout_without_output=timeout_without_output
+        )
+    )
+
+    stdout_result, stderr_result = await asyncio.gather(
+        stdout_task, stderr_task, return_exceptions=True
+    )
+
+    if isinstance(stdout_result, asyncio.exceptions.TimeoutError) and isinstance(
+        stderr_result, asyncio.exceptions.TimeoutError
+    ):
+        process.kill()
+    return await process.wait()
 
 
 def execute_command_with_timeout(command_list, timeout_without_output):
@@ -102,55 +138,25 @@ def execute_command_with_timeout(command_list, timeout_without_output):
     -------
     dict containing exit_code, stdout, stderr
     """
-    last_time_with_output = time.time()
-    p = subprocess.Popen(
-        command_list,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        universal_newlines=True,
-    )
-    set_non_blocking(p.stdout)
-    set_non_blocking(p.stderr)
+    loop = asyncio.get_event_loop_policy().get_event_loop()
 
     stdout_list = []
     stderr_list = []
-    exit_code = None
 
-    while exit_code is None:
-        exit_code = p.poll()
-        if exit_code is None:
-            this_stdout = p.stdout.readline()
-            this_stderr = p.stderr.readline()
-        else:
-            # process has finished, need to read all the remaining output
-            this_stdout = p.stdout.read()
-            this_stderr = p.stderr.read()
+    def stdout_cb(line):
+        print(line, end="")
+        stdout_list.append(line)
 
-        if this_stdout:
-            last_time_with_output = time.time()
-            print(this_stdout, end="")
-            stdout_list.append(this_stdout)
-        if this_stderr:
-            last_time_with_output = time.time()
-            sys.stderr.write(this_stderr)
-            stderr_list.append(this_stderr)
+    def stderr_cb(line):
+        sys.stderr.write(line)
+        stderr_list.append(line)
 
-        command_timed_out = (
-            time.time() - last_time_with_output
-        ) > timeout_without_output
-        if command_timed_out:
-            p.kill()
-
-        if exit_code is not None or command_timed_out:
-            stdout = "".join(stdout_list)
-            stderr = "".join(stderr_list)
-
-            sys.stdout.flush()
-            sys.stderr.flush()
-
-            return {"exit_code": exit_code, "stdout": stdout, "stderr": stderr}
-
-        time.sleep(0.01)
+    rc = loop.run_until_complete(
+        _stream_subprocess(command_list, stdout_cb, stderr_cb, timeout_without_output)
+    )
+    stdout = "\n".join(stdout_list)
+    stderr = "\n".join(stderr_list)
+    return {"exit_code": rc, "stdout": stdout, "stderr": stderr}
 
 
 def run_tests_for_module(module_str):
