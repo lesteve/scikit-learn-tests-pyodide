@@ -86,9 +86,13 @@ async function main() {
     await pyodide.loadPackage(["micropip"]);
     // Install previously built scikit-learn wheel
     await pyodide.runPythonAsync(`
-      import micropip
+        import glob
+        import micropip
 
-      micropip.install('emfs:/mnt/dist/scikit_learn-1.2.dev0-cp310-cp310-emscripten_3_1_24_wasm32.whl')
+        wheel_list = glob.glob('/mnt/dist/*.whl')
+        emfs_wheel_list = [f"emfs:{each}" for each in wheel_list]
+        print(f"Installing wheels: {emfs_wheel_list}")
+        await micropip.install(emfs_wheel_list)
     `);
 
     // Pyodide is built without OpenMP, need to set environment variable to
@@ -98,7 +102,7 @@ async function main() {
         os.environ['SKLEARN_SKIP_OPENMP_TEST'] = 'true'
     `);
 
-    // Needed somehow scikit-learn 1.2 needs recent joblib and recent joblib
+    // Needed somehow scikit-learn>=1.2 needs recent joblib and recent joblib
     // needs distutils which is not packaged in Pyodide
     await pyodide.runPythonAsync(`micropip.install('distutils')`);
     await pyodide.runPythonAsync(`import joblib`);
