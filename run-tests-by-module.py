@@ -128,6 +128,9 @@ async def _stream_subprocess(cmd, stdout_cb, stderr_cb, timeout_without_output):
         stderr_result, asyncio.exceptions.TimeoutError
     ):
         process.kill()
+        # return None for timeout
+        return
+
     return await process.wait()
 
 
