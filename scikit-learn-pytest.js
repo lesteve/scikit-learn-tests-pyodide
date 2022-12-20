@@ -111,14 +111,11 @@ async function main() {
     await pyodide.runPythonAsync("import micropip; micropip.install('pytest')");
     // somehow this import is needed not sure why import pytest is not enough...
     await pyodide.runPythonAsync("micropip.install('tomli')");
-    await pyodide.runPythonAsync("import pytest");
+    let pytest = await pyodide.runPythonAsync("import pytest; pytest");
     let args = process.argv.slice(2);
-    let args_str = args.join(' ');
-
-    let pytest_cmd_str = `pytest_result = int(pytest.main("--pyargs ${args_str}".split()))`;
-    console.log('pytest command:', pytest_cmd_str);
-    await pyodide.runPythonAsync(pytest_cmd_str);
-    exit_code = pyodide.globals.get("pytest_result");
+    args = ["--pyargs"].concat(args);
+    console.log('pytest args:', args);
+    exit_code = pytest.main(pyodide.toPy(args));
   } catch (e) {
     console.error(e);
     // Arbitrary exit code here. I have seen this code reached instead of a
