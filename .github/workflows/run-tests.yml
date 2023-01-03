@@ -15,7 +15,6 @@ jobs:
   build-wasm-emscripten:
     runs-on: ubuntu-latest
     env:
-      PYODIDE_VERSION: '0.22.0a3'
       PYODIDE_JS_VERSION: '0.22.0-alpha.3'
       PYTHON_VERSION: '3.10.7'
       NODE_VERSION: 18
@@ -65,7 +64,10 @@ jobs:
           actions-cache-folder: emsdk-cache
 
       - name: Install pyodide-build
-        run: pip install pyodide-build==$PYODIDE_VERSION
+        run: |
+          git clone https://github.com/pyodide/pyodide --fetch 1
+          pip install pyodide
+          pip install pyodide/pyodide-build
 
       - name: Download scikit-learn
         run: |
