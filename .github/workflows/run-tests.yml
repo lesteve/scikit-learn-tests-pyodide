@@ -49,8 +49,8 @@ jobs:
 
       - name: Unzip Pyodide debug build artifact
         run: |
-          unzip pyodide-build.zip -d dist
-          ls -ltrh dist
+          unzip pyodide-build.zip -d pyodide-build
+          ls -ltrh pyodide-build
 
       - name: set up python
         id: setup-python
@@ -81,8 +81,8 @@ jobs:
           cd scikit-learn/
           CFLAGS=-g2 LDFLAGS=-g2 pyodide build
 
-          # Copy scikit-learn wheel to root dist folder
-          cp dist/* ../dist
+          # Make dist accessible at root level
+          cp -r dist ../dist
 
       - name: set up node
         uses: actions/setup-node@v3
@@ -106,7 +106,7 @@ jobs:
       - name: install debug build
         run: |
           ls -ltrh dist
-          cp dist/* node_modules/pyodide
+          cp pyodide-build/* node_modules/pyodide
 
       - name: Test
         run: |
