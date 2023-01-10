@@ -68,6 +68,7 @@ jobs:
           git clone https://github.com/pyodide/pyodide --depth 1
           cd pyodide
           make -C emsdk
+          source pyodide_env.sh
           pip install ./pyodide-build
           pyodide build --help
 
