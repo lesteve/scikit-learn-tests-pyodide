@@ -69,6 +69,7 @@ jobs:
           cd pyodide
           make -C emsdk
           pip install ./pyodide-build
+          pyodide build --help
 
       - name: Download scikit-learn
         run: |
