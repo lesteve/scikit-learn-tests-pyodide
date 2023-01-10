@@ -66,8 +66,9 @@ jobs:
       - name: Install pyodide-build
         run: |
           git clone https://github.com/pyodide/pyodide --depth 1
-          pip install ./pyodide/pyodide-build
-          pyodide build --version
+          cd pyodide
+          make -C emsdk
+          pip install ./pyodide-build
 
       - name: Download scikit-learn
         run: |
