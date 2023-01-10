@@ -67,6 +67,7 @@ jobs:
         run: |
           git clone https://github.com/pyodide/pyodide --depth 1
           pip install ./pyodide/pyodide-build
+          pyodide build --version
 
       - name: Download scikit-learn
         run: |
