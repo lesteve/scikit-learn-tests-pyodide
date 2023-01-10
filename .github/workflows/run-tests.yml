@@ -15,16 +15,42 @@ jobs:
   build-wasm-emscripten:
     runs-on: ubuntu-latest
     env:
-      PYODIDE_VERSION: '0.22.0a3'
       PYODIDE_JS_VERSION: '0.22.0-alpha.3'
       PYTHON_VERSION: '3.10.7'
       NODE_VERSION: 18
-      EMSCRIPTEN_VERSION: 3.1.24
+      EMSCRIPTEN_VERSION: 3.1.27
     steps:
       - name: Checkout
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+
+      - name: Download latest Pyodide debug build
+        uses: actions/github-script@v6
+        with:
+          script: |
+            var fs = require("fs");
+            const owner = "lesteve";
+            const repo = "scipy-tests-pyodide";
+
+            const artifacts_response = await github.rest.actions.listArtifactsForRepo({owner: owner, repo: repo});
+            console.log(`Found ${artifacts_response.data.total_count} artifacts`);
+            artifacts = artifacts_response.data.artifacts;
+
+            const most_recent_artifact = artifacts[0];
+
+            const response = await github.rest.actions.downloadArtifact({
+                owner: owner, repo: repo, artifact_id: most_recent_artifact.id, archive_format: "zip"});
+            console.log(`Downloaded ${response.data.byteLength / 1000000} MB`);
+
+            await fs.appendFile("pyodide-build.zip", Buffer.from(response.data), function (err) {
+                if (err) throw err;
+            });
+
+      - name: Unzip Pyodide debug build artifact
+        run: |
+          unzip pyodide-build.zip -d pyodide-build
+          ls -ltrh pyodide-build
 
       - name: set up python
         id: setup-python
@@ -38,7 +64,9 @@ jobs:
           actions-cache-folder: emsdk-cache
 
       - name: Install pyodide-build
-        run: pip install pyodide-build==$PYODIDE_VERSION
+        run: |
+          git clone https://github.com/pyodide/pyodide --depth 1
+          pip install ./pyodide/pyodide-build
 
       - name: Download scikit-learn
         run: |
@@ -47,13 +75,13 @@ jobs:
           git -C scikit-learn log -1
 
       # TODO: cache the wheel and avoid rebuilding
-      - name: Build
+      - name: Build dev scikit-learn wheel
         run: |
           cd scikit-learn/
           CFLAGS=-g2 LDFLAGS=-g2 pyodide build
 
-          # Make the dist available on the root folder
-          cp -r dist ..
+          # Make dist accessible at root level
+          cp -r dist ../dist
 
       - name: set up node
         uses: actions/setup-node@v3
@@ -73,6 +101,12 @@ jobs:
       - name: install Pyodide
         run: |
           npm install "pyodide@$PYODIDE_JS_VERSION"
+
+      - name: install debug build
+        run: |
+          ls -ltrh dist
+          cp pyodide-build/* node_modules/pyodide
+
       - name: Test
         run: |
           python run-tests-by-module.py
