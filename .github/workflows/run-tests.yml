@@ -81,6 +81,7 @@ jobs:
       # TODO: cache the wheel and avoid rebuilding
       - name: Build dev scikit-learn wheel
         run: |
+          source pyodide/pyodide_env.sh
           cd scikit-learn/
           CFLAGS=-g2 LDFLAGS=-g2 pyodide build
 
