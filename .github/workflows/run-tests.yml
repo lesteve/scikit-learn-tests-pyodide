@@ -18,6 +18,7 @@ jobs:
       PYODIDE_JS_VERSION: '0.22.0'
       PYTHON_VERSION: '3.10.7'
       NODE_VERSION: 18
+      EMSCRIPTEN_VERSION: 3.1.29
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -57,12 +58,15 @@ jobs:
         with:
           python-version: ${{ env.PYTHON_VERSION }}
 
+      - uses: mymindstorm/setup-emsdk@v11
+        with:
+          version: ${{ env.EMSCRIPTEN_VERSION }}
+          actions-cache-folder: emsdk-cache
+
       - name: Install pyodide-build
         run: |
           git clone https://github.com/pyodide/pyodide --depth 1
           cd pyodide
-          make -C emsdk
-          source pyodide_env.sh
           pip install -e ./pyodide-build
           pyodide build --help
 
@@ -75,7 +79,6 @@ jobs:
       # TODO: cache the wheel and avoid rebuilding
       - name: Build dev scikit-learn wheel
         run: |
-          source pyodide/pyodide_env.sh
           cd scikit-learn/
           CFLAGS=-g2 LDFLAGS=-g2 pyodide build
 
