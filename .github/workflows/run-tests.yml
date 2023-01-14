@@ -90,8 +90,8 @@ jobs:
           cd scikit-learn/
           CFLAGS=-g2 LDFLAGS=-g2 pyodide build
 
-          # Copy scikit-learn dev wheel to pyodide dist
-          cp -r dist/* ../pyodide/dist
+          # Make dist accessible at root level
+          cp -r dist ..
 
       # Note: Pyodide venv with scipy doesn't work for now due to https://github.com/pyodide/pyodide/issues/3186
       # - name: install Pyodide
