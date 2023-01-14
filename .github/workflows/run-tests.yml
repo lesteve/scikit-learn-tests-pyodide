@@ -52,7 +52,7 @@ jobs:
         run: |
           git clone https://github.com/pyodide/pyodide --depth 1
           cd pyodide
-          git show --stat
+          git log -1
           pip install -r requirements.txt
           pip install -e ./pyodide-build
           pyodide build --help
@@ -117,6 +117,10 @@ jobs:
       - name: Build dev scikit-learn wheel
         shell: bash -l {0}
         run: |
+          which python
+          python -m pip list
+          conda list
+          which pyodide
           cd scikit-learn/
           CFLAGS=-g2 LDFLAGS=-g2 pyodide build
 
