@@ -15,15 +15,69 @@ jobs:
   build-wasm-emscripten:
     runs-on: ubuntu-latest
     env:
+      EMSDK_NUM_CORES: 3
+      EMCC_CORES: 3
+      PYODIDE_JOBS: 3
+      CCACHE_DIR: /tmp/ccache
       PYODIDE_JS_VERSION: '0.22.0'
-      PYTHON_VERSION: '3.10.7'
       NODE_VERSION: 18
-      EMSCRIPTEN_VERSION: 3.1.29
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - name: Cache ccache output
+        uses: actions/cache@v2
         with:
-          fetch-depth: 0
+          path: |
+            /tmp/ccache
+          key: ${{ hashFiles('pyodide/Makefile.envs') }}-v20211025-
+
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: pyodide-env
+          python-version: 3.10.2
+          channels: conda-forge
+
+      - name: Check Python versions
+        shell: bash -l {0}
+        run: |
+          python --version
+          which python
+
+      - name: Install dependencies
+        shell: bash -l {0}
+        run: |
+          sudo apt install -y build-essential git
+          conda install -y nodejs ccache f2c pkg-config swig make patch pkg-config texinfo autoconf automake libtool
+
+      - name: clone pyodide repo
+        shell: bash -l {0}
+        run: |
+          git clone https://github.com/pyodide/pyodide --depth 1
+          cd pyodide
+          git show --stat
+          pip install -r requirements.txt
+          pip install -e pyodide-build
+
+      - name: Build emsdk
+        shell: bash -l {0}
+        run: |
+          cd pyodide
+          which ccache
+
+          ccache -z
+          make -C emsdk
+          ccache -s
+
+      - name: Build Cpython
+        shell: bash -l {0}
+        run: |
+          cd pyodide
+          # This is necessary to use the ccache from emsdk
+          source pyodide_env.sh
+
+          which ccache
+
+          ccache -z
+          make -C cpython
+          ccache -s
 
       - name: Download latest Pyodide debug build
         uses: actions/github-script@v6
@@ -52,24 +106,6 @@ jobs:
           unzip pyodide-build.zip -d pyodide-build
           ls -ltrh pyodide-build
 
-      - name: set up python
-        id: setup-python
-        uses: actions/setup-python@v4
-        with:
-          python-version: ${{ env.PYTHON_VERSION }}
-
-      - uses: mymindstorm/setup-emsdk@v11
-        with:
-          version: ${{ env.EMSCRIPTEN_VERSION }}
-          actions-cache-folder: emsdk-cache
-
-      - name: Install pyodide-build
-        run: |
-          git clone https://github.com/pyodide/pyodide --depth 1
-          cd pyodide
-          pip install -e ./pyodide-build
-          pyodide build --help
-
       - name: Download scikit-learn
         run: |
           git clone https://github.com/scikit-learn/scikit-learn --depth 1
@@ -85,11 +121,6 @@ jobs:
           # Make dist accessible at root level
           cp -r dist ../dist
 
-      - name: set up node
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-
       # Note: Pyodide venv with scipy doesn't work for now due to https://github.com/pyodide/pyodide/issues/3186
       # - name: install Pyodide
       #   run: |
@@ -99,6 +130,11 @@ jobs:
       #     source .venv-pyodide/bin/activate
       #     pip install scikit-learn/dist/*.whl pytest
       #     pytest --pyargs sklearn.preprocessing
+
+      - name: set up node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
 
       - name: install Pyodide
         run: |
