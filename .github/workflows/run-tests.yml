@@ -115,12 +115,10 @@ jobs:
       - name: Build dev scikit-learn wheel
         shell: bash -l {0}
         run: |
-          which python
-          python -m pip list
-          conda list
-          which pyodide
           cd scikit-learn/
-          CFLAGS=-g2 LDFLAGS=-g2 pyodide build
+          # debug
+          perl -pi -e 's@(== "__main__":)@\1\n    print(f"python executable: {sys.executable}"@' setup.py
+          CFLAGS=-g2 LDFLAGS=-g2 pyodide build 2>&1
 
           # Make dist accessible at root level
           cp -r dist ../dist
