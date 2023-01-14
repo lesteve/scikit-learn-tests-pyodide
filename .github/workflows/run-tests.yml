@@ -18,7 +18,6 @@ jobs:
       PYODIDE_JS_VERSION: '0.22.0'
       PYTHON_VERSION: '3.10.7'
       NODE_VERSION: 18
-      EMSCRIPTEN_VERSION: 3.1.29
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -58,18 +57,13 @@ jobs:
         with:
           python-version: ${{ env.PYTHON_VERSION }}
 
-      - uses: mymindstorm/setup-emsdk@v11
-        with:
-          version: ${{ env.EMSCRIPTEN_VERSION }}
-          actions-cache-folder: emsdk-cache
-
       - name: Install pyodide-build
         run: |
           git clone https://github.com/pyodide/pyodide --depth 1
           cd pyodide
           make -C emsdk
           source pyodide_env.sh
-          pip install ./pyodide-build
+          pip install -e ./pyodide-build
           pyodide build --help
 
       - name: Download scikit-learn
