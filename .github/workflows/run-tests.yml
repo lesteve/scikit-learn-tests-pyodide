@@ -114,7 +114,7 @@ jobs:
 
       - name: install debug build
         run: |
-          ls -ltrh dist
+          ls -ltrh pyodide/dist
           cp pyodide/dist/* node_modules/pyodide
 
       - name: Test
