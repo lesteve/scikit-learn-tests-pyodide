@@ -54,7 +54,8 @@ jobs:
           cd pyodide
           git show --stat
           pip install -r requirements.txt
-          pip install -e pyodide-build
+          pip install -e ./pyodide-build
+          pyodide build --help
 
       - name: Build emsdk
         shell: bash -l {0}
