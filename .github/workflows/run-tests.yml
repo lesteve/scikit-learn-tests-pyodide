@@ -117,7 +117,7 @@ jobs:
         run: |
           cd scikit-learn/
           # debug
-          perl -pi -e 's@(== "__main__":)@\1\n    print(f"python executable: {sys.executable}"@' setup.py
+          perl -pi -e 's@(== "__main__":)@\1\n    print(f"python executable: {sys.executable}")@' setup.py
           CFLAGS=-g2 LDFLAGS=-g2 pyodide build 2>&1
 
           # Make dist accessible at root level
