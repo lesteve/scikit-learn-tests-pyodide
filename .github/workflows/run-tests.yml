@@ -115,6 +115,7 @@ jobs:
 
       # TODO: cache the wheel and avoid rebuilding
       - name: Build dev scikit-learn wheel
+        shell: bash -l {0}
         run: |
           cd scikit-learn/
           CFLAGS=-g2 LDFLAGS=-g2 pyodide build
