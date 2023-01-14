@@ -53,9 +53,7 @@ jobs:
           git clone https://github.com/pyodide/pyodide --depth 1
           cd pyodide
           git log -1
-          pip install -r requirements.txt
           pip install -e ./pyodide-build
-          pyodide build --help
 
       - name: Build emsdk
         shell: bash -l {0}
