@@ -74,6 +74,8 @@ jobs:
       - name: Unzip Pyodide debug build artifact
         run: |
           unzip pyodide-build.zip -d pyodide
+          # Put back lost permission in artifact
+          chmod u+x pyodide/dist/python
 
       - name: Download scikit-learn
         run: |
