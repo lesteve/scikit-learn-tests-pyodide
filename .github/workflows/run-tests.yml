@@ -41,6 +41,9 @@ jobs:
           cd pyodide
           git log -1
           pip install -e ./pyodide-build
+          # Not sure why, but this is necessary to build the wheel otherwise
+          # somehow scipy is not installed in the temporary virtualenv
+          rm -rf packages
 
       - name: Cache ccache output
         uses: actions/cache@v2
