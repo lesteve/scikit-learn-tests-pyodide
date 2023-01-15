@@ -86,25 +86,21 @@ jobs:
           version: ${{ env.EMSCRIPTEN_VERSION }}
           actions-cache-folder: emsdk-cache
 
+      - name: Create Pyodide venv
+        shell: bash -l {0}
+        run: |
+          pyodide venv .venv-pyodide
+
       # TODO: cache the wheel and avoid rebuilding
       - name: Build dev scikit-learn wheel
         shell: bash -l {0}
         run: |
+          source .venv-pyodide/bin/activate
           cd scikit-learn/
           CFLAGS=-g2 LDFLAGS=-g2 pyodide build
 
           # Make dist accessible at root level
           cp -r dist ..
-
-      # Note: Pyodide venv with scipy doesn't work for now due to https://github.com/pyodide/pyodide/issues/3186
-      # - name: install Pyodide
-      #   run: |
-      #     pyodide venv .venv-pyodide
-      # - name: Test
-      #   run: |
-      #     source .venv-pyodide/bin/activate
-      #     pip install scikit-learn/dist/*.whl pytest
-      #     pytest --pyargs sklearn.preprocessing
 
       - name: set up node
         uses: actions/setup-node@v3
