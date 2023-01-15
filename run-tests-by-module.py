@@ -242,10 +242,10 @@ def print_summary(module_results):
 def main():
     module_results = []
 
-    custom_pytest_args = " ".join(sys.argv[1:])
+    custom_pytest_args = shlex.join(sys.argv[1:])
     if custom_pytest_args:
         global test_submodules
-        test_submodules = [" ".join(sys.argv[1:])]
+        test_submodules = [custom_pytest_args]
 
     for module in test_submodules:
         print("-" * 80, flush=True)
