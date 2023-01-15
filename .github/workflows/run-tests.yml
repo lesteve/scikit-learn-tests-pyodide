@@ -76,6 +76,10 @@ jobs:
           unzip pyodide-build.zip -d pyodide
           # Put back lost permission in artifact
           chmod u+x pyodide/dist/python
+          # temporary test
+          rm -rf pyodide/cpython/installs/python-3.10.2/lib
+          rm -rf pyodide/packages
+
 
       - name: Download scikit-learn
         run: |
