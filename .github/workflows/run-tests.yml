@@ -83,6 +83,11 @@ jobs:
           echo scikit-learn commit information
           git -C scikit-learn log -1
 
+      - uses: mymindstorm/setup-emsdk@v11
+        with:
+          version: ${{ env.EMSCRIPTEN_VERSION }}
+          actions-cache-folder: emsdk-cache
+
       - name: set up node
         uses: actions/setup-node@v3
         with:
@@ -91,11 +96,6 @@ jobs:
       - name: install Pyodide
         run: |
           npm install "pyodide@$PYODIDE_JS_VERSION"
-
-      - uses: mymindstorm/setup-emsdk@v11
-        with:
-          version: ${{ env.EMSCRIPTEN_VERSION }}
-          actions-cache-folder: emsdk-cache
 
       - name: Create Pyodide venv
         shell: bash -l {0}
