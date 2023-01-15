@@ -124,4 +124,6 @@ jobs:
 
       - name: Test
         run: |
+          deactivate
+          which python
           python run-tests-by-module.py
