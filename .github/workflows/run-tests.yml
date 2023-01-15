@@ -76,10 +76,6 @@ jobs:
           unzip pyodide-build.zip -d pyodide
           # Put back lost permission in artifact
           chmod u+x pyodide/dist/python
-          # temporary test
-          rm -rf pyodide/cpython/installs/python-3.10.2/lib
-          rm -rf pyodide/packages
-
 
       - name: Download scikit-learn
         run: |
@@ -117,6 +113,9 @@ jobs:
           # Make dist accessible at root level
           cp -r dist ..
 
+          # Make sure normal Python is used afterwards
+          deactivate
+
       - name: install debug build
         run: |
           ls -ltrh pyodide/dist
@@ -124,6 +123,5 @@ jobs:
 
       - name: Test
         run: |
-          deactivate
           which python
           python run-tests-by-module.py
