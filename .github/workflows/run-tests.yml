@@ -83,6 +83,15 @@ jobs:
           echo scikit-learn commit information
           git -C scikit-learn log -1
 
+      - name: set up node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: install Pyodide
+        run: |
+          npm install "pyodide@$PYODIDE_JS_VERSION"
+
       - uses: mymindstorm/setup-emsdk@v11
         with:
           version: ${{ env.EMSCRIPTEN_VERSION }}
@@ -103,15 +112,6 @@ jobs:
 
           # Make dist accessible at root level
           cp -r dist ..
-
-      - name: set up node
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-
-      - name: install Pyodide
-        run: |
-          npm install "pyodide@$PYODIDE_JS_VERSION"
 
       - name: install debug build
         run: |
