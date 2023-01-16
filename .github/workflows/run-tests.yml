@@ -131,5 +131,4 @@ jobs:
 
       - name: Test
         run: |
-          which python
           python run-tests-by-module.py
