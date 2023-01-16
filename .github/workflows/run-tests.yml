@@ -41,6 +41,12 @@ jobs:
           cd pyodide
           git log -1
           pip install -e ./pyodide-build
+          # Need to install numpy and scipy in HOSTINSTALLDIR + patch cython
+          # blas and lapack pxd
+          pip install numpy==1.23.5 scipy==1.9.3 --target packages/.artifacts/lib/python3.10/site-packages
+          ls -ltrh packages/.artifacts/lib/python3.10/site-packages
+          perl -pi -e 's@cdef void@cdef int@' \
+              packages/.artifacts/lib/python3.10/site-packages/scipy/linalg/cython_*.pxd
 
       - name: Cache ccache output
         uses: actions/cache@v2
@@ -74,6 +80,8 @@ jobs:
       - name: Unzip Pyodide debug build artifact
         run: |
           unzip pyodide-build.zip -d pyodide
+          # Put back lost permission in artifact
+          chmod u+x pyodide/dist/python
 
       - name: Download scikit-learn
         run: |
@@ -86,26 +94,6 @@ jobs:
           version: ${{ env.EMSCRIPTEN_VERSION }}
           actions-cache-folder: emsdk-cache
 
-      # TODO: cache the wheel and avoid rebuilding
-      - name: Build dev scikit-learn wheel
-        shell: bash -l {0}
-        run: |
-          cd scikit-learn/
-          CFLAGS=-g2 LDFLAGS=-g2 pyodide build
-
-          # Make dist accessible at root level
-          cp -r dist ..
-
-      # Note: Pyodide venv with scipy doesn't work for now due to https://github.com/pyodide/pyodide/issues/3186
-      # - name: install Pyodide
-      #   run: |
-      #     pyodide venv .venv-pyodide
-      # - name: Test
-      #   run: |
-      #     source .venv-pyodide/bin/activate
-      #     pip install scikit-learn/dist/*.whl pytest
-      #     pytest --pyargs sklearn.preprocessing
-
       - name: set up node
         uses: actions/setup-node@v3
         with:
@@ -115,6 +103,27 @@ jobs:
         run: |
           npm install "pyodide@$PYODIDE_JS_VERSION"
 
+      - name: Create Pyodide venv
+        shell: bash -l {0}
+        run: |
+          pyodide venv .venv-pyodide
+
+      # TODO: cache the wheel and avoid rebuilding
+      - name: Build dev scikit-learn wheel
+        shell: bash -l {0}
+        run: |
+          source .venv-pyodide/bin/activate
+          cd scikit-learn/
+          CFLAGS=-g2 LDFLAGS=-g2 pyodide build
+
+          # Make dist accessible at root level
+          cp -r dist ..
+
+          # early fail if cython blas mismatch
+          pip install dist/*.whl
+          cd
+          python -c 'import sklearn.utils._cython_blas'
+
       - name: install debug build
         run: |
           ls -ltrh pyodide/dist
@@ -122,4 +131,5 @@ jobs:
 
       - name: Test
         run: |
+          which python
           python run-tests-by-module.py
