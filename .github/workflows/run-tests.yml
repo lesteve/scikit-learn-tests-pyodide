@@ -45,9 +45,13 @@ jobs:
           # blas and lapack pxd
           rm -rf packages
           # use consistent versions with pyodide dev packages
-          pip install numpy==1.23.5 scipy==1.9.3 --target packages/.artifacts/lib/python3.10/site-packages/
+          pip install numpy==1.23.5 scipy==1.9.3 --target packages/.artifacts/lib/python3.10/site-packages
+          ls -ltrh packages/.artifacts/lib/python3.10/site-packages
           perl -pi -e 's@cdef void@cdef int@' \
               packages/.artifacts/lib/python3.10/site-packages/scipy/linalg/cython_*.pxd
+
+          grep cdef packages/.artifacts/lib/python3.10/site-packages/scipy/linalg/cython_blas.pxd | head
+          grep cdef packages/.artifacts/lib/python3.10/site-packages/scipy/linalg/cython_lapack.pxd | head
 
       - name: Cache ccache output
         uses: actions/cache@v2
@@ -120,8 +124,9 @@ jobs:
           # Make dist accessible at root level
           cp -r dist ..
 
-          # Make sure normal Python is used afterwards
-          deactivate
+          # early fail if cython blas mismatch
+          pip install dist/*.whl
+          python -c 'import sklearn.utils._cython_blas'
 
       - name: install debug build
         run: |
