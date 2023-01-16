@@ -41,9 +41,13 @@ jobs:
           cd pyodide
           git log -1
           pip install -e ./pyodide-build
-          # Not sure why, but this is necessary to build the wheel otherwise
-          # somehow scipy is not installed in the temporary virtualenv
+          # Need to install numpy and scipy in HOSTINSTALLDIR + patch cython
+          # blas and lapack pxd
           rm -rf packages
+          # use consistent versions with pyodide dev packages
+          pip install numpy==1.23.5 scipy==1.9.3 --target packages/.artifacts/lib/python3.10/site-packages/
+          perl -pi -e 's@cdef void@cdef int@' \
+              packages/.artifacts/lib/python3.10/site-packages/scipy/linalg/cython_*.pxd
 
       - name: Cache ccache output
         uses: actions/cache@v2
