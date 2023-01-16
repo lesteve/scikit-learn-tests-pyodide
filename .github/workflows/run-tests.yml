@@ -121,6 +121,7 @@ jobs:
 
           # early fail if cython blas mismatch
           pip install dist/*.whl
+          cd
           python -c 'import sklearn.utils._cython_blas'
 
       - name: install debug build
