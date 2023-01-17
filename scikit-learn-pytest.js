@@ -97,6 +97,15 @@ async function main() {
     //     pkg_list = micropip.list()
     //     print(pkg_list)
     // `);
+    await pyodide.loadPackage(["micropip"]);
+    await pyodide.runPythonAsync(`
+       import micropip
+
+       await micropip.install(['scikit-learn'])
+
+       pkg_list = micropip.list()
+       print(pkg_list)
+    `);
 
     // Pyodide is built without OpenMP, need to set environment variable to
     // skip related test
@@ -104,12 +113,6 @@ async function main() {
         import os
         os.environ['SKLEARN_SKIP_OPENMP_TEST'] = 'true'
     `);
-
-    // Needed somehow scikit-learn>=1.2 needs recent joblib and recent joblib
-    // needs distutils which is not packaged in Pyodide
-    await pyodide.runPythonAsync(`micropip.install('distutils')`);
-    await pyodide.runPythonAsync(`import joblib`);
-    await pyodide.runPythonAsync(`import sklearn; print(f"scikit-learn version: {sklearn.__version__}")`);
 
     await pyodide.runPythonAsync("import micropip; micropip.install('pytest')");
     // somehow this import is needed not sure why import pytest is not enough...
