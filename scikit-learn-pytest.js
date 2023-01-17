@@ -85,15 +85,18 @@ async function main() {
 
     await pyodide.loadPackage(["micropip"]);
     // Install previously built scikit-learn wheel
-    await pyodide.runPythonAsync(`
-        import glob
-        import micropip
+    // await pyodide.runPythonAsync(`
+    //     import glob
+    //     import micropip
 
-        wheel_list = glob.glob('/mnt/dist/*.whl')
-        emfs_wheel_list = [f"emfs:{each}" for each in wheel_list]
-        print(f"Installing wheels: {emfs_wheel_list}")
-        await micropip.install(emfs_wheel_list)
-    `);
+    //     wheel_list = glob.glob('/mnt/dist/*.whl')
+    //     emfs_wheel_list = [f"emfs:{each}" for each in wheel_list]
+    //     print(f"Installing wheels: {emfs_wheel_list}")
+    //     await micropip.install(emfs_wheel_list)
+
+    //     pkg_list = micropip.list()
+    //     print(pkg_list)
+    // `);
 
     // Pyodide is built without OpenMP, need to set environment variable to
     // skip related test
