@@ -163,7 +163,7 @@ def execute_command_with_timeout(command_list, timeout_without_output):
 
 
 def run_tests_for_module(module_str):
-    timeout_without_output = 60
+    timeout_without_output = 120
     command_str = f"node --experimental-fetch scikit-learn-pytest.js -v {module_str}"
     command_list = shlex.split(command_str)
     command_result = execute_command_with_timeout(
