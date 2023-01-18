@@ -1,7 +1,6 @@
 import shlex
 import sys
 import itertools
-import unittest
 import asyncio
 
 # This is the output of the command run from the scikit-learn root folder:
