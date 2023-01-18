@@ -50,7 +50,7 @@ expected_test_results = {
     "sklearn.cross_decomposition.tests": ["passed"],
     "sklearn.datasets.tests": ["passed"],
     "sklearn.decomposition.tests": ["passed"],
-    "sklearn.ensemble._hist_gradient_boosting.tests": ["failed", "bla"],
+    "sklearn.ensemble._hist_gradient_boosting.tests": ["failed"],
     "sklearn.ensemble.tests": ["fatal error or timeout"],
     "sklearn.experimental.tests": ["failed"],
     "sklearn.feature_extraction.tests": ["failed"],
@@ -199,7 +199,11 @@ def print_summary(module_results):
     print("=" * 80)
 
     for each in module_results:
-        print(f"{each['module']} {each['category']} (exit code {each['exit_code']})")
+        expected_categories = expected_test_results[each["module"]]
+        print(
+            f"{each['module']} {each['category']} (exit code {each['exit_code']}), "
+            f"expected {expected_categories}"
+        )
 
     print()
     print("-" * 80)
