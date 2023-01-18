@@ -226,17 +226,23 @@ def print_summary(module_results):
 
     sys.stdout.flush()
 
-    # Compare test results with expectations. Easiest way I found to compare
-    # dicts with a good error message is to use unittest
-    tc = unittest.TestCase()
-    # to show full info about the diff
-    tc.maxDiff = None
-    test_results_with_sets = {k: set(v) for k, v in test_results_by_category.items()}
-    expected_test_results_with_sets = {
-        k: set(v) for k, v in expected_test_results_by_category.items()
-    }
-    tc.assertDictEqual(expected_test_results_with_sets, test_results_with_sets)
+    mismatches = []
+    for each in module_results:
+        expected_categories = expected_test_results[each["module"]]
+        if each["category"] not in expected_categories:
+            message = (
+                f"- {each['module']} result expected in {expected_categories}, "
+                f"got {each['category']!r} instead"
+            )
+            mismatches.append(message)
+
+    if mismatches:
+        mismatches_str = "\n".join(mismatches)
+        error = f"Some modules had unexpected test results:\n{mismatches_str}"
+        return 1
+
     print("Test results matched expected ones")
+    return 0
 
 
 def main():
@@ -261,7 +267,8 @@ def main():
     # When using custom pytest args, we run a single pytest command and it does
     # not make sense to compare results to expectation
     if not custom_pytest_args:
-        print_summary(module_results)
+        exit_code = print_summary(module_results)
+        sys.exit(exit_code)
 
 
 if __name__ == "__main__":
