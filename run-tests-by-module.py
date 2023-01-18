@@ -1,88 +1,47 @@
 import shlex
 import sys
 import itertools
-import unittest
 import asyncio
 
-# This is the output of the command run from the scikit-learn root folder:
+# Test submodules are from the output of the command run from the scikit-learn
+# root folder:
 # find sklearn -name tests | sort | perl -pe 's@/@.@g'
-test_submodules_str = """
-sklearn.cluster.tests
-sklearn.compose.tests
-sklearn.covariance.tests
-sklearn.cross_decomposition.tests
-sklearn.datasets.tests
-sklearn.decomposition.tests
-sklearn.ensemble._hist_gradient_boosting.tests
-sklearn.ensemble.tests
-sklearn.experimental.tests
-sklearn.feature_extraction.tests
-sklearn.feature_selection.tests
-sklearn.gaussian_process.tests
-sklearn.impute.tests
-sklearn.inspection._plot.tests
-sklearn.inspection.tests
-sklearn.linear_model._glm.tests
-sklearn.linear_model.tests
-sklearn._loss.tests
-sklearn.manifold.tests
-sklearn.metrics.cluster.tests
-sklearn.metrics._plot.tests
-sklearn.metrics.tests
-sklearn.mixture.tests
-sklearn.model_selection.tests
-sklearn.neighbors.tests
-sklearn.neural_network.tests
-sklearn.preprocessing.tests
-sklearn.semi_supervised.tests
-sklearn.svm.tests
-sklearn.tests
-sklearn.tree.tests
-sklearn.utils.tests
-"""
-
-test_submodules = test_submodules_str.split()
-
-expected_test_results_by_category = {
-    "failed": [
-        "sklearn.experimental.tests",
-        "sklearn.feature_extraction.tests",
-        "sklearn._loss.tests",
-        "sklearn.svm.tests",
-        "sklearn.tree.tests",
-    ],
-    "fatal error or timeout": [
-        "sklearn.decomposition.tests",
-        "sklearn.ensemble.tests",
-        "sklearn.feature_selection.tests",
-        "sklearn.inspection.tests",
-        "sklearn.linear_model.tests",
-        "sklearn.tests",
-        "sklearn.utils.tests",
-    ],
-    "passed": [
-        "sklearn.cluster.tests",
-        "sklearn.compose.tests",
-        "sklearn.covariance.tests",
-        "sklearn.cross_decomposition.tests",
-        "sklearn.datasets.tests",
-        "sklearn.ensemble._hist_gradient_boosting.tests",
-        "sklearn.gaussian_process.tests",
-        "sklearn.impute.tests",
-        "sklearn.inspection._plot.tests",
-        "sklearn.linear_model._glm.tests",
-        "sklearn.manifold.tests",
-        "sklearn.metrics.cluster.tests",
-        "sklearn.metrics._plot.tests",
-        "sklearn.metrics.tests",
-        "sklearn.mixture.tests",
-        "sklearn.model_selection.tests",
-        "sklearn.neighbors.tests",
-        "sklearn.neural_network.tests",
-        "sklearn.preprocessing.tests",
-        "sklearn.semi_supervised.tests",
-    ],
+expected_test_results = {
+    "sklearn.cluster.tests": ["passed"],
+    "sklearn.compose.tests": ["passed"],
+    "sklearn.covariance.tests": ["passed"],
+    "sklearn.cross_decomposition.tests": ["passed"],
+    "sklearn.datasets.tests": ["passed"],
+    "sklearn.decomposition.tests": ["passed"],
+    "sklearn.ensemble._hist_gradient_boosting.tests": ["passed"],
+    "sklearn.ensemble.tests": ["fatal error or timeout"],
+    "sklearn.experimental.tests": ["failed"],
+    "sklearn.feature_extraction.tests": ["failed"],
+    "sklearn.feature_selection.tests": ["fatal error or timeout", "failed", "passed"],
+    "sklearn.gaussian_process.tests": ["passed"],
+    "sklearn.impute.tests": ["passed"],
+    "sklearn.inspection._plot.tests": ["passed"],
+    "sklearn.inspection.tests": ["fatal error or timeout"],
+    "sklearn.linear_model._glm.tests": ["passed"],
+    "sklearn.linear_model.tests": ["fatal error or timeout"],
+    "sklearn._loss.tests": ["failed"],
+    "sklearn.manifold.tests": ["passed"],
+    "sklearn.metrics.cluster.tests": ["passed"],
+    "sklearn.metrics._plot.tests": ["passed"],
+    "sklearn.metrics.tests": ["passed"],
+    "sklearn.mixture.tests": ["passed"],
+    "sklearn.model_selection.tests": ["passed"],
+    "sklearn.neighbors.tests": ["passed"],
+    "sklearn.neural_network.tests": ["passed"],
+    "sklearn.preprocessing.tests": ["passed"],
+    "sklearn.semi_supervised.tests": ["passed"],
+    "sklearn.svm.tests": ["failed"],
+    "sklearn.tests": ["failed", "fatal error or timeout"],
+    "sklearn.tree.tests": ["failed"],
+    "sklearn.utils.tests": ["failed"],
 }
+
+test_submodules = expected_test_results.keys()
 
 
 async def _read_stream(stream, cb, timeout_without_output):
@@ -164,7 +123,7 @@ def execute_command_with_timeout(command_list, timeout_without_output):
 
 def run_tests_for_module(module_str):
     timeout_without_output = 60
-    command_str = f"node --experimental-fetch scikit-learn-pytest.js -v {module_str}"
+    command_str = f"node --experimental-fetch scikit-learn-pytest.js --pyargs {module_str} -v --durations 10"
     command_list = shlex.split(command_str)
     command_result = execute_command_with_timeout(
         command_list=command_list, timeout_without_output=timeout_without_output
@@ -205,11 +164,15 @@ def print_summary(module_results):
     print("=" * 80)
 
     for each in module_results:
-        print(f"{each['module']} {each['category']} (exit code {each['exit_code']})")
+        expected_categories = expected_test_results[each["module"]]
+        print(
+            f"{each['module']} {each['category']} (exit code {each['exit_code']}), "
+            f"expected {expected_categories}"
+        )
 
     print()
     print("-" * 80)
-    print("Grouped by category:")
+    print("Grouped by category")
     print("-" * 80)
 
     def fun(each):
@@ -226,17 +189,26 @@ def print_summary(module_results):
 
     sys.stdout.flush()
 
-    # Compare test results with expectations. Easiest way I found to compare
-    # dicts with a good error message is to use unittest
-    tc = unittest.TestCase()
-    # to show full info about the diff
-    tc.maxDiff = None
-    test_results_with_sets = {k: set(v) for k, v in test_results_by_category.items()}
-    expected_test_results_with_sets = {
-        k: set(v) for k, v in expected_test_results_by_category.items()
-    }
-    tc.assertDictEqual(expected_test_results_with_sets, test_results_with_sets)
+    mismatches = []
+    for each in module_results:
+        expected_categories = expected_test_results[each["module"]]
+        if each["category"] not in expected_categories:
+            message = (
+                f"{each['module']} result expected in {expected_categories}, "
+                f"got {each['category']!r} instead"
+            )
+            mismatches.append(message)
+
+    if mismatches:
+        mismatches_str = "\n".join(mismatches)
+        print("-" * 80)
+        print("Unexpected test results")
+        print("-" * 80)
+        print(mismatches_str)
+        return 1
+
     print("Test results matched expected ones")
+    return 0
 
 
 def main():
@@ -261,7 +233,8 @@ def main():
     # When using custom pytest args, we run a single pytest command and it does
     # not make sense to compare results to expectation
     if not custom_pytest_args:
-        print_summary(module_results)
+        exit_code = print_summary(module_results)
+        sys.exit(exit_code)
 
 
 if __name__ == "__main__":
