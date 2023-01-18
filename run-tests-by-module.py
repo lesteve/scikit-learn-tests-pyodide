@@ -3,45 +3,8 @@ import sys
 import itertools
 import asyncio
 
-# This is the output of the command run from the scikit-learn root folder:
-# find sklearn -name tests | sort | perl -pe 's@/@.@g'
-test_submodules_str = """
-sklearn.cluster.tests
-sklearn.compose.tests
-sklearn.covariance.tests
-sklearn.cross_decomposition.tests
-sklearn.datasets.tests
-sklearn.decomposition.tests
-sklearn.ensemble._hist_gradient_boosting.tests
-sklearn.ensemble.tests
-sklearn.experimental.tests
-sklearn.feature_extraction.tests
-sklearn.feature_selection.tests
-sklearn.gaussian_process.tests
-sklearn.impute.tests
-sklearn.inspection._plot.tests
-sklearn.inspection.tests
-sklearn.linear_model._glm.tests
-sklearn.linear_model.tests
-sklearn._loss.tests
-sklearn.manifold.tests
-sklearn.metrics.cluster.tests
-sklearn.metrics._plot.tests
-sklearn.metrics.tests
-sklearn.mixture.tests
-sklearn.model_selection.tests
-sklearn.neighbors.tests
-sklearn.neural_network.tests
-sklearn.preprocessing.tests
-sklearn.semi_supervised.tests
-sklearn.svm.tests
-sklearn.tests
-sklearn.tree.tests
-sklearn.utils.tests
-"""
-
-test_submodules = test_submodules_str.split()
-
+# Test submodules are from the output of the command run from the scikit-learn
+# root folder: find sklearn -name tests | sort | perl -pe 's@/@.@g'
 expected_test_results = {
     "sklearn.cluster.tests": ["passed"],
     "sklearn.compose.tests": ["passed"],
@@ -76,6 +39,8 @@ expected_test_results = {
     "sklearn.tree.tests": ["failed"],
     "sklearn.utils.tests": ["failed"],
 }
+
+test_submodules = expected_test_results.keys()
 
 
 async def _read_stream(stream, cb, timeout_without_output):
@@ -234,7 +199,6 @@ def print_summary(module_results):
             mismatches.append(message)
 
     if mismatches:
-        print('mismatch')
         mismatches_str = "\n".join(mismatches)
         print("-" * 80)
         print("Unexpected test results")
