@@ -50,7 +50,7 @@ expected_test_results = {
     "sklearn.cross_decomposition.tests": ["passed"],
     "sklearn.datasets.tests": ["passed"],
     "sklearn.decomposition.tests": ["passed"],
-    "sklearn.ensemble._hist_gradient_boosting.tests": ["failed"],
+    "sklearn.ensemble._hist_gradient_boosting.tests": ["passed"],
     "sklearn.ensemble.tests": ["fatal error or timeout"],
     "sklearn.experimental.tests": ["failed"],
     "sklearn.feature_extraction.tests": ["failed"],
@@ -207,7 +207,7 @@ def print_summary(module_results):
 
     print()
     print("-" * 80)
-    print("Grouped by category:")
+    print("Grouped by category")
     print("-" * 80)
 
     def fun(each):
@@ -235,8 +235,12 @@ def print_summary(module_results):
             mismatches.append(message)
 
     if mismatches:
+        print('mismatch')
         mismatches_str = "\n".join(mismatches)
-        error = f"Some modules had unexpected test results:\n{mismatches_str}"
+        print("-" * 80)
+        print("Unexpected test results")
+        print("-" * 80)
+        print(mismatches_str)
         return 1
 
     print("Test results matched expected ones")
