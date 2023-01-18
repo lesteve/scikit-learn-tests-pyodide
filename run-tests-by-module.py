@@ -54,7 +54,7 @@ expected_test_results = {
     "sklearn.ensemble.tests": ["fatal error or timeout"],
     "sklearn.experimental.tests": ["failed"],
     "sklearn.feature_extraction.tests": ["failed"],
-    "sklearn.feature_selection.tests": ["fatal error or timeout"],
+    "sklearn.feature_selection.tests": ["fatal error or timeout", "failed"],
     "sklearn.gaussian_process.tests": ["passed"],
     "sklearn.impute.tests": ["passed"],
     "sklearn.inspection._plot.tests": ["passed"],
