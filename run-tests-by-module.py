@@ -4,7 +4,8 @@ import itertools
 import asyncio
 
 # Test submodules are from the output of the command run from the scikit-learn
-# root folder: find sklearn -name tests | sort | perl -pe 's@/@.@g'
+# root folder:
+# find sklearn -name tests | sort | perl -pe 's@/@.@g'
 expected_test_results = {
     "sklearn.cluster.tests": ["passed"],
     "sklearn.compose.tests": ["passed"],
@@ -16,7 +17,7 @@ expected_test_results = {
     "sklearn.ensemble.tests": ["fatal error or timeout"],
     "sklearn.experimental.tests": ["failed"],
     "sklearn.feature_extraction.tests": ["failed"],
-    "sklearn.feature_selection.tests": ["fatal error or timeout", "failed"],
+    "sklearn.feature_selection.tests": ["fatal error or timeout", "failed", "passed"],
     "sklearn.gaussian_process.tests": ["passed"],
     "sklearn.impute.tests": ["passed"],
     "sklearn.inspection._plot.tests": ["passed"],
