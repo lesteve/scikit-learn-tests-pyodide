@@ -50,7 +50,6 @@ async function main() {
     await pyodide.runPythonAsync("micropip.install('tomli')");
     let pytest = pyodide.pyimport("pytest");
     let args = process.argv.slice(2);
-    args = ["--pyargs"].concat(args);
     console.log('pytest args:', args);
     exit_code = pytest.main(pyodide.toPy(args));
   } catch (e) {

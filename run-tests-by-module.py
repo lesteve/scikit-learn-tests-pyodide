@@ -43,45 +43,39 @@ sklearn.utils.tests
 
 test_submodules = test_submodules_str.split()
 
-expected_test_results_by_category = {
-    "failed": [
-        "sklearn.experimental.tests",
-        "sklearn.feature_extraction.tests",
-        "sklearn._loss.tests",
-        "sklearn.svm.tests",
-        "sklearn.tests",
-        "sklearn.tree.tests",
-        "sklearn.utils.tests",
-    ],
-    "fatal error or timeout": [
-        "sklearn.ensemble.tests",
-        "sklearn.feature_selection.tests",
-        "sklearn.inspection.tests",
-        "sklearn.linear_model.tests",
-    ],
-    "passed": [
-        "sklearn.cluster.tests",
-        "sklearn.compose.tests",
-        "sklearn.covariance.tests",
-        "sklearn.cross_decomposition.tests",
-        "sklearn.datasets.tests",
-        "sklearn.decomposition.tests",
-        "sklearn.ensemble._hist_gradient_boosting.tests",
-        "sklearn.gaussian_process.tests",
-        "sklearn.impute.tests",
-        "sklearn.inspection._plot.tests",
-        "sklearn.linear_model._glm.tests",
-        "sklearn.manifold.tests",
-        "sklearn.metrics.cluster.tests",
-        "sklearn.metrics._plot.tests",
-        "sklearn.metrics.tests",
-        "sklearn.mixture.tests",
-        "sklearn.model_selection.tests",
-        "sklearn.neighbors.tests",
-        "sklearn.neural_network.tests",
-        "sklearn.preprocessing.tests",
-        "sklearn.semi_supervised.tests",
-    ],
+expected_test_results = {
+    "sklearn.cluster.tests": ["passed"],
+    "sklearn.compose.tests": ["passed"],
+    "sklearn.covariance.tests": ["passed"],
+    "sklearn.cross_decomposition.tests": ["passed"],
+    "sklearn.datasets.tests": ["passed"],
+    "sklearn.decomposition.tests": ["passed"],
+    "sklearn.ensemble._hist_gradient_boosting.tests": ["failed", "bla"],
+    "sklearn.ensemble.tests": ["fatal error or timeout"],
+    "sklearn.experimental.tests": ["failed"],
+    "sklearn.feature_extraction.tests": ["failed"],
+    "sklearn.feature_selection.tests": ["fatal error or timeout"],
+    "sklearn.gaussian_process.tests": ["passed"],
+    "sklearn.impute.tests": ["passed"],
+    "sklearn.inspection._plot.tests": ["passed"],
+    "sklearn.inspection.tests": ["fatal error or timeout"],
+    "sklearn.linear_model._glm.tests": ["passed"],
+    "sklearn.linear_model.tests": ["fatal error or timeout"],
+    "sklearn._loss.tests": ["failed"],
+    "sklearn.manifold.tests": ["passed"],
+    "sklearn.metrics.cluster.tests": ["passed"],
+    "sklearn.metrics._plot.tests": ["passed"],
+    "sklearn.metrics.tests": ["passed"],
+    "sklearn.mixture.tests": ["passed"],
+    "sklearn.model_selection.tests": ["passed"],
+    "sklearn.neighbors.tests": ["passed"],
+    "sklearn.neural_network.tests": ["passed"],
+    "sklearn.preprocessing.tests": ["passed"],
+    "sklearn.semi_supervised.tests": ["passed"],
+    "sklearn.svm.tests": ["failed"],
+    "sklearn.tests": ["failed", "fatal error or timeout"],
+    "sklearn.tree.tests": ["failed"],
+    "sklearn.utils.tests": ["failed"],
 }
 
 
@@ -164,7 +158,7 @@ def execute_command_with_timeout(command_list, timeout_without_output):
 
 def run_tests_for_module(module_str):
     timeout_without_output = 120
-    command_str = f"node --experimental-fetch scikit-learn-pytest.js -v {module_str}"
+    command_str = f"node --experimental-fetch scikit-learn-pytest.js --pyargs {module_str} -v --durations 10"
     command_list = shlex.split(command_str)
     command_result = execute_command_with_timeout(
         command_list=command_list, timeout_without_output=timeout_without_output
