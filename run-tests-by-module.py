@@ -229,7 +229,7 @@ def print_summary(module_results):
         expected_categories = expected_test_results[each["module"]]
         if each["category"] not in expected_categories:
             message = (
-                f"- {each['module']} result expected in {expected_categories}, "
+                f"{each['module']} result expected in {expected_categories}, "
                 f"got {each['category']!r} instead"
             )
             mismatches.append(message)
