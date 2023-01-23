@@ -6,43 +6,64 @@ import asyncio
 # Test submodules are from the output of the command run from the scikit-learn
 # root folder:
 # find sklearn -name tests | sort | perl -pe 's@/@.@g'
-expected_test_results = {
-    "sklearn.cluster.tests": ["passed"],
-    "sklearn.compose.tests": ["passed"],
-    "sklearn.covariance.tests": ["passed"],
-    "sklearn.cross_decomposition.tests": ["passed"],
-    "sklearn.datasets.tests": ["passed"],
-    "sklearn.decomposition.tests": ["passed"],
-    "sklearn.ensemble._hist_gradient_boosting.tests": ["passed"],
-    "sklearn.ensemble.tests": ["fatal error or timeout", "failed"],
-    "sklearn.experimental.tests": ["failed"],
-    "sklearn.feature_extraction.tests": ["failed"],
-    "sklearn.feature_selection.tests": ["fatal error or timeout", "failed", "passed"],
-    "sklearn.gaussian_process.tests": ["passed"],
-    "sklearn.impute.tests": ["passed"],
-    "sklearn.inspection._plot.tests": ["passed"],
-    "sklearn.inspection.tests": ["fatal error or timeout"],
-    "sklearn.linear_model._glm.tests": ["passed"],
-    "sklearn.linear_model.tests": ["fatal error or timeout"],
-    "sklearn._loss.tests": ["failed"],
-    "sklearn.manifold.tests": ["passed"],
-    "sklearn.metrics.cluster.tests": ["passed"],
-    "sklearn.metrics._plot.tests": ["passed"],
-    "sklearn.metrics.tests": ["passed"],
-    "sklearn.mixture.tests": ["passed"],
-    "sklearn.model_selection.tests": ["passed"],
-    "sklearn.neighbors.tests": ["passed"],
-    "sklearn.neural_network.tests": ["passed"],
-    "sklearn.preprocessing.tests": ["passed"],
-    "sklearn.semi_supervised.tests": ["passed"],
-    "sklearn.svm.tests": ["failed"],
-    "sklearn.tests": ["failed", "fatal error or timeout"],
-    "sklearn.tree.tests": ["failed"],
-    "sklearn.utils.tests": ["failed"],
-}
+# expected_test_results = {
+#     "sklearn.cluster.tests": ["passed"],
+#     "sklearn.compose.tests": ["passed"],
+#     "sklearn.covariance.tests": ["passed"],
+#     "sklearn.cross_decomposition.tests": ["passed"],
+#     "sklearn.datasets.tests": ["passed"],
+#     "sklearn.decomposition.tests": ["passed"],
+#     "sklearn.ensemble._hist_gradient_boosting.tests": ["passed"],
+#     "sklearn.ensemble.tests": ["fatal error or timeout", "failed"],
+#     "sklearn.experimental.tests": ["failed"],
+#     "sklearn.feature_extraction.tests": ["failed"],
+#     "sklearn.feature_selection.tests": ["fatal error or timeout", "failed", "passed"],
+#     "sklearn.gaussian_process.tests": ["passed"],
+#     "sklearn.impute.tests": ["passed"],
+#     "sklearn.inspection._plot.tests": ["passed"],
+#     "sklearn.inspection.tests": ["fatal error or timeout"],
+#     "sklearn.linear_model._glm.tests": ["passed"],
+#     "sklearn.linear_model.tests": ["fatal error or timeout"],
+#     "sklearn._loss.tests": ["failed"],
+#     "sklearn.manifold.tests": ["passed"],
+#     "sklearn.metrics.cluster.tests": ["passed"],
+#     "sklearn.metrics._plot.tests": ["passed"],
+#     "sklearn.metrics.tests": ["passed"],
+#     "sklearn.mixture.tests": ["passed"],
+#     "sklearn.model_selection.tests": ["passed"],
+#     "sklearn.neighbors.tests": ["passed"],
+#     "sklearn.neural_network.tests": ["passed"],
+#     "sklearn.preprocessing.tests": ["passed"],
+#     "sklearn.semi_supervised.tests": ["passed"],
+#     "sklearn.svm.tests": ["failed"],
+#     "sklearn.tests": ["failed", "fatal error or timeout"],
+#     "sklearn.tree.tests": ["failed"],
+#     "sklearn.utils.tests": ["failed"],
+# }
 
-test_submodules = expected_test_results.keys()
+test_files = """
+sklearn.linear_model._glm.tests.test_glm.py
+sklearn.linear_model.tests.test_base.py
+sklearn.linear_model.tests.test_bayes.py
+sklearn.linear_model.tests.test_common.py
+sklearn.linear_model.tests.test_coordinate_descent.py
+sklearn.linear_model.tests.test_huber.py
+sklearn.linear_model.tests.test_least_angle.py
+sklearn.linear_model.tests.test_linear_loss.py
+sklearn.linear_model.tests.test_logistic.py
+sklearn.linear_model.tests.test_omp.py
+sklearn.linear_model.tests.test_passive_aggressive.py
+sklearn.linear_model.tests.test_perceptron.py
+sklearn.linear_model.tests.test_quantile.py
+sklearn.linear_model.tests.test_ransac.py
+sklearn.linear_model.tests.test_ridge.py
+sklearn.linear_model.tests.test_sag.py
+sklearn.linear_model.tests.test_sgd.py
+sklearn.linear_model.tests.test_sparse_coordinate_descent.py
+sklearn.linear_model.tests.test_theil_sen.py
+""".split()
 
+expected_test_results = {tf: ["passed"] for tf in test_files}
 
 async def _read_stream(stream, cb, timeout_without_output):
     while True:
