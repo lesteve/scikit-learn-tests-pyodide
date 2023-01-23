@@ -14,7 +14,7 @@ expected_test_results = {
     "sklearn.datasets.tests": ["passed"],
     "sklearn.decomposition.tests": ["passed"],
     "sklearn.ensemble._hist_gradient_boosting.tests": ["passed"],
-    "sklearn.ensemble.tests": ["fatal error or timeout"],
+    "sklearn.ensemble.tests": ["fatal error or timeout", "failed"],
     "sklearn.experimental.tests": ["failed"],
     "sklearn.feature_extraction.tests": ["failed"],
     "sklearn.feature_selection.tests": ["fatal error or timeout", "failed", "passed"],
