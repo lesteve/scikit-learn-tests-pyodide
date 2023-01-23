@@ -76,12 +76,11 @@ One snippet reproducing this behaviour with `numpy.random` and `scipy.linalg`
 has been reported upstream to Pyodide, see
 https://github.com/pyodide/pyodide/issues/3203 for more details.
 
-- `sklearn.decomposition.tests`
 - `sklearn.ensemble.tests`
+- `sklearn.feature_selection.tests`
 - `sklearn.inspection.tests`
-- `sklearn.linear_model.tests`
+- `sklearn.linear_model.tests` #10
 - `sklearn.tests`
-- `sklearn.utils.tests`
 
 TODO: This would be nice to try to pinpoint whether some particular tests
 causes the issue. In my experience the pytest output can not be trusted for
