@@ -65,6 +65,8 @@ sklearn.linear_model.tests.test_theil_sen.py
 
 expected_test_results = {tf: ["passed"] for tf in test_files}
 
+test_submodules = expected_test_results.keys()
+
 async def _read_stream(stream, cb, timeout_without_output):
     while True:
         loop = asyncio.get_event_loop_policy().get_event_loop()
