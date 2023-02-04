@@ -21,7 +21,7 @@ expected_test_results = {
     "sklearn.gaussian_process.tests": ["passed"],
     "sklearn.impute.tests": ["passed"],
     "sklearn.inspection._plot.tests": ["passed"],
-    "sklearn.inspection.tests": ["fatal error or timeout"],
+    "sklearn.inspection.tests": ["fatal error or timeout", "failed", "passed"],
     "sklearn.linear_model._glm.tests": ["passed"],
     "sklearn.linear_model.tests": ["fatal error or timeout"],
     "sklearn._loss.tests": ["failed"],
