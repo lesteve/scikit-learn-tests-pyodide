@@ -35,7 +35,7 @@ expected_test_results = {
     "sklearn.neural_network.tests": ["passed"],
     "sklearn.preprocessing.tests": ["passed"],
     "sklearn.semi_supervised.tests": ["passed"],
-    "sklearn.svm.tests": ["failed"],
+    "sklearn.svm.tests": ["passed"],
     "sklearn.tests": ["failed", "fatal error or timeout"],
     "sklearn.tree.tests": ["failed"],
     "sklearn.utils.tests": ["failed"],

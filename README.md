@@ -51,7 +51,6 @@ pyodide build
 - `sklearn.tree.tests.test_tree::test_poisson_vs_mse`
 - `sklearn.ensemble.tests.test_forest::test_poisson_vs_mse` very likely same
   issue as for its `sklearn.tree` counterpart
-- `sklearn.svm.tests.test_bounds::test_newrand_set_seed[None-81]`
 - `sklearn.utils.tests.test_estimator_checks::test_all_estimators_all_public`
 
 
