@@ -33,6 +33,8 @@ jobs:
             artifacts = artifacts_response.data.artifacts;
 
             const most_recent_artifact = artifacts[0];
+            console.log('artifact:', most_recent_artifact);
+            console.log(`action url: https://github.com/${owner}/${repo}/actions/runs/${most_recent_artifact.workflow_run.id}`);
 
             const response = await github.rest.actions.downloadArtifact({
                 owner: owner, repo: repo, artifact_id: most_recent_artifact.id, archive_format: "zip"});
