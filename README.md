@@ -48,7 +48,6 @@ pyodide build
 
 ### Failures that need investigation:
 - plenty of errors in `sklearn._loss.tests.test_loss::test_loss_dtype` some memmap issues
-- `sklearn.utils.tests.test_estimator_checks::test_all_estimators_all_public`
 
 ### Tests to be skipped or xfailed
 
