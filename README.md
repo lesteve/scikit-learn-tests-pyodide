@@ -48,11 +48,6 @@ pyodide build
 
 ### Failures that need investigation:
 - plenty of errors in `sklearn._loss.tests.test_loss::test_loss_dtype` some memmap issues
-- `sklearn.tree.tests.test_tree::test_poisson_vs_mse`
-- `sklearn.ensemble.tests.test_forest::test_poisson_vs_mse` very likely same
-  issue as for its `sklearn.tree` counterpart
-- `sklearn.utils.tests.test_estimator_checks::test_all_estimators_all_public`
-
 
 ### Tests to be skipped or xfailed
 
@@ -64,24 +59,3 @@ Should be skipped because tests use a subprocess:
 Should be skipped (or xfailed) because lack of feature in wasm, see
 https://github.com/numpy/numpy/pull/21895#issuecomment-1311525881
 - `sklearn.feature_extraction.tests.test_text.py::test_tfidf_no_smoothing`
-
-## Fatal errors
-
-Those can be Pyodide fatal errors e.g. "null function or function signature
-mismatch" or "memory access out of bounds". They can also happens as timeout,
-pytest internal error, or some Python error that does not make any sense.
-
-One snippet reproducing this behaviour with `numpy.random` and `scipy.linalg`
-has been reported upstream to Pyodide, see
-https://github.com/pyodide/pyodide/issues/3203 for more details.
-
-- `sklearn.ensemble.tests`
-- `sklearn.feature_selection.tests`
-- `sklearn.inspection.tests`
-- `sklearn.linear_model.tests` #10
-- `sklearn.tests`
-
-TODO: This would be nice to try to pinpoint whether some particular tests
-causes the issue. In my experience the pytest output can not be trusted for
-this since it can vary from run to run. `collected-tests.txt` could be used to
-run tests by smaller chunks in separate node instances.
