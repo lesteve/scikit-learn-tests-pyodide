@@ -44,7 +44,7 @@ tests_to_mark = [
         xfail,
         importlib_msg,
     ),
-    ("test_config.py::test_config_threadsafe", xfail, "no threading support"),
+    ("test_config.py::test_config_threadsafe$", xfail, "no threading support"),
     (
         "test_discriminant_analysis.py::test_qda_regularization",
         xfail,
