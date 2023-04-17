@@ -15,8 +15,8 @@ expected_test_results = {
     "sklearn.decomposition.tests": ["passed"],
     "sklearn.ensemble._hist_gradient_boosting.tests": ["passed"],
     "sklearn.ensemble.tests": ["passed"],
-    "sklearn.experimental.tests": ["failed"],
-    "sklearn.feature_extraction.tests": ["failed"],
+    "sklearn.experimental.tests": ["passed"],
+    "sklearn.feature_extraction.tests": ["passed"],
     "sklearn.feature_selection.tests": ["passed"],
     "sklearn.gaussian_process.tests": ["passed"],
     "sklearn.impute.tests": ["passed"],
@@ -24,7 +24,7 @@ expected_test_results = {
     "sklearn.inspection.tests": ["passed"],
     "sklearn.linear_model._glm.tests": ["passed"],
     "sklearn.linear_model.tests": ["passed"],
-    "sklearn._loss.tests": ["failed"],
+    "sklearn._loss.tests": ["passed"],
     "sklearn.manifold.tests": ["passed"],
     "sklearn.metrics.cluster.tests": ["passed"],
     "sklearn.metrics._plot.tests": ["passed"],
@@ -36,9 +36,9 @@ expected_test_results = {
     "sklearn.preprocessing.tests": ["passed"],
     "sklearn.semi_supervised.tests": ["passed"],
     "sklearn.svm.tests": ["passed"],
-    "sklearn.tests": ["failed"],
+    "sklearn.tests": ["passed"],
     "sklearn.tree.tests": ["passed"],
-    "sklearn.utils.tests": ["failed"],
+    "sklearn.utils.tests": ["passed"],
 }
 
 test_submodules = expected_test_results.keys()
@@ -201,10 +201,12 @@ def print_summary(module_results):
 
     if mismatches:
         mismatches_str = "\n".join(mismatches)
+        print()
         print("-" * 80)
         print("Unexpected test results")
         print("-" * 80)
         print(mismatches_str)
+
         return 1
 
     print("Test results matched expected ones")
@@ -220,6 +222,7 @@ def main():
         test_submodules = [custom_pytest_args]
 
     for module in test_submodules:
+        print()
         print("-" * 80, flush=True)
         print(module, flush=True)
         print("-" * 80, flush=True)
