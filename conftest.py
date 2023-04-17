@@ -4,7 +4,7 @@ import pytest
 xfail = pytest.mark.xfail
 
 fp_exception_msg = (
-    "no floating point exceptions "
+    "no floating point exceptions, "
     "see https://github.com/numpy/numpy/pull/21895#issuecomment-1311525881"
 )
 process_msg = "no process support"
