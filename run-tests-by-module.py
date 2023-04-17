@@ -201,10 +201,12 @@ def print_summary(module_results):
 
     if mismatches:
         mismatches_str = "\n".join(mismatches)
+        print()
         print("-" * 80)
         print("Unexpected test results")
         print("-" * 80)
         print(mismatches_str)
+
         return 1
 
     print("Test results matched expected ones")
@@ -220,6 +222,7 @@ def main():
         test_submodules = [custom_pytest_args]
 
     for module in test_submodules:
+        print()
         print("-" * 80, flush=True)
         print(module, flush=True)
         print("-" * 80, flush=True)

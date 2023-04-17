@@ -13,27 +13,27 @@ async function main() {
     pyodide.FS.mkdir(mountDir);
     pyodide.FS.mount(pyodide.FS.filesystems.NODEFS, { root: "." }, mountDir);
 
+    // Copy conftest.py to current dir if it exists
+    await pyodide.runPythonAsync(`
+       import shutil
+       import os
 
-    await pyodide.loadPackage(["micropip"]);
-    // Install previously built scikit-learn wheel
-    // await pyodide.runPythonAsync(`
-    //     import glob
-    //     import micropip
+       conftest_filename = "/mnt/conftest.py"
+       if os.path.exists(conftest_filename):
+           shutil.copy(conftest_filename, ".")
+    `);
 
-    //     wheel_list = glob.glob('/mnt/dist/*.whl')
-    //     emfs_wheel_list = [f"emfs:{each}" for each in wheel_list]
-    //     print(f"Installing wheels: {emfs_wheel_list}")
-    //     await micropip.install(emfs_wheel_list)
-
-    //     pkg_list = micropip.list()
-    //     print(pkg_list)
-    // `);
     await pyodide.loadPackage(["micropip"]);
     await pyodide.runPythonAsync(`
        import micropip
 
-       await micropip.install(['scikit-learn'])
+       await micropip.install('scikit-learn')
 
+       try:
+           await micropip.install('scikit-learn-tests')
+       except ValueError:
+           print('Hoping scikit-learn tests are included in the scikit-learn wheel')
+       
        pkg_list = micropip.list()
        print(pkg_list)
     `);
@@ -66,4 +66,3 @@ async function main() {
 }
 
 main();
-
