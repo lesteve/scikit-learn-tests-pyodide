@@ -3,10 +3,10 @@
 This repository runs the scikit-learn tests in Pyodide using the scikit-learn
 development version and the Pyodide development version.
 
-As of mid-April 2023, the full scikit-learn test suite passes :tada:. There are a few
-xfailed tests due to Pyodide limitations related to threads, processes,
-floating point exceptions and memmaps, see [conftest.py](./conftest.py) for
-more details.
+As of mid-April 2023, the full scikit-learn test suite passes :tada:. There are
+a few xfailed tests due to Pyodide limitations related to threads, processes,
+floating point exceptions, memmaps and importlib, see
+[conftest.py](./conftest.py) for more details.
 
 This repository uses artifacts from
 https://github.com/lesteve/scipy-tests-pyodide, which builds every day a
