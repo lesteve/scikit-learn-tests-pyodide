@@ -13,6 +13,13 @@ memmap_msg = "memmap not fully supported"
 importlib_msg = "importlib not supported for Pyodide packages"
 
 tests_to_mark = [
+    # sklearn/ensemble/tests
+    (
+        "sklearn/ensemble/tests/test_gradient_boosting.py::test_safe_divide",
+        xfail,
+        fp_exception_msg,
+    ),
+
     # sklearn/experimental/tests
     (
         "test_enable_hist_gradient_boosting.py::test_import_raises_warning",
