@@ -50,21 +50,9 @@ tests_to_mark = [
         xfail,
         fp_exception_msg,
     ),
-    ("test_docstring_parameters.py::test_tabs", xfail, importlib_msg),
     # sklearn/utils/tests
     (
         "test_testing.py::test_create_memmap_backed_data.+True",
-        xfail,
-        memmap_msg,
-    ),
-    (
-        "test_testing.py::test_memmap_on_contiguous_data",
-        xfail,
-        memmap_msg,
-    ),
-    (
-        "test_readonly_wrapper.py::test_readonly_array_wrapper.+"
-        "_create_memmap_backed_data",
         xfail,
         memmap_msg,
     ),
