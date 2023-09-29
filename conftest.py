@@ -12,50 +12,10 @@ thread_msg = "no thread support"
 memmap_msg = "memmap not fully supported"
 importlib_msg = "importlib not supported for Pyodide packages"
 
+# No tests to xfail/skip since this is done inside scikit-learn since we run
+# the test suite inside Pyodide, See
+# https://github.com/scikit-learn/scikit-learn/pull/27346 for more details.
 tests_to_mark = [
-    # sklearn/experimental/tests
-    (
-        "test_enable_hist_gradient_boosting.py::test_import_raises_warning",
-        xfail,
-        process_msg,
-    ),
-    (
-        "test_enable_iterative_imputer.py::test_imports_strategies",
-        xfail,
-        process_msg,
-    ),
-    (
-        "test_enable_successive_halving.py::test_imports_strategies",
-        xfail,
-        process_msg,
-    ),
-    # sklearn/feature_extraction/tests
-    ("test_text.py::test_tfidf_no_smoothing", xfail, fp_exception_msg),
-    # sklearn/_loss/tests
-    ("test_loss.py::test_loss_dtype.+True", xfail, memmap_msg),
-    (
-        "test_testing.py::test_create_memmap_backed_data.+True",
-        xfail,
-        memmap_msg,
-    ),
-    # sklearn/tests
-    (
-        "test_common.py::test_import_all_consistency",
-        xfail,
-        importlib_msg,
-    ),
-    ("test_config.py::test_config_threadsafe$", xfail, "no threading support"),
-    (
-        "test_discriminant_analysis.py::test_qda_regularization",
-        xfail,
-        fp_exception_msg,
-    ),
-    # sklearn/utils/tests
-    (
-        "test_testing.py::test_create_memmap_backed_data.+True",
-        xfail,
-        memmap_msg,
-    ),
 ]
 
 
