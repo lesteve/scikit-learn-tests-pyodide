@@ -46,10 +46,10 @@ jobs:
 
       - name: Unzip Pyodide debug build artifact
         run: |
-          unzip pyodide-build.zip -d pyodide
-          ls -ltrh pyodide/dist
+          unzip pyodide-build.zip -d dist
+          ls -ltrh dist
           # Put back lost permission in artifact
-          chmod u+x pyodide/dist/python
+          chmod u+x dist/python
 
       - name: set up node
         uses: actions/setup-node@v3
@@ -62,7 +62,7 @@ jobs:
 
       - name: install debug build
         run: |
-          cp -r pyodide/dist/* node_modules/pyodide
+          cp -r dist/* node_modules/pyodide
 
       - name: Test
         run: |
